@@ -10,7 +10,7 @@ Under CZ2002_Assignment.java - added for case 3 menuMgr.
 2. Missing the adding to basket for items ordered.
 3. Still require for more food items and better description.
 
-
+Updated files: MenuMgr.java, CZ2002_Assignment.java, Item.java
 
 ###Edit 02/04/16 - HD
 Uploaded to github. Easier for us to work on the codes and commit releases.
