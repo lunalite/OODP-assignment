@@ -4,8 +4,7 @@ Remember to save project/package name as CZ2002_Assignment.
 ---
 
 ###Edit 03/04/16 - HD
-Under CZ2002_Assignment.java
-Added for case 3 menuMgr.
+Under CZ2002_Assignment.java - added for case 3 menuMgr.
   
 1. Still missing payment method
 2. Missing the adding to basket for items ordered.
