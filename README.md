@@ -7,9 +7,9 @@ Remember to save project/package name as CZ2002_Assignment.
 Under CZ2002_Assignment.java
 Added for case 3 menuMgr.
   
-1.Still missing payment method
-2.Missing the adding to basket for items ordered.
-3.Still require for more food items and better description.
+1. Still missing payment method
+2. Missing the adding to basket for items ordered.
+3. Still require for more food items and better description.
 
 
 
