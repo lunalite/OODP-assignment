@@ -1,15 +1,15 @@
 ####OODP-assignment
 Remember to save project/package name as CZ2002_Assignment.
 
-
+---
 
 ###Edit 03/04/16 - HD
 Under CZ2002_Assignment.java
-  Added for case 3 menuMgr.
+Added for case 3 menuMgr.
   
-Still missing payment method
-Missing the adding to basket for items ordered.
-Still require for more food items and better description.
+1.Still missing payment method
+2.Missing the adding to basket for items ordered.
+3.Still require for more food items and better description.
 
 
 
