@@ -1,5 +1,5 @@
 OODP-assignment
-#### Save project/package name as CZ2002_Assignment.
+Save project/package name as CZ2002_Assignment.
 
 
 
