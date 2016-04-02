@@ -12,9 +12,11 @@ public class CZ2002_Assignment {
 
         int choice;
         
+        // initialising of the related control classes
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
+        MenuMgr menuMgr = new MenuMgr(); // Create the list of menu
         
         do {
 
@@ -70,6 +72,26 @@ public class CZ2002_Assignment {
                     
                     break;
                 case 3:
+                    
+                    System.out.println("(1) Show Menu");
+                    int roomServOption = sc.nextInt();
+                    
+                    if (roomServOption == 1) {
+                        do {
+                        menuMgr.itemList();
+                        System.out.println("Select item for further description and purchase. (-1 to exit)");
+                        int foodSelectOption = sc.nextInt();
+                        if (foodSelectOption == -1)
+                            break;
+                        menuMgr.getItemDescription(foodSelectOption);
+                        char decision = sc.next().charAt(0);
+                        
+                        if (decision == 'y');
+                            // Add item to basket
+                        } while (true);
+                    }
+                    System.out.println("");
+                    
                     break;
                 case 4:
                     break;
