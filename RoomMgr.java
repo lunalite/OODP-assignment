@@ -1,6 +1,8 @@
 package cz2002_assignment;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class RoomMgr {
 
@@ -8,13 +10,15 @@ public class RoomMgr {
     
     private Date timeStamp;
     private Room[] roomData;
+    private Payment[] totalPaymentArr;
 
     RoomMgr() {
         roomData = new Room[totalRooms];
-
+        totalPaymentArr = new Payment[totalRooms]; //initialise the record for payment
+        
         // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
-        // Format of String roomNo: e.g. "02-01", "07-07"
+        // Format of String roomNo: e.g. "02-01", "07-08"
         
         /*
         for (int i = 0; i < totalRooms; i++) {
@@ -41,8 +45,10 @@ public class RoomMgr {
         }
     }
 
-    public void checkIn() {
-
+    public void checkIn(String roomNo) {
+        timeStamp = new Date(); //Create a timeStamp the moment a family checks in.
+        totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  //Create the payment class that is associated with the room
+        System.out.println("You have just checked into room number " + roomNo);
     }
 
     public void getRoomDetail() {
@@ -56,7 +62,15 @@ public class RoomMgr {
     public void doPayment() {
 
     }
-
+    
+    public int roomStrToInt(String roomStr){ // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
+        int roomInt = 0;
+        int floor = Integer.parseInt(roomStr.substring(0,2));
+        int room = Integer.parseInt(roomStr.substring(3,5));
+        roomInt += (floor - 2)*8 + room;
+        return roomInt;
+    }
+    
     // Room Type Occupancy Rate
     //Single : Number : 10 out of 20
     //Rooms : 02-03, 03-04, 03-05
@@ -187,5 +201,6 @@ public class RoomMgr {
         System.out.println("Rooms :" + underMaintenanceRooms);
         
     }
-
+    
+    public Payment getPayment(String roomNo){return totalPaymentArr[roomStrToInt(roomNo)-1];}
 }
