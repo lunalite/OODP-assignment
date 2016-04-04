@@ -5,9 +5,13 @@ import java.util.List;
 
 public class MenuMgr {
 
-    private List<Item> itemMenu;
+    private static List<Item> itemMenu;
 
     MenuMgr() {
+        
+    }
+    
+    public static void updateList(){
         // instantiate the possible F&B items
         Item friedRice = new Item("Fried Rice", "Steamed rice that has been stir-fried in a wok, mixed with eggs, vegetables, and meat.", 9.90);
         Item friedChicken = new Item("Fried Chicken", "Chicken fried to succulent crispness.", 5.50);
@@ -20,7 +24,7 @@ public class MenuMgr {
         itemMenu.add(coke);
     }
     
-    public void itemList() {
+    public static void itemList() {
         int count = 1;  //Used to list the order of the item listed in menu 
                         //according to what is stored within itemMenu list.
         System.out.println("\n========================");
@@ -31,7 +35,7 @@ public class MenuMgr {
         System.out.println("========================");
     }
     
-    public void getItemDescription(int x){
+    public static void getItemDescription(int x){
         try {
         System.out.println(itemMenu.get(x-1).getDescription());
         System.out.println("Do you want to purchase this item? (y/n)");
