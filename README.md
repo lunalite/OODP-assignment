@@ -2,6 +2,21 @@
 Remember to save project/package name as CZ2002_Assignment.
 
 ---
+###Edit 04/04/16 - HD
+- Changed methods to static methods for MenuMgr.java
+- showMenu() and getItemDescription() methods of MenuMgr are now called in roomServiceMgr.java
+- Change date type for dateTime to Date instead of int for RoomServiceOrder.java
+- Payment method is implemented for room service (payment object list stored under roomMgr.java for all rooms)
+- Basket for items is added for ordering of items in main class
+- implemented the string to int converter for ease of usage (room numbers) within RoomMgr.java
+
+Required
+- Need to implement room checking in for certain room number under Room.java
+- Need to implement the creation of order code for each room service order under RoomServiceOrder.java
+- Still require for more food items and better description
+- Check out not implemented yet
+- Payment method for checking in/out not implemented yet
+
 
 ###Edit 03/04/16 - HD
 Under CZ2002_Assignment.java - added for case 3 menuMgr.
