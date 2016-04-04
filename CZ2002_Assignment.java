@@ -1,5 +1,7 @@
 package cz2002_assignment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CZ2002_Assignment {
@@ -16,7 +18,6 @@ public class CZ2002_Assignment {
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
-        MenuMgr menuMgr = new MenuMgr(); // Create the list of menu
         
         do {
 
@@ -31,7 +32,7 @@ public class CZ2002_Assignment {
             System.out.print("\nEnter the number of your choice: ");
 
             choice = sc.nextInt();
-
+            sc.nextLine();  // flush the null character away
             
             // Test Cases
             /** 
@@ -48,11 +49,20 @@ public class CZ2002_Assignment {
                     break;
                 case 2:
                     
-                    System.out.println("(1) Room Status Statistics Report");
+                    System.out.println("(1) Room Check in");
+                    System.out.println("(2) Room Status Statistics Report");
                     System.out.print("\nEnter the number of your choice: ");
                     int roomOption = sc.nextInt();
+                    sc.nextLine();
                     
                     if (roomOption == 1) {
+                        System.out.println("Please enter room number (e.g. 02-05): ");
+                        String roomNoCI = sc.nextLine();
+                        roomMgr.checkIn(roomNoCI);  //Need to implement room checking in for certain room number
+                        System.out.println("");
+                    }
+                    
+                    else if (roomOption == 2) {
                         System.out.println("(1) Room Type Occupancy Rate");
                         System.out.println("(2) Room Status");
                         System.out.print("\nEnter the number of your choice: ");
@@ -73,22 +83,38 @@ public class CZ2002_Assignment {
                     break;
                 case 3:
                     
+                    // Entering of room number for roomServiceMgr
+                    System.out.println("Please enter your room number: ");
+                    String roomNumber = sc.nextLine();
+                    
+                    roomServiceMgr.setRoomNo(roomNumber);
+                    
                     System.out.println("(1) Show Menu");
                     int roomServOption = sc.nextInt();
                     
                     if (roomServOption == 1) {
-                        do {
-                        menuMgr.itemList();
-                        System.out.println("Select item for further description and purchase. (-1 to exit)");
-                        int foodSelectOption = sc.nextInt();
-                        if (foodSelectOption == -1)
-                            break;
-                        menuMgr.getItemDescription(foodSelectOption);
-                        char decision = sc.next().charAt(0);
-                        
-                        if (decision == 'y');
-                            // Add item to basket
+                            List<Item> itemOrder = new ArrayList(); //Create a stack of itemOrder list of items ordered                        
+                        do {           
+                            roomServiceMgr.showMenu();
+                            System.out.println("Select item for further description and purchase. (-1 to exit)");
+                            int foodSelectOption = sc.nextInt();
+                            if (foodSelectOption == -1)
+                                break;
+                            roomServiceMgr.getItemDescription(foodSelectOption);
+                            char decision = sc.next().charAt(0);
+                            if (decision == 'y'){
+                                itemOrder.add(MenuMgr.getItem(foodSelectOption)); // Add item to basket
+                                System.out.println("Item " + MenuMgr.getItemName(foodSelectOption) + " is added to the basket.");
+                            }
                         } while (true);
+                        
+                        if (!itemOrder.isEmpty()) {
+                            sc.nextLine(); //flushing the null char
+                            System.out.println("Any remarks to add? (Type N.A. if no remarks)");
+                            String remarks = sc.nextLine();
+                            roomServiceMgr.createOrder(itemOrder, remarks); //Create order object to prepare for addition of items
+                            roomMgr.getPayment(roomNumber).setRoomServiceBill(choice);
+                        }
                     }
                     System.out.println("");
                     
