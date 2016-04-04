@@ -44,5 +44,6 @@ public class MenuMgr {
             System.out.println("Error. Please input the right value.");
         }
     }
-
+    public static String getItemName(int x){return itemMenu.get(x-1).getName();}
+    public static Item getItem(int x){return itemMenu.get(x-1);}
 }
