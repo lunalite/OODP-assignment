@@ -12,14 +12,17 @@ public class RoomMgr {
     RoomMgr() {
         roomData = new Room[totalRooms];
 
-        // 48 rooms from 02 - 07
+        // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
+        // Format of String roomNo: e.g. "02-01", "07-07"
         
         /*
         for (int i = 0; i < totalRooms; i++) {
             roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
         }
         */
+        
+        //Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, String bedType, double rate)
         
         for (int i = 0; i < 16; i++) {
             roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
