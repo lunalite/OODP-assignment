@@ -54,24 +54,14 @@ public class Room {
     }
     
     
-    public String getRoomType() {
-        return roomType.getBedType();
-    }
-    
-    public String getRoomStatus(int reportDay) {
-        return statusCalendar[reportDay - 1].getStatus();
-    }
-
-    public String getRoomNo() {
-        return this.roomNo;
-    }
+    public String getRoomType() {return roomType.getBedType();}
+    public String getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
+    public String getRoomNo() {return this.roomNo;}
 
     /**
      *
      * @param roomNo
      */
-    public void setRoomNo(String roomNo) {
-        this.roomNo = roomNo;
-    }
+    public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
 
 }
