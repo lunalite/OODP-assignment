@@ -63,5 +63,7 @@ public class Room {
      * @param roomNo
      */
     public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
+    public void setRoomStatus (String status, int day) {statusCalendar[day - 1].setStatus(status);}
+        
 
 }
