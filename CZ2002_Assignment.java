@@ -10,7 +10,7 @@ public class CZ2002_Assignment {
     private static final int maxFloorNo = 7; //Maximum floor number for rooms
     private static final int minFloorNo = 2; //Minimum floor number for rooms
     private static final int currentDay = 12; //Current Day of system (Current for April alone)
-    public static enum availableRoomStatus {VACANT, OCCUPIED, RESERVED, UNDER_MAINTENANCE;} //Not implemented yet
+    
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class CZ2002_Assignment {
         
         // initialising of the related control classes
         ReservationMgr reservationMgr = new ReservationMgr();
-        RoomMgr roomMgr = new RoomMgr(); // Create all rooms
+        RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
         
         do {
@@ -67,7 +67,7 @@ public class CZ2002_Assignment {
                             
                             //Check if room number is available for use within system
                             if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("vacant")){
-                                roomMgr.checkIn(roomNoCI);  //Need to implement room checking in for certain room number
+                                roomMgr.checkIn(roomNoCI, currentDay);  //Need to implement room checking in for certain room number
                             }
                         }
                         System.out.println("");
@@ -140,7 +140,6 @@ public class CZ2002_Assignment {
                         }
                     }
                     System.out.println("");
-                    
                     break;
                 case 4:
                     break;
@@ -170,4 +169,7 @@ public class CZ2002_Assignment {
         }
         return pass;
     }
+    
 }
+
+
