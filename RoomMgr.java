@@ -48,7 +48,7 @@ public class RoomMgr {
     public void checkIn(String roomNo) {
         timeStamp = new Date(); //Create a timeStamp the moment a family checks in.
         totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  //Create the payment class that is associated with the room
-        System.out.println("You have just checked into room number " + roomNo);
+        
     }
 
     public void getRoomDetail() {
@@ -63,7 +63,7 @@ public class RoomMgr {
 
     }
     
-    public int roomStrToInt(String roomStr){ // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
+    public int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
         int roomInt = 0;
         int floor = Integer.parseInt(roomStr.substring(0,2));
         int room = Integer.parseInt(roomStr.substring(3,5));
@@ -202,5 +202,6 @@ public class RoomMgr {
         
     }
     
+    public Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
     public Payment getPayment(String roomNo){return totalPaymentArr[roomStrToInt(roomNo)-1];}
 }
