@@ -1,5 +1,6 @@
 ####OODP-assignment
 Remember to save project/package name as CZ2002_Assignment.
+Presently, the IDE we are using is Netbeans.
 
 ---
 ###Edit 05/04/16 - HD
