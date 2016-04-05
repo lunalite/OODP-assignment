@@ -2,6 +2,19 @@
 Remember to save project/package name as CZ2002_Assignment.
 
 ---
+###Edit 05/04/16 - HD
+- Added error checking for the scanner for room number for check in such that it is within system (Added function for that)
+- Added error checking for room Service for room number such that it is occupied within current day.
+
+Required
+- Need to implement room checking in for certain room number under Room.java
+- Need to implement the creation of order code for each room service order under RoomServiceOrder.java
+- Still require for more food items and better description
+- Check out not implemented yet
+- Payment method for checking in/out not implemented yet
+- Probably include enum usage for roomStatus so that it will induce less error
+
+
 ###Edit 04/04/16 - HD
 - Changed methods to static methods for MenuMgr.java
 - showMenu() and getItemDescription() methods of MenuMgr are now called in roomServiceMgr.java
