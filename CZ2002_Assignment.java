@@ -6,9 +6,12 @@ import java.util.Scanner;
 
 public class CZ2002_Assignment {
 
-    /**
-     * @param args the command line arguments
-     */
+    private static final int maxRoomNoPerFloor = 8; //Maximum room per floor
+    private static final int maxFloorNo = 7; //Maximum floor number for rooms
+    private static final int minFloorNo = 2; //Minimum floor number for rooms
+    private static final int currentDay = 12; //Current Day of system (Current for April alone)
+    public static enum availableRoomStatus {VACANT, OCCUPIED, RESERVED, UNDER_MAINTENANCE;} //Not implemented yet
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -58,7 +61,15 @@ public class CZ2002_Assignment {
                     if (roomOption == 1) {
                         System.out.println("Please enter room number (e.g. 02-05): ");
                         String roomNoCI = sc.nextLine();
-                        roomMgr.checkIn(roomNoCI);  //Need to implement room checking in for certain room number
+                        
+                        //Check if room number is present in system
+                        if (roomNoCheck(roomNoCI) == true) {
+                            
+                            //Check if room number is available for use within system
+                            if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("vacant")){
+                                roomMgr.checkIn(roomNoCI);  //Need to implement room checking in for certain room number
+                            }
+                        }
                         System.out.println("");
                     }
                     
@@ -87,6 +98,18 @@ public class CZ2002_Assignment {
                     System.out.println("Please enter your room number: ");
                     String roomNumber = sc.nextLine();
                     
+                    //Check if room number is present in system
+                    if (roomNoCheck(roomNumber) == false)
+                        break;
+                    
+                    // Check if room number is occupied
+                    System.out.println("Room is " + roomMgr.getRoom(roomNumber).getRoomStatus(currentDay));
+                    System.out.println("");
+                    if (!roomMgr.getRoom(roomNumber).getRoomStatus(currentDay).equals("Occupied")){
+                        break;
+                    }
+                    // End check room
+                        
                     roomServiceMgr.setRoomNo(roomNumber);
                     
                     System.out.println("(1) Show Menu");
@@ -134,4 +157,17 @@ public class CZ2002_Assignment {
         sc.close();
     }
 
+    // Check if room number is present
+    public static boolean roomNoCheck(String roomN){
+        boolean pass = true;
+        if (Integer.parseInt(roomN.substring(0,2)) < minFloorNo || Integer.parseInt(roomN.substring(0,2)) > maxFloorNo) {
+            System.out.println("No such floor number. Please limit floor number to min: " + minFloorNo + " and max: " + maxFloorNo);
+            pass = false;
+        }
+        if (Integer.parseInt(roomN.substring(3,5)) > maxRoomNoPerFloor) {
+            System.out.println("No such room number. Please limit room number to max: " + maxRoomNoPerFloor);
+            pass = false;
+        }
+        return pass;
+    }
 }
