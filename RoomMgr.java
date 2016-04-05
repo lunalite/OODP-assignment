@@ -6,19 +6,21 @@ import java.util.List;
 
 public class RoomMgr {
 
-    private final int totalRooms = 48;
+    private final int totalRooms  = 48;
+    private int currentDay;
     
     private Date timeStamp;
-    private Room[] roomData;
+    private Room[] roomData; //Record of all the rooms
     private Payment[] totalPaymentArr;
 
-    RoomMgr() {
+    RoomMgr(int today) {
         roomData = new Room[totalRooms];
         totalPaymentArr = new Payment[totalRooms]; //initialise the record for payment
+        currentDay = today; //Ensure the day's date is known
         
         // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
-        // Format of String roomNo: e.g. "02-01", "07-08"
+        // Format of String roomNo: e.g. "0201", "0708"
         
         /*
         for (int i = 0; i < totalRooms; i++) {
@@ -29,25 +31,33 @@ public class RoomMgr {
         //Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, String bedType, double rate)
         
         for (int i = 0; i < 16; i++) {
-            roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
+            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
         }
         
         for (int i = 16; i < 21; i++) {
-            roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Double", 160.0f);
+            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Double", 160.0f);
         }
         
         for (int i = 21; i < 40; i++) {
-            roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Twin", 160.0f);
+            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Twin", 160.0f);
         }
         
         for (int i = 40; i < totalRooms; i++) {
-            roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Triple", 200.0f);
+            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Triple", 200.0f);
+        }
+        
+        for (int i = 0; i < totalRooms; i ++) {
+            if (roomData[i].getRoomStatus(currentDay).contentEquals("Occupied")){
+                totalPaymentArr[i] = new Payment();
+            }
         }
     }
 
-    public void checkIn(String roomNo) {
+    public void checkIn(String roomNo, int today) {
+        //mainApp class already checked for room that it is vacant
         timeStamp = new Date(); //Create a timeStamp the moment a family checks in.
         totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  //Create the payment class that is associated with the room
+        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Occupied", today); //set roomstatus to occupied from occupied.
         
     }
 
@@ -66,7 +76,7 @@ public class RoomMgr {
     public int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
         int roomInt = 0;
         int floor = Integer.parseInt(roomStr.substring(0,2));
-        int room = Integer.parseInt(roomStr.substring(3,5));
+        int room = Integer.parseInt(roomStr.substring(roomStr.lastIndexOf("-")+1,roomStr.lastIndexOf("-")+3));
         roomInt += (floor - 2)*8 + room;
         return roomInt;
     }
@@ -104,7 +114,8 @@ public class RoomMgr {
                     
                     if (roomStatus.contentEquals("Occupied")) {
                         singleOccupiedCount++;
-                        singleOccupiedRooms = singleOccupiedRooms + " " + roomData[i].getRoomNo() + ",";
+                        singleOccupiedRooms = singleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) + 
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     }
                     
                     break;
@@ -113,7 +124,8 @@ public class RoomMgr {
                     
                     if (roomStatus.contentEquals("Occupied")) {
                         doubleOccupiedCount++;
-                        doubleOccupiedRooms = doubleOccupiedRooms + " " + roomData[i].getRoomNo() + ",";
+                        doubleOccupiedRooms = doubleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     }
                     
                     break;
@@ -122,7 +134,8 @@ public class RoomMgr {
                     
                     if (roomStatus.contentEquals("Occupied")) {
                         twinOccupiedCount++;
-                        twinOccupiedRooms = twinOccupiedRooms + " " + roomData[i].getRoomNo() + ",";
+                        twinOccupiedRooms = twinOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     }
                     
                     break;
@@ -131,7 +144,8 @@ public class RoomMgr {
                     
                     if (roomStatus.contentEquals("Occupied")) {
                         tripleOccupiedCount++;
-                        tripleOccupiedRooms = tripleOccupiedRooms + " " + roomData[i].getRoomNo() + ",";
+                        tripleOccupiedRooms = tripleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     }
                     
                     break;
@@ -172,19 +186,23 @@ public class RoomMgr {
             switch (roomStatus) {
                 case "Vacant":
                     vacantCount++;
-                    vacantRooms = vacantRooms + " " + roomData[i].getRoomNo() + ",";
+                    vacantRooms = vacantRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
                 case "Occupied":
                     occupiedCount++;
-                    occupiedRooms = occupiedRooms + " " + roomData[i].getRoomNo() + ",";
+                    occupiedRooms = occupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
                 case "Reserved":
                     reservedCount++;
-                    reservedRooms = reservedRooms + " " + roomData[i].getRoomNo() + ",";
+                    reservedRooms = reservedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
                 case "Under Maintenance":
                     underMaintenanceCount++;
-                    underMaintenanceRooms = underMaintenanceRooms + " " + roomData[i].getRoomNo() + ",";
+                    underMaintenanceRooms = underMaintenanceRooms + " " + roomData[i].getRoomNo().substring(0,2) +
+                                "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
                 default:
                     break;
