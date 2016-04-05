@@ -22,8 +22,8 @@ Required
 - Room Check-in (for walk-in or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
 - ~~Print Room Status statistic report by~~
--~~room type occupancy rate~~
--~~room status (status type and list the room number)~~
+- ~~room type occupancy rate~~
+- ~~room status (status type and list the room number)~~
 
 
 ###Edit 04/04/16 - HD
