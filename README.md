@@ -8,12 +8,22 @@ Presently, the IDE we are using is Netbeans.
 - Added error checking for room Service for room number such that it is occupied within current day.
 
 Required
-- Need to implement room checking in for certain room number under Room.java
 - Need to implement the creation of order code for each room service order under RoomServiceOrder.java
 - Still require for more food items and better description
-- Check out not implemented yet
 - Payment method for checking in/out not implemented yet
 - Probably include enum usage for roomStatus so that it will induce less error
+- Required to change the room numbers to 4 int digits instead of a string according to requirements from assignment
+- Create/Update/Search guests detail (Search by name using keyword/s) 
+- Create/Update/Remove/Print reservation
+- Create/Update rooms details (include setting status like ‘Under Maintenance”,
+- Entering room service orders - list menu items for selection
+- Create/Update/Remove room service menu items.
+- Check room availability
+- Room Check-in (for walk-in or reservation)
+- Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+- ~~Print Room Status statistic report by~~
+-~~   room type occupancy rate~~
+-~~   room status (status type and list the room number)~~
 
 
 ###Edit 04/04/16 - HD
