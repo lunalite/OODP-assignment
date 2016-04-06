@@ -7,23 +7,23 @@ import java.util.List;
 
 public class RoomServiceOrder {
 
-    private int orderCode;
+    private String orderCode;
     private Date dateTime;
-    private String status; // Variations: confirmed, preparing, delivered
+    private roomServiceOrderStatus status; // Variations: confirmed, preparing, delivered
     private String remarks;
     private double bill;
     private List<Item> itemList;
     private Iterator<Item> itemListItr;
     
-    public RoomServiceOrder(List<Item> itemOrder, String re) {
+    public RoomServiceOrder(List<Item> itemOrder, String re, String roomNo, int index) {
         dateTime = new Date();
         remarks = re;
         itemList = new ArrayList(itemOrder);
-        status = "Confirmed";
+        status = roomServiceOrderStatus.CONFIRMED;
         calTotalBill();
-        //Ordercode not implemented yet.
-        orderCode = 123;
         
+        //Order code is formed from room number and the number of orders already present
+        orderCode = roomNo + (index+1); 
     }
     
     private void calTotalBill() {
@@ -48,12 +48,13 @@ public class RoomServiceOrder {
         System.out.printf("Total bill: $%.2f\n", bill);
         System.out.println("Status: " + status);
         System.out.println("========================");
-        
+        System.out.println("");
     }
     
     public Date getDateTime() {return this.dateTime;}
-    public String getStatus() {return this.status;}
+    public roomServiceOrderStatus getStatus() {return this.status;}
     public String getRemarks() {return this.remarks;}
+    public double getBill() {return this.bill;}
     /**
      *
      * @param dateTime
@@ -63,7 +64,7 @@ public class RoomServiceOrder {
      *
      * @param status
      */
-    public void setStatus(String status) {this.status = status;}
+    public void setStatus(roomServiceOrderStatus status) {this.status = status;}
     /**
      *
      * @param remarks
