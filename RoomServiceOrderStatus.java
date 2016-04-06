@@ -5,7 +5,7 @@
  */
 package cz2002_assignment;
 
-public enum roomServiceOrderStatus {
+public enum RoomServiceOrderStatus {
     CONFIRMED, PREPARING, DELIVERED;
     
     public String toString(){
