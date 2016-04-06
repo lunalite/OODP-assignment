@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <Guest>
+        <name>Teset</name>
+        <gender>male</gender>
+        <identity>S9102930J</identity>
+        <address>BLOCK 123 HAPPY</address>
+        <nationality>SINGAPOREAN</nationality>
+        <contact>91653292</contact>
+        <creditCardDet>4632-6989-2136-7956</creditCardDet>
+    </Guest>
+    <Guest>
+        <name>Teset2</name>
+        <gender>male</gender>
+        <identity>S9138920J</identity>
+        <address>BLOCK 772 HAPPY</address>
+        <nationality>SINGAPOREAN</nationality>
+        <contact>99668292</contact>
+        <creditCardDet>1598-6359-4571-7661</creditCardDet>
+    </Guest>
+</root>
