@@ -23,7 +23,8 @@ Required
 - Room Check-in (for walk-in or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
 - Probably include enum usage for roomStatus so that it will induce less error (Can someone implement this?)
-- ~~Entering room service orders - list menu items for selection~~
+- ~~Entering room service orders~~ 
+- ~~list menu items for selection~~
 - ~~Required to change the room numbers to 4 int digits instead of a string according to requirements from assignment~~
 - ~~Print Room Status statistic report by~~
 - ~~room type occupancy rate~~
