@@ -9,7 +9,7 @@ public class RoomServiceOrder {
 
     private String orderCode;
     private Date dateTime;
-    private roomServiceOrderStatus status; // Variations: confirmed, preparing, delivered
+    private RoomServiceOrderStatus status; // Variations: confirmed, preparing, delivered
     private String remarks;
     private double bill;
     private List<Item> itemList;
@@ -19,7 +19,7 @@ public class RoomServiceOrder {
         dateTime = new Date();
         remarks = re;
         itemList = new ArrayList(itemOrder);
-        status = roomServiceOrderStatus.CONFIRMED;
+        status = RoomServiceOrderStatus.CONFIRMED;
         calTotalBill();
         
         //Order code is formed from room number and the number of orders already present
@@ -52,7 +52,7 @@ public class RoomServiceOrder {
     }
     
     public Date getDateTime() {return this.dateTime;}
-    public roomServiceOrderStatus getStatus() {return this.status;}
+    public RoomServiceOrderStatus getStatus() {return this.status;}
     public String getRemarks() {return this.remarks;}
     public double getBill() {return this.bill;}
     /**
@@ -64,7 +64,7 @@ public class RoomServiceOrder {
      *
      * @param status
      */
-    public void setStatus(roomServiceOrderStatus status) {this.status = status;}
+    public void setStatus(RoomServiceOrderStatus status) {this.status = status;}
     /**
      *
      * @param remarks
