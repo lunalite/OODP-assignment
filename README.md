@@ -10,12 +10,14 @@ Presently, the IDE we are using is Netbeans.
 - Added checking of orders for room service
 - Added removing of orders for room service
 - Added enum type for roomServiceOrderStatus for safety reason
+- Added XML parser for guest details
+- implemented searching for guest name method
 
 Required
 - Need to implement the creation of order code for each room service order under RoomServiceOrder.java
 - Still require for more food items and better description
 - Payment method for checking in/out not implemented yet
-- Create/Update/Search guests detail (Search by name using keyword/s) 
+- Create/Update/~~Search guests~~ detail (Search by name using keyword/s) 
 - Create/Update/Remove/Print reservation
 - Create/Update rooms details (include setting status like ‘Under Maintenance”,
 - Create/Update/Remove room service menu items.
