@@ -6,6 +6,10 @@ Presently, the IDE we are using is Netbeans.
 ####Edit 06/04/16 - HD
 - Changed roomNo string to 0203 instead of 02-03 according to requirements.
 - Added payment class instantiation for those already occupied in currentDay
+- Added order code implementation for room service
+- Added checking of orders for room service
+- Added removing of orders for room service
+- Added enum type for roomServiceOrderStatus for safety reason
 
 Required
 - Need to implement the creation of order code for each room service order under RoomServiceOrder.java
@@ -14,12 +18,12 @@ Required
 - Create/Update/Search guests detail (Search by name using keyword/s) 
 - Create/Update/Remove/Print reservation
 - Create/Update rooms details (include setting status like ‘Under Maintenance”,
-- Entering room service orders - list menu items for selection
 - Create/Update/Remove room service menu items.
 - Check room availability
 - Room Check-in (for walk-in or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
 - Probably include enum usage for roomStatus so that it will induce less error (Can someone implement this?)
+- ~~Entering room service orders - list menu items for selection~~
 - ~~Required to change the room numbers to 4 int digits instead of a string according to requirements from assignment~~
 - ~~Print Room Status statistic report by~~
 - ~~room type occupancy rate~~
