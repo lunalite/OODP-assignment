@@ -9,7 +9,7 @@ public class RoomMgr {
     private final int totalRooms  = 48;
     private int currentDay;
     
-    private Date timeStamp;
+    private Date timeStamp; //Useless variable for now
     private Room[] roomData; //Record of all the rooms
     private Payment[] totalPaymentArr;
 
@@ -20,7 +20,7 @@ public class RoomMgr {
         
         // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
-        // Format of String roomNo: e.g. "0201", "0708"
+        // Format of int roomNo: e.g. 0201, 0708
         
         /*
         for (int i = 0; i < totalRooms; i++) {
@@ -46,18 +46,20 @@ public class RoomMgr {
             roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Triple", 200.0f);
         }
         
+        // TO instantiate payment class for all rooms at the start. 
         for (int i = 0; i < totalRooms; i ++) {
-            if (roomData[i].getRoomStatus(currentDay).contentEquals("Occupied")){
                 totalPaymentArr[i] = new Payment();
-            }
         }
     }
 
     public void checkIn(String roomNo, int today) {
         //mainApp class already checked for room that it is vacant
-        timeStamp = new Date(); //Create a timeStamp the moment a family checks in.
-        totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  //Create the payment class that is associated with the room
-        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Occupied", today); //set roomstatus to occupied from occupied.
+        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Occupied", today); //set roomstatus to occupied from vacant.
+        
+        //Create a new payment class that is associated with the room. This ensures a new payment will be available once checked in
+        totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  
+        
+        
         
     }
 
@@ -65,8 +67,14 @@ public class RoomMgr {
 
     }
 
-    public void checkOut() {
-
+    public void checkOut(String roomNo, int tomorrow) {
+        //mainApp class already checked for room that it is occupied
+        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Vacant", tomorrow); //set roomstatus to vacant from occupied.
+        
+        
+        //Print total bill
+        
+        
     }
 
     public void doPayment() {
