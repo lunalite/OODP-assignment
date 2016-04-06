@@ -3,6 +3,14 @@ package cz2002_assignment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.io.File;
+import java.util.Iterator;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.DocumentBuilder;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.Node;
+import org.w3c.dom.Element;
 
 public class CZ2002_Assignment {
 
@@ -11,7 +19,9 @@ public class CZ2002_Assignment {
     private static final int minFloorNo = 2; //Minimum floor number for rooms
     private static final int currentDay = 12; //Current Day of system (Current for April alone)
     private static final int laterDay = 15; //Current Day of system (Current for April alone)
+    private static List<Guest> guestList;
     
+    private static final String guestXMLFilePath = "D:\\Documents\\NetBeansProjects\\CZ2002_Assignment\\src\\cz2002_assignment\\guestList.xml";
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -22,6 +32,32 @@ public class CZ2002_Assignment {
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
+        guestList = new ArrayList(); //initialise a list for all guests that registered under this hotel
+        
+        // importing of guestList data from XML file
+        try {	
+            File inputFile = new File(guestXMLFilePath);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+            NodeList nList = doc.getElementsByTagName("Guest");
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
+                            eElement.getElementsByTagName("gender").item(0).getTextContent(),
+                            eElement.getElementsByTagName("identity").item(0).getTextContent(),
+                            eElement.getElementsByTagName("address").item(0).getTextContent(),
+                            eElement.getElementsByTagName("nationality").item(0).getTextContent(),
+                            Integer.parseInt(eElement.getElementsByTagName("contact").item(0).getTextContent()),
+                            eElement.getElementsByTagName("creditCardDet").item(0).getTextContent()));
+                }
+            }
+        }   
+        catch (Exception e) {e.printStackTrace();}
+        // End import for guest XML file        
         
         do {
 
@@ -30,7 +66,7 @@ public class CZ2002_Assignment {
             System.out.println("(2) Room related");
             System.out.println("(3) Room service related");
             System.out.println("(4) Payment related");
-            System.out.println("(5) ");
+            System.out.println("(5) Guest related");
             System.out.println("(6) ");
             System.out.println("(7) Exit");
             System.out.print("\nEnter the number of your choice: ");
@@ -50,6 +86,8 @@ public class CZ2002_Assignment {
             
             switch (choice) {
                 case 1:
+                    
+                    
                     break;
                 case 2:
                     
@@ -250,6 +288,53 @@ public class CZ2002_Assignment {
                     
                     break;
                 case 5:
+                    
+                    // initialise a iterator
+                    Iterator<Guest> guestListItr = guestList.iterator();
+                    
+                    //Start of main method for Guest class
+                    System.out.println("(1) Check guest details");
+                    int guestOption = sc.nextInt();     
+                    
+                    if (guestOption == 1) {
+                        System.out.println("(1) Search by name");
+                        System.out.println("(2) Search by room number");
+                        int guestSearchOption = sc.nextInt();     
+                        sc.nextLine(); //Flush away null character
+                        
+                        if (guestSearchOption == 1) {
+                            System.out.println("Please insert name of guest (part of or whole) to be searched:");
+                            String guestSearchName = sc.nextLine();
+                            boolean guestFound = false;
+                            
+                            while (guestListItr.hasNext()){
+                                Guest g = guestListItr.next();
+                                if (g.getName().contains(guestSearchName)){
+                                    System.out.println("Is the guest name " + g.getName() + "? (y/n)");
+                                    String guestNameConfirm = sc.nextLine();
+                                    
+                                    if (guestNameConfirm.equals("y")) {
+                                        //print out details
+                                        g.printDetails();
+                                        guestFound = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                        if (guestFound == false)
+                            System.out.println("No such name of guest is available.");
+                        }
+                        
+                        else if (guestSearchOption == 2) {
+                            System.out.println("Please insert room number of guest to be searched:");
+                            String guestSearchRoom = sc.nextLine();
+                            
+                        }
+                    }
+                    
+                    System.out.println("");
+                    
                     break;
                 case 6: 
                     break;
