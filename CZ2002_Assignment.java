@@ -18,19 +18,20 @@ public class CZ2002_Assignment {
     
     
     public static void main(String[] args) {
+        
+        //Uploading all the XML files unto the arrays present in the mainApp
+        XMLMgr xMLMgr = new XMLMgr();
+        xMLMgr.fromXML();
+        
         Scanner sc = new Scanner(System.in);
         int choice;
         
         // initialising of the related control classes
-        XMLMgr xMLMgr = new XMLMgr();
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
-        guestList = new ArrayList(); //initialise a list for all guests that registered under this hotel
-        
-        //Uploading all the XML files unto the arrays present in the mainApp
-        xMLMgr.fromXML();
-         
+        guestList = new ArrayList(xMLMgr.getGuestList()); //initialise a list for all guests that registered under this hotel
+        MenuMgr.updateList(xMLMgr.getItemMenu());
         
         do {
 
@@ -54,14 +55,15 @@ public class CZ2002_Assignment {
              *- 3 reservations with corresponding different guest details [* set check-in date as 1 week later]
              *- At least 5 room service menu items 
              */
-            
-         
+ 
             
             switch (choice) {
+                
                 case 1:
                     
                     
                     break;
+                    
                 case 2:
                     
                     //Start with main method for roomMgr
@@ -126,6 +128,7 @@ public class CZ2002_Assignment {
                     System.out.println("");
                     
                     break;
+                    
                 case 3:
                     
                     // Entering of room number for roomServiceMgr
@@ -205,6 +208,7 @@ public class CZ2002_Assignment {
                     System.out.println("");
                     
                     break;
+                    
                 case 4:
                     
                     // Entering of room number for Payment
@@ -260,6 +264,7 @@ public class CZ2002_Assignment {
                     System.out.println("");
                     
                     break;
+                    
                 case 5:
                     
                     // initialise a iterator
@@ -268,6 +273,7 @@ public class CZ2002_Assignment {
                     //Start of main method for Guest class
                     System.out.println("(1) Add new guest details");
                     System.out.println("(2) Check guest details");
+                    System.out.println("(3) Update guest details");
                     int guestOption = sc.nextInt();   
                     sc.nextLine(); // Flushing of null character
                     
@@ -333,6 +339,12 @@ public class CZ2002_Assignment {
                         }
                     }
                     // End of Checking for guest details
+                    
+                    // Updating of guest details
+                    else if (guestOption == 3) {
+                        
+                    }
+                    // End of updating for guest details
                     
                     System.out.println("");
                     
