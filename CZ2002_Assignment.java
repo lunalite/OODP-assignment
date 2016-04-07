@@ -131,80 +131,163 @@ public class CZ2002_Assignment {
                     
                 case 3:
                     
-                    // Entering of room number for roomServiceMgr
-                    System.out.println("Please enter your room number: ");
-                    String roomNumber_3 = sc.nextLine();
+                    System.out.println("(1) Order room service menu items");
+                    System.out.println("(2) Create room service menu items");
+                    System.out.println("(3) Update room service menu items");
+                    System.out.println("(4) Remove room service menu items");
+                    int roomSOption = sc.nextInt();
+                    sc.nextLine(); //Flush null char
                     
-                    //Check if room number is present in system
-                    if (roomNoCheck(roomNumber_3) == false)
-                        break;
-                    
-                    // Check if room number is occupied
-                    System.out.println("Room is " + roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay));
-                    System.out.println("");
-                    if (!roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay).equals("Occupied")){
-                        break;
-                    }
-                    // End check room
-                                       
-                    //Start with main method for roomService
-                    System.out.println("(1) Show Menu (Adding of orders)");
-                    System.out.println("(2) Check order");
-                    System.out.println("(3) Remove order");
-                    int roomServOption = sc.nextInt();
-                    sc.nextLine() ; // flush away null character
-                    
-                    if (roomServOption == 1) {
-                            List<Item> itemOrder = new ArrayList(); //Create a stack of itemOrder list of items ordered                        
-                        do {           
-                            roomServiceMgr.showMenu();
-                            System.out.println("Select item for further description and purchase. (-1 to exit)");
-                            int foodSelectOption = sc.nextInt();
-                            if (foodSelectOption == -1)
-                                break;
-                            roomServiceMgr.getItemDescription(foodSelectOption);
-                            char decision = sc.next().charAt(0);
-                            if (decision == 'y'){
-                                itemOrder.add(MenuMgr.getItem(foodSelectOption)); // Add item to basket
-                                System.out.println("Item " + MenuMgr.getItemName(foodSelectOption) + " is added to the basket.");
-                            }
-                        } while (true);
-                        
-                        if (!itemOrder.isEmpty()) {
-                            sc.nextLine(); //flushing the null char
-                            System.out.println("Any remarks to add? (Type N.A. if no remarks)");
-                            String remarks = sc.nextLine();
-                            
-                            //Create order object to prepare for addition of items
-                            double bill = roomServiceMgr.createOrder(roomNumber_3 ,itemOrder, remarks); 
-                            roomMgr.getPayment(roomNumber_3).setRoomServiceBill(bill);
-                        }
-                    }
-                    
-                    // Checking of orders
-                    else  if (roomServOption == 2) {
-                        if (roomServiceMgr.checkOrder(roomNumber_3) == false){ //Checking that there are orders present
-                            System.out.println("No orders available.");
-                            System.out.println("");
-                            break;
-                        }
-                        System.out.println("Please input the order code if already known. Else type 1 to list all orders available.");
-                        String orderCodeNo = sc.nextLine();
-                        roomServiceMgr.getOrder(roomNumber_3, orderCodeNo);
-                    }
-                    
-                    // Removing of orders
-                    else  if (roomServOption == 3) {
-                        if (roomServiceMgr.checkOrder(roomNumber_3) == false){ //Checking that there are orders present
-                            System.out.println("No orders available.");
-                            System.out.println("");
-                            break;
-                        }
-                        System.out.println("Please input the order code if already known. Else type 1 to remove all orders available.");
-                        String orderCodeNo = sc.nextLine();
-                        roomServiceMgr.removeOrder(roomNumber_3, orderCodeNo);
+                    // Start of ordering room service menu items
+                    if (roomSOption == 1) {
+                        // Entering of room number for roomServiceMgr
+                        System.out.println("Please enter your room number: ");
+                        String roomNumber_3 = sc.nextLine();
 
+                        //Check room
+                        if (roomNoCheck(roomNumber_3) == false)
+                            break;
+                        System.out.println("Room is " + roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay));
+                        System.out.println("");
+                        if (!roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay).equals("Occupied")){
+                            break;
+                        }
+                        // End check room
+
+                        System.out.println("(1) Show Menu (Adding of orders)");
+                        System.out.println("(2) Check order");
+                        System.out.println("(3) Remove order");
+                        int roomServOption = sc.nextInt();
+                        sc.nextLine() ; // flush away null character
+
+                        if (roomServOption == 1) {
+                                List<Item> itemOrder = new ArrayList(); //Create a stack of itemOrder list of items ordered                        
+                            do {           
+                                roomServiceMgr.showMenu();
+                                System.out.println("Select item for further description and purchase. (-1 to exit)");
+                                int foodSelectOption = sc.nextInt();
+                                if (foodSelectOption == -1)
+                                    break;
+                                roomServiceMgr.getItemDescription(foodSelectOption);
+                                char decision = sc.next().charAt(0);
+                                if (decision == 'y'){
+                                    itemOrder.add(MenuMgr.getItem(foodSelectOption)); // Add item to basket
+                                    System.out.println("Item " + MenuMgr.getItemName(foodSelectOption) + " is added to the basket.");
+                                }
+                            } while (true);
+
+                            if (!itemOrder.isEmpty()) {
+                                sc.nextLine(); //flushing the null char
+                                System.out.println("Any remarks to add? (Type N.A. if no remarks)");
+                                String remarks = sc.nextLine();
+
+                                //Create order object to prepare for addition of items
+                                double bill = roomServiceMgr.createOrder(roomNumber_3 ,itemOrder, remarks); 
+                                roomMgr.getPayment(roomNumber_3).setRoomServiceBill(bill);
+                            }
+                        }
+
+                        // Checking of orders
+                        else  if (roomServOption == 2) {
+                            if (roomServiceMgr.checkOrder(roomNumber_3) == false){ //Checking that there are orders present
+                                System.out.println("No orders available.");
+                                System.out.println("");
+                                break;
+                            }
+                            System.out.println("Please input the order code if already known. Else type 1 to list all orders available.");
+                            String orderCodeNo = sc.nextLine();
+                            roomServiceMgr.getOrder(roomNumber_3, orderCodeNo);
+                        }
+
+                        // Removing of orders
+                        else  if (roomServOption == 3) {
+                            if (roomServiceMgr.checkOrder(roomNumber_3) == false){ //Checking that there are orders present
+                                System.out.println("No orders available.");
+                                System.out.println("");
+                                break;
+                            }
+                            System.out.println("Please input the order code if already known. Else type 1 to remove all orders available.");
+                            String orderCodeNo = sc.nextLine();
+                            roomServiceMgr.removeOrder(roomNumber_3, orderCodeNo);
+
+                        }
                     }
+                    // End of ordering room service menu items
+                    
+                    // Start of creation for room service items
+                    else if (roomSOption == 2) {
+                        System.out.println("Please insert name of food: ");
+                        String nameItemCreate = sc.nextLine();
+                        System.out.println("Please insert description of food: ");
+                        String descItemCreate = sc.nextLine();
+                        System.out.println("Please insert price of food: ");
+                        double priceItemCreate = sc.nextDouble();
+                        
+                        MenuMgr.createItem(nameItemCreate, descItemCreate, priceItemCreate);
+                        System.out.println("Item created.");
+                    }
+                    // End of creation for room service items
+                    
+                    // Start of update for room service items
+                    else if (roomSOption == 3) {
+                        System.out.println("Please insert name of item to be updated: ");
+                        String nameItemUpdate = sc.nextLine();
+                        int itemMenuIndex = MenuMgr.searchItem(nameItemUpdate);
+                        
+                        if (itemMenuIndex != -1){
+                            System.out.println("Please select what you want to update: ");
+                            System.out.println("(1) Name of item");
+                            System.out.println("(2) Description of item");
+                            System.out.println("(3) Price of item");
+                            System.out.println("(4) Everything");
+                            System.out.println("(5) None of the above");
+                            int itemUpdateChoice = sc.nextInt();
+                            sc.nextLine();
+                            
+                            if (itemUpdateChoice == 1) {
+                                System.out.println("Please insert new name: ");
+                                String itemNewName = sc.nextLine();
+                                MenuMgr.updateItemN(itemMenuIndex, itemNewName);
+                                System.out.println("Name is updated.");
+                            }
+                            else if (itemUpdateChoice == 2){
+                                System.out.println("Please insert new description: ");
+                                String itemNewDescription = sc.nextLine();
+                                MenuMgr.updateItemD(itemMenuIndex, itemNewDescription);
+                                System.out.println("Description is updated.");
+                            }
+                            else if (itemUpdateChoice == 3){
+                                System.out.println("Please insert new price: ");
+                                double itemNewPrice = sc.nextDouble();
+                                MenuMgr.updateItemP(itemMenuIndex, itemNewPrice);
+                                System.out.println("Price is updated.");
+                            }
+                            else if (itemUpdateChoice == 4){
+                                System.out.println("Please insert new name: ");
+                                String itemNewName = sc.nextLine();
+                                MenuMgr.updateItemN(itemMenuIndex, itemNewName);
+                                System.out.println("Please insert new description: ");
+                                String itemNewDescription = sc.nextLine();
+                                MenuMgr.updateItemD(itemMenuIndex, itemNewDescription);
+                                System.out.println("Please insert new price: ");
+                                double itemNewPrice = sc.nextDouble();
+                                MenuMgr.updateItemP(itemMenuIndex, itemNewPrice);
+                                System.out.println("Item is updated.");
+                            }
+                        }
+                    }
+                    // End of update for room service items
+                    
+                    // Start of removal of room service items
+                    else if (roomSOption == 4) {
+                        System.out.println("Please insert name of item to be removed: ");
+                        String nameItemRemove = sc.nextLine();
+                        int itemMenuIndex = MenuMgr.searchItem(nameItemRemove);
+                        MenuMgr.removeItem(itemMenuIndex);
+                        System.out.println("Item is removed.");
+                    }
+                    // End of removal of room service items
+                    
                     System.out.println("");
                     
                     break;
@@ -375,6 +458,4 @@ public class CZ2002_Assignment {
     }
     
 }
-
-
 

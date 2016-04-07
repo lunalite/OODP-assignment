@@ -12,6 +12,9 @@ public class Item {
         description = d;
         price = p;
     }
+    public void setName(String n) {name = n;}
+    public void setDescription(String d) {description = d;}
+    public void setPrice(Double p) {price = p;}
     
     public String getName() {return name;}
     public String getDescription() {return description;}
