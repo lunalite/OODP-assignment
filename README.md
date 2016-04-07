@@ -7,7 +7,7 @@ Presently, the IDE we are using is Netbeans.
 - Added create for guest details while saving to .XML file
 
 Required
-- Need to implement the creation of order code for each room service order under RoomServiceOrder.java
+- ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
 - Still require for more food items and better description
 - Payment method for checking in/out not implemented yet
 - ~~Create~~/Update/~~Search~~ guests detail (Search by name using keyword/s) 
@@ -39,7 +39,7 @@ Required
 - implemented searching for guest name method
 
 Required
-- Need to implement the creation of order code for each room service order under RoomServiceOrder.java
+- ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
 - Still require for more food items and better description
 - Payment method for checking in/out not implemented yet
 - Create/Update/~~Search guests~~ detail (Search by name using keyword/s) 
