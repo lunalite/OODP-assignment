@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <item id="0">
+        <name>Fried Rice</name>
+        <description>Steamed rice that has been stir-fried in a wok, mixed with eggs, vegetables, and meat.</description>
+        <price>9.90</price>
+    </item>
+    <item id="1">
+        <name>Fried Chicken</name>
+        <description>Chicken fried to succulent crispness.</description>
+        <price>5.50</price>
+    </item>
+    <item id="2">
+        <name>Coke</name>
+        <description>A cold-canned drink.</description>
+        <price>3.00</price>
+    </item>
+</root>

@@ -27,18 +27,21 @@ public class XMLMgr {
     ** 
     */
     //PLEASE EDIT THIS FILE FOR IT TO WORK!!
-    //Point to the location of guestListXML file.
-    private static final String guestXMLFilePath = "D:\\Documents\\NetBeansProjects"
-            + "\\CZ2002_Assignment\\src\\cz2002_assignment\\XML\\guestList.xml";
-    //*****
-    private static Document doc;
-    private static File guestFile = new File(guestXMLFilePath);
+    private static final String directory = "D:\\Documents\\NetBeansProjects"
+            + "\\CZ2002_Assignment\\src\\cz2002_assignment\\XML\\";
     /*
-    ** End declaration of variables for conversion to XML files
+    **
     */
+    private static final String guestXMLFilePath = directory + "guestList.xml";
+    private static final String itemXMLFilePath = directory + "itemMenu.xml";
+    private static File guestFile = new File(guestXMLFilePath);
+    private static File itemFile = new File(itemXMLFilePath);
     
+    private static Document doc;
     private static List<Guest> guestList = new ArrayList();
     private static int guestXMLAttrStart;
+    private static List<Item> itemMenu = new ArrayList();
+    private static int itemXMLAttrStart;
 
     
     public void fromXML(){
@@ -67,8 +70,22 @@ public class XMLMgr {
             }
             // End import for guest XML file  
             
-            // importing of other lists
-            // End import for other lists
+            // importing of itemMenu list
+             doc = dBuilder.parse(itemFile);
+            doc.getDocumentElement().normalize();
+            nList = doc.getElementsByTagName("item");
+            
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    itemMenu.add(new Item(eElement.getElementsByTagName("name").item(0).getTextContent(),
+                            eElement.getElementsByTagName("description").item(0).getTextContent(),
+                            Double.parseDouble(eElement.getElementsByTagName("price").item(0).getTextContent())));
+                    itemXMLAttrStart = Integer.parseInt(eElement.getAttribute("id"));
+                }
+            }
+            // End import for itemMenu list
             
         }   
         catch (Exception e) {e.printStackTrace();}
@@ -127,4 +144,5 @@ public class XMLMgr {
     }*/
     
     public List<Guest> getGuestList(){return guestList;}
+    public List<Item> getItemMenu(){return itemMenu;}
 }

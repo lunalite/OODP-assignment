@@ -13,7 +13,6 @@ public class RoomServiceMgr {
     }
     
     public void showMenu() {
-        MenuMgr.updateList();
         MenuMgr.itemList();
     }
     

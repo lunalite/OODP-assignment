@@ -6,22 +6,14 @@ import java.util.List;
 public class MenuMgr {
 
     private static List<Item> itemMenu;
-
-    MenuMgr() {
-        
+    
+    public static void updateList(List<Item> itemClone){
+        itemMenu = (List)(((ArrayList)itemClone).clone());
     }
     
-    public static void updateList(){
-        // instantiate the possible F&B items
-        Item friedRice = new Item("Fried Rice", "Steamed rice that has been stir-fried in a wok, mixed with eggs, vegetables, and meat.", 9.90);
-        Item friedChicken = new Item("Fried Chicken", "Chicken fried to succulent crispness.", 5.50);
-        Item coke = new Item("Coke", "A cold-canned drink.", 3.00);
+    public static void createItem(String name, String desc, double price){
         
         //Add the food food items to itemMenu
-        itemMenu = new ArrayList<Item>();
-        itemMenu.add(friedRice);
-        itemMenu.add(friedChicken);
-        itemMenu.add(coke);
     }
     
     public static void itemList() {
