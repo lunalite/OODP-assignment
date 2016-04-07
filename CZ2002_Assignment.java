@@ -3,20 +3,9 @@ package cz2002_assignment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.io.File;
+
 import java.util.Iterator;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.w3c.dom.Node;
-import org.w3c.dom.Element;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.dom.DOMSource; 
-import javax.xml.transform.stream.StreamResult; 
+
 
 public class CZ2002_Assignment {
 
@@ -28,54 +17,20 @@ public class CZ2002_Assignment {
     private static List<Guest> guestList;
     
     
-    /*
-    ** 
-    */
-    //PLEASE EDIT THIS FILE FOR IT TO WORK!!
-    //Point to the location of guestListXML file.
-    private static final String guestXMLFilePath = "D:\\Documents\\NetBeansProjects\\CZ2002_Assignment\\src\\cz2002_assignment\\XML\\guestList.xml";
-    //*****
-    private static Document doc;
-    private static File guestFile = new File(guestXMLFilePath);
-    /*
-    ** End declaration of variables for conversion to XML files
-    */
-    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int choice;
         
         // initialising of the related control classes
+        XMLMgr xMLMgr = new XMLMgr();
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
         guestList = new ArrayList(); //initialise a list for all guests that registered under this hotel
         
-        
-        // importing of guestList data from XML file
-        try {	
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(guestFile);
-            doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("Guest");
-            
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-                Node nNode = nList.item(temp);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) nNode;
-                    guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
-                            eElement.getElementsByTagName("gender").item(0).getTextContent(),
-                            eElement.getElementsByTagName("identity").item(0).getTextContent(),
-                            eElement.getElementsByTagName("address").item(0).getTextContent(),
-                            eElement.getElementsByTagName("nationality").item(0).getTextContent(),
-                            Integer.parseInt(eElement.getElementsByTagName("contact").item(0).getTextContent()),
-                            eElement.getElementsByTagName("creditCardDet").item(0).getTextContent()));
-                }
-            }
-        }   
-        catch (Exception e) {e.printStackTrace();}
-        // End import for guest XML file   
+        //Uploading all the XML files unto the arrays present in the mainApp
+        xMLMgr.fromXML();
+         
         
         do {
 
@@ -335,54 +290,7 @@ public class CZ2002_Assignment {
                         String ccd2B = sc.nextLine();
                         guestList.add(new Guest(name2B, gender2B, address2B, identity2B, nat2B, contact2B, ccd2B));
                         
-                        //Start of outputting file into guestList.XML
-                        try {
-                            // Initialise the document builder
-                            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-                            DocumentBuilder builder = dbFactory.newDocumentBuilder();
-                            doc = builder.parse(guestFile);
-                            // end initialisation of document builder
-                            
-                            Node root = doc.getDocumentElement();
-                            
-                            Element guest = doc.createElement("Guest");
-                            Element name = doc.createElement("name");
-                            Element gen = doc.createElement("gender");
-                            Element add = doc.createElement("identity");
-                            Element id = doc.createElement("address");
-                            Element nat = doc.createElement("nationality");
-                            Element contact = doc.createElement("contact");
-                            Element ccd = doc.createElement("creditCardDet");
-                            
-                            name.appendChild(doc.createTextNode(name2B));
-                            gen.appendChild(doc.createTextNode(gender2B));
-                            add.appendChild(doc.createTextNode(address2B));
-                            id.appendChild(doc.createTextNode(identity2B));
-                            nat.appendChild(doc.createTextNode(nat2B));
-                            contact.appendChild(doc.createTextNode(contact2));
-                            ccd.appendChild(doc.createTextNode(ccd2B));
-                            
-                            root.appendChild(guest);
-                            guest.appendChild(name);
-                            guest.appendChild(gen);
-                            guest.appendChild(add);
-                            guest.appendChild(id);
-                            guest.appendChild(nat);
-                            guest.appendChild(contact);
-                            guest.appendChild(ccd);
-                            
-                            // Start output file through transformer to guestFile
-                            TransformerFactory tFactory = TransformerFactory.newInstance();
-                            Transformer transformer = tFactory.newTransformer();
-                            DOMSource source = new DOMSource(doc);
-                            StreamResult result = new StreamResult(guestFile);
-                            transformer.transform(source, result); 
-                            System.out.println("Done");
-
-                        }
-                        catch (Exception e) {System.out.println(e.getMessage());}
-
-                        //End of output file
+                        //Add to guestList.XML
                     }
                     //End of adding new guest details
                     
