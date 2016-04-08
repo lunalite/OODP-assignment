@@ -3,15 +3,16 @@ Remember to save project/package name as CZ2002_Assignment.
 Presently, the IDE we are using is Netbeans.
 
 ---
-####Edit 08/04/16 - HD
+####Edit 08/04/16 - HD, J
 - Changed all roomStatus to enum type
 - Created a guestMgr to handle all guest details
+- Added food items
 
 Required
 - Adding the storing of data from file array to XML
 - Converting randomised room status to XML file upload
 - ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
-- Still require for more food items and better description
+- ~~Still require for more food items and better description~~
 - Payment method for checking in/out not implemented yet
 - ~~Create~~/Update/~~Search~~ guests detail (Search by name using keyword/s) 
 - Create/Update/Remove/Print reservation
