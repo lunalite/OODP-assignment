@@ -34,14 +34,16 @@ public class XMLMgr {
     */
     private static final String guestXMLFilePath = directory + "guestList.xml";
     private static final String itemXMLFilePath = directory + "itemMenu.xml";
+    private static final String roomXMLFilePath = directory + "roomList.xml";
     private static File guestFile = new File(guestXMLFilePath);
     private static File itemFile = new File(itemXMLFilePath);
+    private static File roomFile = new File(roomXMLFilePath);
     
     private static Document doc;
     private static List<Guest> guestList = new ArrayList();
-    private static int guestXMLAttrStart;
     private static List<Item> itemMenu = new ArrayList();
-    private static int itemXMLAttrStart;
+    private static Room[] roomData = new Room[RoomMgr.totalRooms];
+    
 
     
     public void fromXML(){
@@ -66,13 +68,12 @@ public class XMLMgr {
                             eElement.getElementsByTagName("nationality").item(0).getTextContent(),
                             Integer.parseInt(eElement.getElementsByTagName("contact").item(0).getTextContent()),
                             eElement.getElementsByTagName("creditCardDet").item(0).getTextContent()));
-                    guestXMLAttrStart = Integer.parseInt(eElement.getAttribute("id"));
                 }
             }
             System.out.println("guest XML files are uploaded.");
             
             // importing of itemMenu list
-             doc = dBuilder.parse(itemFile);
+            doc = dBuilder.parse(itemFile);
             doc.getDocumentElement().normalize();
             nList = doc.getElementsByTagName("item");
             
@@ -83,10 +84,28 @@ public class XMLMgr {
                     itemMenu.add(new Item(eElement.getElementsByTagName("name").item(0).getTextContent(),
                             eElement.getElementsByTagName("description").item(0).getTextContent(),
                             Double.parseDouble(eElement.getElementsByTagName("price").item(0).getTextContent())));
-                    itemXMLAttrStart = Integer.parseInt(eElement.getAttribute("id"));
                 }
             }
             System.out.println("itemMenu XML files are uploaded.");
+            
+            //importing of roomList 
+            doc = dBuilder.parse(roomFile);
+            doc.getDocumentElement().normalize();
+            nList = doc.getElementsByTagName("room");
+            
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                        roomData[temp] = new Room(eElement.getAttribute("num"),
+                        Boolean.parseBoolean(eElement.getElementsByTagName("wifienabled").item(0).getTextContent()),
+                        eElement.getElementsByTagName("faceview").item(0).getTextContent(),
+                        Boolean.parseBoolean(eElement.getElementsByTagName("smoking").item(0).getTextContent()),
+                        RoomType.valueOf(eElement.getElementsByTagName("roomtype").item(0).getTextContent()));
+                }
+            }
+            System.out.println("roomData XML files are uploaded.");
+            
             System.out.println("");
         }   
         catch (Exception e) {e.printStackTrace();}
@@ -146,4 +165,5 @@ public class XMLMgr {
     
     public List<Guest> getGuestList(){return guestList;}
     public List<Item> getItemMenu(){return itemMenu;}
+    public Room[] getRoomData(){return roomData;}
 }

@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 
 <root>
-    <room num="02-01">
+    <room num="0201">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -44,7 +44,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-02">
+    <room num="0202">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -82,7 +82,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-03">
+    <room num="0203">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -120,7 +120,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-04">
+    <room num="0204">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -158,7 +158,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-05">
+    <room num="0205">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -196,7 +196,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-06">
+    <room num="0206">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -234,7 +234,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-07">
+    <room num="0207">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -272,7 +272,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="02-08">
+    <room num="0208">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -310,7 +310,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-01">
+    <room num="0301">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -348,7 +348,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-02">
+    <room num="0302">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -386,7 +386,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-03">
+    <room num="0303">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -424,7 +424,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-04">
+    <room num="0304">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -462,7 +462,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-05">
+    <room num="0305">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -500,7 +500,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-06">
+    <room num="0306">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -538,7 +538,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-07">
+    <room num="0307">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -576,7 +576,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="03-08">
+    <room num="0308">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -614,7 +614,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-01">
+    <room num="0401">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -652,7 +652,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-02">
+    <room num="0402">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -690,7 +690,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-03">
+    <room num="0403">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -728,7 +728,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-04">
+    <room num="0404">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -766,7 +766,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-05">
+    <room num="0405">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -804,7 +804,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-06">
+    <room num="0406">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -842,7 +842,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-07">
+    <room num="0407">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -880,7 +880,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="04-08">
+    <room num="0408">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -918,7 +918,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-01">
+    <room num="0501">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -956,7 +956,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-02">
+    <room num="0502">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -994,7 +994,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-03">
+    <room num="0503">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -1032,7 +1032,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-04">
+    <room num="0504">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -1070,7 +1070,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-05">
+    <room num="0505">
         <day date="1">
             <status></status>
             <rate></rate>
@@ -1108,7 +1108,7 @@ and open the template in the editor.
             <rate></rate>
         </day>
     </room>
-    <room num="05-06">
+    <room num="0506">
         <day date="1">
             <status></status>
             <rate></rate>

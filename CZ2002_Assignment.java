@@ -26,10 +26,11 @@ public class CZ2002_Assignment {
         
         // initialising of the related control classes
         ReservationMgr reservationMgr = new ReservationMgr();
-        RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
+        RoomMgr roomMgr = new RoomMgr(currentDay, xMLMgr.getRoomData()); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
         GuestMgr guestMgr = new GuestMgr(xMLMgr.getGuestList());
         MenuMgr.updateList(xMLMgr.getItemMenu());
+        PaymentMgr paymentMgr = new PaymentMgr();
         
         do {
 
@@ -58,6 +59,7 @@ public class CZ2002_Assignment {
             switch (choice) {
                 
                 case 1:
+/*
 <<<<<<< HEAD
                     
                     //Start with main method for reservationMgr
@@ -136,6 +138,7 @@ public class CZ2002_Assignment {
                     
                     System.out.println("Thank you for your patronage");
 >>>>>>> a64df6df1c182df1de5ab7ad672b6c496a2d9664
+*/
                     break;
                     
                 case 2:
@@ -360,8 +363,10 @@ public class CZ2002_Assignment {
                         System.out.println("Please insert name of item to be removed: ");
                         String nameItemRemove = sc.nextLine();
                         int itemMenuIndex = MenuMgr.searchItem(nameItemRemove);
-                        MenuMgr.removeItem(itemMenuIndex);
-                        System.out.println("Item is removed.");
+                        if (itemMenuIndex != -1) {
+                            MenuMgr.removeItem(itemMenuIndex);
+                            System.out.println("Item is removed.");
+                        }
                     }
                     
                     System.out.println("");
@@ -400,15 +405,15 @@ public class CZ2002_Assignment {
                        
                         // Checking for room charges
                         if (billPaymentCheckOption == 1){
-                            roomMgr.getPayment(roomNumber_4).setRoomChargesBill();
+                            paymentMgr.getPayment(roomNumber_4).setRoomChargesBill();
                         }
                         
                         else if (billPaymentCheckOption==2){
-                            roomMgr.getPayment(roomNumber_4).getRoomServiceBill();
+                            paymentMgr.getPayment(roomNumber_4).getRoomServiceBill();
                         }
                         
                         else if (billPaymentCheckOption==3){
-                            roomMgr.getPayment(roomNumber_4).getTotalBill();
+                            paymentMgr.getPayment(roomNumber_4).getTotalBill();
                         }
                     }
                     

@@ -16,14 +16,12 @@ public class Room {
 
     }
 
-    Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, String bedType, double rate) {
+    Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, RoomType ROOMTYPE) {
         this.roomNo = roomNo;
         this.wifiEnabled = wifiEnabled;
         this.faceView = faceView;
         this.smoking = smoking;
-        this.roomType = new RoomType(bedType, rate);
-        
-        
+        this.roomType = ROOMTYPE;
         
         YearMonth yearMonthObject = YearMonth.of(2016, Month.APRIL);
         int daysInMonth = yearMonthObject.lengthOfMonth();
@@ -54,7 +52,7 @@ public class Room {
     }
     
     
-    public String getRoomType() {return roomType.getBedType();}
+    public RoomType getRoomType() {return roomType;}
     public RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
     public String getRoomNo() {return this.roomNo;}
 

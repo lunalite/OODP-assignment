@@ -1,21 +1,30 @@
 package cz2002_assignment;
 
-public class RoomType {
-
-    private double rate;
-    private String bedType;
-
-    RoomType() {
-
-    }
-
-    RoomType(String bedType, double rate) {
-        this.rate = rate;
-        this.bedType = bedType;
-    }
+public enum RoomType {
+    SINGLE, DOUBLE, TWIN, TRIPLE;
     
-    public String getBedType() {
-        return this.bedType;
-    }
+    private double rate;
 
+    public String toString(){
+        String format = "";
+        switch (this) {
+            case SINGLE:
+                format = "Single";
+                rate = 120.0f;
+                break;
+            case DOUBLE:
+                format = "Double";
+                rate = 160.0f;
+                break;
+            case TWIN:
+                format = "Twin";
+                rate = 160.0f;
+                break;
+            case TRIPLE:
+                format = "Triple";
+                rate = 200.0f;
+                break;
+        }
+        return format;
+    }
 }

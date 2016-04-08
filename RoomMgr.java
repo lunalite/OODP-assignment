@@ -1,55 +1,33 @@
 package cz2002_assignment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 public class RoomMgr {
 
-    private final int totalRooms  = 48;
+    public static final int totalRooms  = 48;
     private int currentDay;
     
     private Date timeStamp; //Useless variable for now
     private Room[] roomData; //Record of all the rooms
-    private Payment[] totalPaymentArr;
 
-    RoomMgr(int today) {
+    RoomMgr(int today, Room[] roomdata) {
         roomData = new Room[totalRooms];
-        totalPaymentArr = new Payment[totalRooms]; //initialise the record for payment
         currentDay = today; //Ensure the day's date is known
         
         // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
         // Format of int roomNo: e.g. 0201, 0708
         
-        /*
-        for (int i = 0; i < totalRooms; i++) {
-            roomData[i] = new Room(String.format("%02d-%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
-        }
-        */
-        
-        //Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, String bedType, double rate)
-        
-        for (int i = 0; i < 16; i++) {
-            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Single", 120.0f);
+        for (int z = 0; z < totalRooms; z ++) {
+            if (roomData[z] == null)
+                roomData[z] = new Room();
+            roomData[z] = roomdata[z];
         }
         
-        for (int i = 16; i < 21; i++) {
-            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Double", 160.0f);
-        }
         
-        for (int i = 21; i < 40; i++) {
-            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Twin", 160.0f);
-        }
-        
-        for (int i = 40; i < totalRooms; i++) {
-            roomData[i] = new Room(String.format("%02d%02d", (i / 8) + 2, (i % 8) + 1), true, "", false, "Triple", 200.0f);
-        }
-        
-        // TO instantiate payment class for all rooms at the start. 
-        for (int i = 0; i < totalRooms; i ++) {
-                totalPaymentArr[i] = new Payment();
-        }
     }
 
     public void checkIn(String roomNo, int today) {
@@ -57,9 +35,7 @@ public class RoomMgr {
         roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, today); //set roomstatus to occupied from vacant.
         
         //Create a new payment class that is associated with the room. This ensures a new payment will be available once checked in
-        totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  
-        
-        
+        PaymentMgr.newPayment(roomStrToInt(roomNo)-1);
         
     }
 
@@ -71,9 +47,7 @@ public class RoomMgr {
         //mainApp class already checked for room that it is occupied
         roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.VACANT, tomorrow); //set roomstatus to vacant from occupied.
         
-        
         //Print total bill
-        
         
     }
 
@@ -81,7 +55,7 @@ public class RoomMgr {
 
     }
     
-    public int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
+    public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
         int roomInt = 0;
         int floor = Integer.parseInt(roomStr.substring(0,2));
         int room = Integer.parseInt(roomStr.substring(roomStr.lastIndexOf("-")+1,roomStr.lastIndexOf("-")+3));
@@ -113,11 +87,11 @@ public class RoomMgr {
         
         for (int i = 0; i < totalRooms; i++) {
             RoomStatus roomStatus = roomData[i].getRoomStatus(reportDay);
-            String roomType = roomData[i].getRoomType();
+            RoomType roomType = roomData[i].getRoomType();
             
             
             switch (roomType) {
-                case "Single":
+                case SINGLE:
                     singleCount++;
                     
                     if (roomStatus == RoomStatus.OCCUPIED) {
@@ -127,7 +101,7 @@ public class RoomMgr {
                     }
                     
                     break;
-                case "Double":
+                case DOUBLE:
                     doubleCount++;
                     
                     if (roomStatus == RoomStatus.OCCUPIED) {
@@ -137,7 +111,7 @@ public class RoomMgr {
                     }
                     
                     break;
-                case "Twin":
+                case TWIN:
                     twinCount++;
                     
                     if (roomStatus == RoomStatus.OCCUPIED) {
@@ -147,7 +121,7 @@ public class RoomMgr {
                     }
                     
                     break;
-                case "Triple":
+                case TRIPLE:
                     tripleCount++;
                     
                     if (roomStatus == RoomStatus.OCCUPIED) {
@@ -229,5 +203,4 @@ public class RoomMgr {
     }
     
     public Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
-    public Payment getPayment(String roomNo){return totalPaymentArr[roomStrToInt(roomNo)-1];}
 }
