@@ -9,6 +9,7 @@
 		<nationality>SINGAPOREAN</nationality>
 		<contact>91653292</contact>
 		<creditCardDet>4632-6989-2136-7956</creditCardDet>
+                <room status="Reserved">02-01</room>
 	</Guest>
 	<Guest id = "1">
 		<name>Teset2</name>
@@ -18,5 +19,6 @@
 		<nationality>SINGAPOREAN</nationality>
 		<contact>99668292</contact>
 		<creditCardDet>1598-6359-4571-7661</creditCardDet>
+                <room status="Occupied">03-02</room>
 	</Guest>
 </root>
