@@ -54,7 +54,7 @@ public class RoomMgr {
 
     public void checkIn(String roomNo, int today) {
         //mainApp class already checked for room that it is vacant
-        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Occupied", today); //set roomstatus to occupied from vacant.
+        roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, today); //set roomstatus to occupied from vacant.
         
         //Create a new payment class that is associated with the room. This ensures a new payment will be available once checked in
         totalPaymentArr[roomStrToInt(roomNo)-1] = new Payment();  
@@ -69,7 +69,7 @@ public class RoomMgr {
 
     public void checkOut(String roomNo, int tomorrow) {
         //mainApp class already checked for room that it is occupied
-        roomData[roomStrToInt(roomNo)-1].setRoomStatus("Vacant", tomorrow); //set roomstatus to vacant from occupied.
+        roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.VACANT, tomorrow); //set roomstatus to vacant from occupied.
         
         
         //Print total bill
@@ -112,7 +112,7 @@ public class RoomMgr {
         String tripleOccupiedRooms = "";
         
         for (int i = 0; i < totalRooms; i++) {
-            String roomStatus = roomData[i].getRoomStatus(reportDay);
+            RoomStatus roomStatus = roomData[i].getRoomStatus(reportDay);
             String roomType = roomData[i].getRoomType();
             
             
@@ -120,7 +120,7 @@ public class RoomMgr {
                 case "Single":
                     singleCount++;
                     
-                    if (roomStatus.contentEquals("Occupied")) {
+                    if (roomStatus == RoomStatus.OCCUPIED) {
                         singleOccupiedCount++;
                         singleOccupiedRooms = singleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) + 
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
@@ -130,7 +130,7 @@ public class RoomMgr {
                 case "Double":
                     doubleCount++;
                     
-                    if (roomStatus.contentEquals("Occupied")) {
+                    if (roomStatus == RoomStatus.OCCUPIED) {
                         doubleOccupiedCount++;
                         doubleOccupiedRooms = doubleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
@@ -140,7 +140,7 @@ public class RoomMgr {
                 case "Twin":
                     twinCount++;
                     
-                    if (roomStatus.contentEquals("Occupied")) {
+                    if (roomStatus == RoomStatus.OCCUPIED) {
                         twinOccupiedCount++;
                         twinOccupiedRooms = twinOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
@@ -150,7 +150,7 @@ public class RoomMgr {
                 case "Triple":
                     tripleCount++;
                     
-                    if (roomStatus.contentEquals("Occupied")) {
+                    if (roomStatus == RoomStatus.OCCUPIED) {
                         tripleOccupiedCount++;
                         tripleOccupiedRooms = tripleOccupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
@@ -189,25 +189,25 @@ public class RoomMgr {
         String underMaintenanceRooms = "";
         
         for (int i = 0; i < totalRooms; i++) {
-            String roomStatus = roomData[i].getRoomStatus(reportDay);
+            RoomStatus roomStatus = roomData[i].getRoomStatus(reportDay);
             
             switch (roomStatus) {
-                case "Vacant":
+                case VACANT:
                     vacantCount++;
                     vacantRooms = vacantRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
-                case "Occupied":
+                case OCCUPIED:
                     occupiedCount++;
                     occupiedRooms = occupiedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
-                case "Reserved":
+                case RESERVED:
                     reservedCount++;
                     reservedRooms = reservedRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";
                     break;
-                case "Under Maintenance":
+                case UNDER_MAINTENANCE:
                     underMaintenanceCount++;
                     underMaintenanceRooms = underMaintenanceRooms + " " + roomData[i].getRoomNo().substring(0,2) +
                                 "-" + roomData[i].getRoomNo().substring(2,4) + ",";

@@ -32,19 +32,19 @@ public class Room {
         
         for (int i = 0; i < daysInMonth; i++) {
             int randomStatus = (int) (Math.random() * 100 % 4);
-            String status = "";
+            RoomStatus status;
             
             if (randomStatus == 0) {
-                status = "Vacant";
+                status = RoomStatus.VACANT;
             }
             else if (randomStatus == 1) {
-                status = "Occupied";
+                status = RoomStatus.OCCUPIED;
             }
             else if (randomStatus == 2) {
-                status = "Reserved";
+                status = RoomStatus.RESERVED;
             }
             else {
-                status = "Under Maintenance";
+                status = RoomStatus.UNDER_MAINTENANCE;
             }
             
             statusCalendar[i] = new RoomCalendar(status, 100);
@@ -55,7 +55,7 @@ public class Room {
     
     
     public String getRoomType() {return roomType.getBedType();}
-    public String getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
+    public RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
     public String getRoomNo() {return this.roomNo;}
 
     /**
@@ -63,7 +63,7 @@ public class Room {
      * @param roomNo
      */
     public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
-    public void setRoomStatus (String status, int day) {statusCalendar[day - 1].setStatus(status);}
+    public void setRoomStatus (RoomStatus status, int day) {statusCalendar[day - 1].setStatus(status);}
         
 
 }

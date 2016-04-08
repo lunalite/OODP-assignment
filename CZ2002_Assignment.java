@@ -12,8 +12,8 @@ public class CZ2002_Assignment {
     private static final int maxRoomNoPerFloor = 8; //Maximum room per floor
     private static final int maxFloorNo = 7; //Maximum floor number for rooms
     private static final int minFloorNo = 2; //Minimum floor number for rooms
-    private static final int currentDay = 12; //Current Day of system (Current for April alone)
-    private static final int laterDay = 15; //Current Day of system (Current for April alone)
+    private static final int currentDay = 1; //Current Day of system (Current for April alone)
+    private static final int laterDay = 4; //Current Day of system (Current for April alone)
     private static List<Guest> guestList;
     
     
@@ -60,8 +60,14 @@ public class CZ2002_Assignment {
             switch (choice) {
                 
                 case 1:
-                    
-                    
+                    /*//Start with main method for roomMgr
+                    System.out.println("(1) Room reservation");
+                    System.out.println("(2) Room Check out");
+                    System.out.println("(3) Room Status Statistics Report");
+                    System.out.print("\nEnter the number of your choice: ");
+                    int roomOption = sc.nextInt();
+                    sc.nextLine();
+                  */  
                     break;
                     
                 case 2:
@@ -98,9 +104,16 @@ public class CZ2002_Assignment {
                         
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCO) == true) {
-                            //Check if room number is available for use within system
-                            if (!roomMgr.getRoom(roomNoCO).getRoomStatus(laterDay).equals("occupied")){
-                                roomMgr.checkOut(roomNoCO, laterDay); 
+                            
+                            // check in by reservation
+                            if (roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("Reserved")){
+                                
+                            }
+                            
+                            //Walk-in check-in
+                            else if (!roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("occupied")){
+                                
+                                roomMgr.checkOut(roomNoCO, currentDay); 
                                 System.out.println("You have checked in to " + roomNoCO + " successfully.");
                             }
                         }
