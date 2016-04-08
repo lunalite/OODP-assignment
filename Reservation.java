@@ -23,6 +23,14 @@ public class Reservation {
     public int getReserveCode() {
         return this.reserveCode;
     }
+    
+    public date getCheckInDate(){
+    	return this.checkInDate;
+    }
+    
+    public date getCheckOutDate(){
+    	return this.checkOutDate;
+    }
 
     /**
      *
