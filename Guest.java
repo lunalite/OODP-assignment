@@ -37,17 +37,7 @@ public class Guest {
     public void reservationLog() {
         
     }
-    public void printDetails() {
-        System.out.println("\n========================");
-        System.out.println("Name: " + name);
-        System.out.println("Gender: " + gender);
-        System.out.println("Address: " + address);
-        System.out.println("Identity: " + identity);
-        System.out.println("Nationality: " + nationality);
-        System.out.println("Contact: " + contact);
-        System.out.println("CreditCardDet: " + creditCardDet);
-        System.out.println("========================\n");
-    }
+    
     public String getName() {return this.name;}
     public String getGender() {return this.gender;}
     public String getAddress() {return this.address;}

@@ -3,7 +3,6 @@ package cz2002_assignment;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import java.util.Iterator;
 
 
@@ -14,7 +13,6 @@ public class CZ2002_Assignment {
     private static final int minFloorNo = 2; //Minimum floor number for rooms
     private static final int currentDay = 1; //Current Day of system (Current for April alone)
     private static final int laterDay = 4; //Current Day of system (Current for April alone)
-    private static List<Guest> guestList;
     
     
     public static void main(String[] args) {
@@ -30,7 +28,7 @@ public class CZ2002_Assignment {
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(currentDay); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
-        guestList = new ArrayList(xMLMgr.getGuestList()); //initialise a list for all guests that registered under this hotel
+        GuestMgr guestMgr = new GuestMgr(xMLMgr.getGuestList());
         MenuMgr.updateList(xMLMgr.getItemMenu());
         
         do {
@@ -60,14 +58,41 @@ public class CZ2002_Assignment {
             switch (choice) {
                 
                 case 1:
-                    /*//Start with main method for roomMgr
-                    System.out.println("(1) Room reservation");
-                    System.out.println("(2) Room Check out");
-                    System.out.println("(3) Room Status Statistics Report");
+                    
+                    //Start with main method for reservationMgr
+                    System.out.println("(1) Create Room Reservation");
+                    System.out.println("(2) Update Room Reservation");
+                    System.out.println("(3) Remove Room Reservation");
+                    System.out.println("(4) Print Room Reservation");
                     System.out.print("\nEnter the number of your choice: ");
-                    int roomOption = sc.nextInt();
+                    int reservationOption = sc.nextInt();
                     sc.nextLine();
-                  */  
+                    
+                    //Create room reservation
+                    if (reservationOption == 1) {
+                        System.out.println("Please insert guest name for new reservation: ");
+                        String guestNameRes = sc.nextLine();
+                        
+                        
+                        
+                    }
+                    
+                    //Update room reservation
+                    else if (reservationOption == 2) {
+                        
+                    }
+                    //Remove room reservation
+                    else if (reservationOption == 2) {
+                        
+                    }
+                    
+                    //Print room reservation
+                    else if (reservationOption == 2) {
+                            
+                    }
+                    
+                    System.out.println("");
+                    
                     break;
                     
                 case 2:
@@ -165,7 +190,6 @@ public class CZ2002_Assignment {
                         if (!roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay).equals("Occupied")){
                             break;
                         }
-                        // End check room
 
                         System.out.println("(1) Show Menu (Adding of orders)");
                         System.out.println("(2) Check order");
@@ -225,7 +249,6 @@ public class CZ2002_Assignment {
 
                         }
                     }
-                    // End of ordering room service menu items
                     
                     // Start of creation for room service items
                     else if (roomSOption == 2) {
@@ -239,7 +262,6 @@ public class CZ2002_Assignment {
                         MenuMgr.createItem(nameItemCreate, descItemCreate, priceItemCreate);
                         System.out.println("Item created.");
                     }
-                    // End of creation for room service items
                     
                     // Start of update for room service items
                     else if (roomSOption == 3) {
@@ -289,7 +311,6 @@ public class CZ2002_Assignment {
                             }
                         }
                     }
-                    // End of update for room service items
                     
                     // Start of removal of room service items
                     else if (roomSOption == 4) {
@@ -299,7 +320,6 @@ public class CZ2002_Assignment {
                         MenuMgr.removeItem(itemMenuIndex);
                         System.out.println("Item is removed.");
                     }
-                    // End of removal of room service items
                     
                     System.out.println("");
                     
@@ -321,7 +341,6 @@ public class CZ2002_Assignment {
                     if (!roomMgr.getRoom(roomNumber_4).getRoomStatus(currentDay).equals("Occupied")){
                         break;
                     }
-                    // End check room
                     
                     //Start with main method for Payment
                     System.out.println("(1) Check Bill");
@@ -363,9 +382,6 @@ public class CZ2002_Assignment {
                     
                 case 5:
                     
-                    // initialise a iterator
-                    Iterator<Guest> guestListItr = guestList.iterator();
-                    
                     //Start of main method for Guest class
                     System.out.println("(1) Add new guest details");
                     System.out.println("(2) Check guest details");
@@ -375,26 +391,8 @@ public class CZ2002_Assignment {
                     
                     // Adding new guest details
                     if (guestOption == 1) {
-                        System.out.println("Please insert name of guest to be added: ");
-                        String name2B = sc.nextLine();
-                        System.out.println("Please insert gender of guest to be added: ");
-                        String gender2B = sc.nextLine();
-                        System.out.println("Please insert address of guest to be added: ");
-                        String address2B = sc.nextLine();
-                        System.out.println("Please insert identity of guest to be added: ");
-                        String identity2B = sc.nextLine();
-                        System.out.println("Please insert nationality of guest to be added: ");
-                        String nat2B = sc.nextLine();
-                        System.out.println("Please insert contact of guest to be added: ");
-                        String contact2 = sc.nextLine();
-                        int contact2B = Integer.parseInt(contact2);
-                        System.out.println("Please insert credit card details of guest to be added: ");
-                        String ccd2B = sc.nextLine();
-                        guestList.add(new Guest(name2B, gender2B, address2B, identity2B, nat2B, contact2B, ccd2B));
-                        
-                        //Add to guestList.XML
+                        guestMgr.addGuest();
                     }
-                    //End of adding new guest details
                     
                     // Checking for guest details
                     else if (guestOption == 2) {
@@ -403,44 +401,30 @@ public class CZ2002_Assignment {
                         int guestSearchOption = sc.nextInt();     
                         sc.nextLine(); //Flush away null character
                         
+                        // Searching of guest by name
                         if (guestSearchOption == 1) {
                             System.out.println("Please insert name of guest (part of or whole) to be searched:");
                             String guestSearchName = sc.nextLine();
-                            boolean guestFound = false;
-                            
-                            while (guestListItr.hasNext()){
-                                Guest g = guestListItr.next();
-                                if (g.getName().contains(guestSearchName)){
-                                    System.out.println("Is the guest name " + g.getName() + "? (y/n)");
-                                    String guestNameConfirm = sc.nextLine();
-                                    
-                                    if (guestNameConfirm.equals("y")) {
-                                        //print out details
-                                        g.printDetails();
-                                        guestFound = true;
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                        if (guestFound == false)
-                            System.out.println("No such name of guest is available.");
+                            Guest g = guestMgr.searchGuestByName(guestSearchName);
+                            if (g != null)
+                                guestMgr.printGuestDetails(g);
                         }
                         
                         // Searching of guests through Room number not yet implemented
                         else if (guestSearchOption == 2) {
                             System.out.println("Please insert room number of guest to be searched:");
                             String guestSearchRoom = sc.nextLine();
-                            
+                            Guest g = guestMgr.searchGuestByRoom(guestSearchRoom);
+                            if (g != null)
+                                
+                                guestMgr.printGuestDetails(g);
                         }
                     }
-                    // End of Checking for guest details
                     
                     // Updating of guest details
                     else if (guestOption == 3) {
                         
                     }
-                    // End of updating for guest details
                     
                     System.out.println("");
                     

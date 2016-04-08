@@ -46,6 +46,7 @@ public class XMLMgr {
     
     public void fromXML(){
         try {	
+            System.out.println("XML files are being uploaded...");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             
@@ -68,7 +69,7 @@ public class XMLMgr {
                     guestXMLAttrStart = Integer.parseInt(eElement.getAttribute("id"));
                 }
             }
-            // End import for guest XML file  
+            System.out.println("guest XML files are uploaded.");
             
             // importing of itemMenu list
              doc = dBuilder.parse(itemFile);
@@ -85,8 +86,8 @@ public class XMLMgr {
                     itemXMLAttrStart = Integer.parseInt(eElement.getAttribute("id"));
                 }
             }
-            // End import for itemMenu list
-            
+            System.out.println("itemMenu XML files are uploaded.");
+            System.out.println("");
         }   
         catch (Exception e) {e.printStackTrace();}
         
