@@ -60,14 +60,49 @@ public class CZ2002_Assignment {
             switch (choice) {
                 
                 case 1:
-                    /*//Start with main method for roomMgr
                     System.out.println("(1) Room reservation");
                     System.out.println("(2) Room Check out");
                     System.out.println("(3) Room Status Statistics Report");
                     System.out.print("\nEnter the number of your choice: ");
-                    int roomOption = sc.nextInt();
-                    sc.nextLine();
-                  */  
+                    int reservationOption = sc.nextInt();
+                      
+                  if (reservationOption == 1) {
+                        System.out.println("Please insert guest name for new reservation: ");
+                        String guestNameRes = sc.nextLine();
+                        ReservationMgr.createReservation();
+                        
+                        
+                    }
+                    
+                    //Update room reservation
+                    else if (reservationOption == 2) {
+                    	//Need to check if reservation code is valid?
+                    	System.out.println("Please enter your reservation code: ");
+                        Int resCode = sc.nextInt();
+                        ReservationMgr.updateReservation(resCode);
+                    	
+                    }
+                    //Remove room reservation
+                    else if (reservationOption == 3) {
+                    	//Need to check if reservation code is valid?
+                    	System.out.println("Please enter your reservation code: ");
+                    	Int resCode = sc.nextInt();
+                    	ReservationMgr.removeReservation(resCode);
+                    	
+                    	
+                    }
+                    
+                    //Print room reservation
+                    else if (reservationOption == 4) {
+                    	//Need to check if reservation code is valid?
+                    	System.out.println("Please enter your reservation code: ");
+                    	Int resCode = sc.nextInt();
+                    	
+                    	
+                    	
+                    }
+                    
+                    System.out.println("Thank you for your patronage");
                     break;
                     
                 case 2:
