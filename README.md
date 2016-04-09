@@ -10,10 +10,7 @@ Presently, the IDE we are using is Netbeans.
 
 Required
 - Adding the storing of data from file array to XML
-- Change roomType to enum instead of a class
 - Converting randomised room status to XML file upload
-- ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
-- ~~Still require for more food items and better description~~
 - Payment method for checking in/out not implemented yet
 - ~~Create~~/Update/~~Search~~ guests detail (Search by name using keyword/s) 
 - Create/Update/Remove/Print reservation
@@ -22,6 +19,9 @@ Required
 - Check room availability
 - Room Check-in (for ~~walk-in~~ or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+- ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
+- ~~Still require for more food items and better description~~
+- ~~Change roomType to enum instead of a class~~
 - ~~Probably include enum usage for roomStatus so that it will induce less error (Can someone implement this?)~~
 - ~~Entering room service orders~~ 
 - ~~list menu items for selection~~
