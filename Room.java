@@ -9,8 +9,11 @@ public class Room {
     private boolean wifiEnabled;
     private String faceView;
     private boolean smoking;
+
     private RoomType roomType;
     private RoomCalendar[] statusCalendar;
+
+    
 
     Room() {
 
@@ -53,15 +56,28 @@ public class Room {
     
     
     public RoomType getRoomType() {return roomType;}
-    public RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
-    public String getRoomNo() {return this.roomNo;}
+    public void setRoomType(RoomType roomType) {this.roomType = roomType;}
+    
 
     /**
      *
      * @param roomNo
      */
+    public String getRoomNo() {return this.roomNo;}
     public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
+    
+    public RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
     public void setRoomStatus (RoomStatus status, int day) {statusCalendar[day - 1].setStatus(status);}
-        
+   
+    public boolean getIsWifiEnabled() {return wifiEnabled;}
+    public void setWifiEnabled(boolean wifiEnabled) {this.wifiEnabled = wifiEnabled;}
+    
+    public String getFaceView() {return faceView;}
+    public void setFaceView(String faceView) {this.faceView = faceView;}
+    
+    public boolean getIsSmokingAllowed() {return smoking;}
+    public void setSmokingAllowed(boolean smoking) {this.smoking = smoking;}
+    
+    public RoomCalendar[] getStatusCalendar() {return statusCalendar;}
 
 }

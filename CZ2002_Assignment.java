@@ -109,6 +109,8 @@ public class CZ2002_Assignment {
                     System.out.println("(1) Room Check in");
                     System.out.println("(2) Room Check out");
                     System.out.println("(3) Room Status Statistics Report");
+                    System.out.println("(4) Room Availability Check");
+                    System.out.println("(5) Update Room Details");
                     System.out.print("\nEnter the number of your choice: ");
                     int roomOption = sc.nextInt();
                     sc.nextLine();
@@ -139,7 +141,7 @@ public class CZ2002_Assignment {
                     
                     //Check out procedures
                     else if (roomOption == 2) {
-                        System.out.println("Please enter room number (e.g. 02-05): ");
+                        System.out.print("Please enter room number (e.g. 02-05): ");
                         String roomNoCO = sc.nextLine();
                         
                         //Check if room number is present in system
@@ -174,8 +176,136 @@ public class CZ2002_Assignment {
                             int reportDay = sc.nextInt();
                             roomMgr.getStatusReport(reportDay);
                         }
+                        
+                        System.out.println("");
                     }
-                    System.out.println("");
+                    
+                    //Check Room Availability
+                    else if (roomOption == 4) {
+                        System.out.print("Please enter room number (e.g. 02-05): ");
+                        String roomNoCA = sc.nextLine();
+                        
+                        //Check if room number is present in system
+                        if (roomNoCheck(roomNoCA)) {
+                            
+                            System.out.print("Please the day to check : ");
+                            int checkDay = sc.nextInt();
+                            
+                            if (roomMgr.getRoom(roomNoCA).getRoomStatus(checkDay).equals(RoomStatus.VACANT)){
+                                System.out.println("Room " + roomNoCA + " is available on " + checkDay + " April.");
+                            }
+                            else {
+                                System.out.println("Room " + roomNoCA + " is not available on " + checkDay + " April.");
+                            }
+                        }
+                        System.out.println("");
+                    }
+                    
+                    //Update Room Details
+                    else if (roomOption == 5) {
+                        System.out.print("Please enter room number (e.g. 02-05): ");
+                        String roomNoURD = sc.nextLine();
+                        
+                        //Check if room number is present in system
+                        if (roomNoCheck(roomNoURD)) {
+                            
+                            int updateOption = -1;
+                            
+                            while(updateOption != 0) {
+                                System.out.println("-------------------------------------------");
+                                System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo());
+                                System.out.println("(1) Room Type       : " + roomMgr.getRoom(roomNoURD).getRoomType().toString());
+                                System.out.println("(2) Wifi Enabled    : " + (roomMgr.getRoom(roomNoURD).getIsWifiEnabled() ? "YES" : "NO") );
+                                System.out.println("(3) Smoking Allowed : " + (roomMgr.getRoom(roomNoURD).getIsSmokingAllowed() ? "YES" : "NO") );
+                                System.out.println("(4) Room Face View  : " + roomMgr.getRoom(roomNoURD).getFaceView());
+                                System.out.println("(5) Room Status");
+                                System.out.println("(0) Back to Main Menu");
+
+                                System.out.print("Update Option : ");
+                                updateOption = sc.nextInt();
+                                
+                                if (updateOption == 1){
+                                    System.out.println("(1) Single");
+                                    System.out.println("(2) Double");
+                                    System.out.println("(3) Twin");
+                                    System.out.println("(4) Triple");
+                                    System.out.print("Change Room Type to : ");
+                                    
+                                    int updateRoomType = sc.nextInt();
+                                    if (updateRoomType == 1) {
+                                        roomMgr.getRoom(roomNoURD).setRoomType(RoomType.SINGLE);
+                                    }
+                                    else if (updateRoomType == 2) {
+                                        roomMgr.getRoom(roomNoURD).setRoomType(RoomType.DOUBLE);
+                                    }
+                                    else if (updateRoomType == 3) {
+                                        roomMgr.getRoom(roomNoURD).setRoomType(RoomType.TWIN);
+                                    }
+                                    else if (updateRoomType == 4) {
+                                        roomMgr.getRoom(roomNoURD).setRoomType(RoomType.TRIPLE);
+                                    }
+                                    
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Room Type changed to " + roomMgr.getRoom(roomNoURD).getRoomType().toString());
+                                
+                                }
+                                else if (updateOption == 2) {
+                                    roomMgr.getRoom(roomNoURD).setWifiEnabled(!roomMgr.getRoom(roomNoURD).getIsWifiEnabled());
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Wifi Enabled status switched to " + (roomMgr.getRoom(roomNoURD).getIsWifiEnabled() ? "YES" : "NO"));
+                                }
+                                else if (updateOption == 3) {
+                                    roomMgr.getRoom(roomNoURD).setSmokingAllowed(!roomMgr.getRoom(roomNoURD).getIsSmokingAllowed());
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Smoking Allowance switched to " + (roomMgr.getRoom(roomNoURD).getIsSmokingAllowed() ? "YES" : "NO"));
+                                }
+                                else if (updateOption == 4) {
+                                    sc.nextLine(); //Consume previous nextInt trailing space 
+                                    System.out.print("New Room Face View Description : ");
+                                    String updateFaceView = sc.nextLine();
+                                    roomMgr.getRoom(roomNoURD).setFaceView(updateFaceView);
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Face View description changed to " + roomMgr.getRoom(roomNoURD).getFaceView());
+                                }
+                                else if (updateOption == 5) {
+                                    for (int i = 1; i <= roomMgr.getRoom(roomNoURD).getStatusCalendar().length; i++) {
+                                        System.out.print(String.format("%3s - %-18s", "" + i, roomMgr.getRoom(roomNoURD).getRoomStatus(i)));
+                                        if (i % 7 == 0) {
+                                            System.out.println("");
+                                        }
+                                        else {
+                                            System.out.print("|");
+                                        }
+                                    }
+                                    System.out.println("");
+                                    System.out.print("Day to update : ");
+                                    int updateDay = sc.nextInt();
+                                    
+                                    System.out.println("(1) Vacant");
+                                    System.out.println("(2) Occupied");
+                                    System.out.println("(3) Reserved");
+                                    System.out.println("(4) Under maintenance");
+                                    System.out.print("Update " + updateDay + " to : ");
+                                    
+                                    int newStatus = sc.nextInt();
+                                    
+                                    if (newStatus == 1) {
+                                        roomMgr.getRoom(roomNoURD).setRoomStatus(RoomStatus.VACANT, updateDay);
+                                    }
+                                    else if (newStatus == 2) {
+                                        roomMgr.getRoom(roomNoURD).setRoomStatus(RoomStatus.OCCUPIED, updateDay);
+                                    }
+                                    else if (newStatus == 3) {
+                                        roomMgr.getRoom(roomNoURD).setRoomStatus(RoomStatus.RESERVED, updateDay);
+                                    }
+                                    else if (newStatus == 4) {
+                                        roomMgr.getRoom(roomNoURD).setRoomStatus(RoomStatus.UNDER_MAINTENANCE, updateDay);
+                                    }
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Room Status on " + updateDay + " April changed to " + roomMgr.getRoom(roomNoURD).getRoomStatus(updateDay));
+                                
+                                    
+                                }
+                                
+                                System.out.println("");
+                            }
+                        }
+                    }
                     
                     break;
                     
