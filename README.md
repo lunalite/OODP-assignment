@@ -9,17 +9,20 @@ Presently, the IDE we are using is Netbeans.
 - Added update for guest details
 - Added check room availability
 - Added update rooms details
+- Added XML upload for roomList, roomCalendar
+- Changed the randomised room status to using XML file.
 
 
 Required
 - Adding the storing of data from file array to XML
-- Converting randomised room status to XML file upload
+
 - Payment method for checking in/out not implemented yet
 - Create/Update/Remove/Print reservation
 - Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
 - ~~Check room availability~~
 - Room Check-in (for ~~walk-in~~ or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+- ~~Converting randomised room status to XML file upload~~
 - ~~Create/Update/Remove room service menu items.~~
 - ~~Create/Update/Search guests detail (Search by name using keyword/s)~~
 - ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
