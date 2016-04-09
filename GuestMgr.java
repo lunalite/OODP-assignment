@@ -13,6 +13,7 @@ public class GuestMgr {
     public GuestMgr(List<Guest> gL) {
         //initialise a list for all guests that registered under this hotel
         guestList = new ArrayList(gL);
+        System.out.println("Added to guestList");
     }
     
     public void addGuest() {
@@ -22,7 +23,7 @@ public class GuestMgr {
             String gender2B = sc.nextLine();
             System.out.println("Please insert address of guest to be added: ");
             String address2B = sc.nextLine();
-            System.out.println("Please insert identity of guest to be added: ");
+            System.out.println("Please insert IC of guest to be added: ");
             String identity2B = sc.nextLine();
             System.out.println("Please insert nationality of guest to be added: ");
             String nat2B = sc.nextLine();
@@ -62,8 +63,8 @@ public class GuestMgr {
         System.out.println("\n========================");
         System.out.println("Name: " + g.getName());
         System.out.println("Gender: " + g.getGender());
+        System.out.println("IC: " + g.getIdentity());
         System.out.println("Address: " + g.getAddress());
-        System.out.println("Identity: " + g.getIdentity());
         System.out.println("Nationality: " + g.getNationality());
         System.out.println("Contact: " + g.getContact());
         System.out.println("CreditCardDet: " + g.getCreditCardDet());
@@ -71,4 +72,5 @@ public class GuestMgr {
     }
    
     public List<Guest> getGuestList(){return guestList;}
+    
 }

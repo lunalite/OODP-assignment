@@ -159,9 +159,16 @@ public class CZ2002_Assignment {
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCI) == true) {
                             
-                            //Check if room number is available for use within system
+                            //Walk-in check-in
                             if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("vacant")){
                                 roomMgr.checkIn(roomNoCI, currentDay); 
+                                System.out.println("You have checked in to " + roomNoCI + " successfully.");
+                            }
+                            
+                            // check in by reservation
+                            else if (roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("Reserved")){
+                                // getName of guest. Confirm if it is true. If yes,
+                                roomMgr.checkIn(roomNoCI, currentDay);
                                 System.out.println("You have checked in to " + roomNoCI + " successfully.");
                             }
                         }
@@ -176,16 +183,13 @@ public class CZ2002_Assignment {
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCO) == true) {
                             
-                            // check in by reservation
-                            if (roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("Reserved")){
-                                
-                            }
-                            
-                            //Walk-in check-in
-                            else if (!roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("occupied")){
+                            if (!roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("occupied")){
                                 
                                 roomMgr.checkOut(roomNoCO, currentDay); 
-                                System.out.println("You have checked in to " + roomNoCO + " successfully.");
+                                System.out.println("You have checked out of " + roomNoCO + " successfully.");
+                                
+                                // Print payment
+                                
                             }
                         }
                         System.out.println("");
@@ -224,6 +228,7 @@ public class CZ2002_Assignment {
                     
                     // Start of ordering room service menu items
                     if (roomSOption == 1) {
+                        
                         // Entering of room number for roomServiceMgr
                         System.out.println("Please enter your room number: ");
                         String roomNumber_3 = sc.nextLine();
@@ -244,7 +249,8 @@ public class CZ2002_Assignment {
                         sc.nextLine() ; // flush away null character
 
                         if (roomServOption == 1) {
-                                List<Item> itemOrder = new ArrayList(); //Create a stack of itemOrder list of items ordered                        
+                                //Create a stack of itemOrder list of items ordered locally                       
+                                List<Item> itemOrder = new ArrayList(); 
                             do {           
                                 roomServiceMgr.showMenu();
                                 System.out.println("Select item for further description and purchase. (-1 to exit)");
@@ -471,7 +477,96 @@ public class CZ2002_Assignment {
                     
                     // Updating of guest details
                     else if (guestOption == 3) {
-                        
+                        System.out.println("Please insert name of guest (part of or whole) to be searched:");
+                        String guestSearchName = sc.nextLine();
+                        Guest g = guestMgr.searchGuestByName(guestSearchName);
+                        if (g != null) {
+                            guestMgr.printGuestDetails(g);
+                            System.out.println("(1) Update name");
+                            System.out.println("(2) Update gender");
+                            System.out.println("(3) Update identity");
+                            System.out.println("(4) Update address");
+                            System.out.println("(5) Update nationality");
+                            System.out.println("(6) Update contact");
+                            System.out.println("(7) Update credit card details");
+                            System.out.println("(8) Update everything");
+                            int guestUpdateOption = sc.nextInt();
+                            sc.nextLine(); //flush
+                            //Update name
+                            if (guestUpdateOption == 1) {
+                                System.out.println("Please insert new name: ");
+                                String newGuestName = sc.nextLine();
+                                g.setName(newGuestName);
+                                System.out.println("Details updated.");
+                            }
+                            // Update gender
+                            else if (guestUpdateOption == 2) {
+                                System.out.println("Please insert new gender: ");
+                                String newGuestGender = sc.nextLine();
+                                g.setGender(newGuestGender);
+                                System.out.println("Details updated.");
+                            }
+                            // Update identity
+                            else if (guestUpdateOption == 3) {
+                                System.out.println("Please insert new IC: ");
+                                String newGuestIC = sc.nextLine();
+                                g.setIdentity(newGuestIC);
+                                System.out.println("Details updated.");
+                            }
+                            // Update address
+                            else if (guestUpdateOption == 4) {
+                                System.out.println("Please insert new address: ");
+                                String newGuestAddress = sc.nextLine();
+                                g.setAddress(newGuestAddress);
+                                System.out.println("Details updated.");
+                            }
+                            // Update nationality
+                            else if (guestUpdateOption == 5) {
+                                System.out.println("Please insert new nationality: ");
+                                String newGuestNat = sc.nextLine();
+                                g.setNationality(newGuestNat);
+                                System.out.println("Details updated.");
+                            }
+                            // Update contact
+                            else if (guestUpdateOption == 6) {
+                                System.out.println("Please insert new contact: ");
+                                String newGuestCont = sc.nextLine();
+                                g.setContact(Integer.parseInt(newGuestCont));
+                                System.out.println("Details updated.");
+                            }
+                            // Update credit card details
+                            else if (guestUpdateOption == 7) {
+                                System.out.println("Please insert new credit card details: ");
+                                String newGuestCCD = sc.nextLine();
+                                g.setCreditCardDet(newGuestCCD);
+                                System.out.println("Details updated.");
+                            }
+                            // Update everything
+                            else if (guestUpdateOption == 8) {
+                                System.out.println("Please insert new name: ");
+                                String newGuestName = sc.nextLine();
+                                g.setName(newGuestName);
+                                System.out.println("Please insert new gender: ");
+                                String newGuestGender = sc.nextLine();
+                                g.setGender(newGuestGender);                                
+                                System.out.println("Please insert new IC: ");
+                                String newGuestIC = sc.nextLine();
+                                g.setIdentity(newGuestIC);        
+                                System.out.println("Please insert new address: ");
+                                String newGuestAddress = sc.nextLine();
+                                g.setAddress(newGuestAddress);                                  
+                                System.out.println("Please insert new nationality: ");
+                                String newGuestNat = sc.nextLine();
+                                g.setNationality(newGuestNat);            
+                                System.out.println("Please insert new contact: ");
+                                String newGuestCont = sc.nextLine();
+                                g.setContact(Integer.parseInt(newGuestCont));
+                                System.out.println("Please insert new credit card details: ");
+                                String newGuestCCD = sc.nextLine();
+                                g.setCreditCardDet(newGuestCCD);
+                                System.out.println("Details updated.");
+                            }
+                        }
                     }
                     
                     System.out.println("");

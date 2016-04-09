@@ -57,12 +57,13 @@ public class XMLMgr {
             // importing of guestList data from XML file
             doc = dBuilder.parse(guestFile);
             doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("Guest");
+            NodeList nList = doc.getElementsByTagName("guest");
             
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
+                    System.out.println(eElement.getElementsByTagName("name").item(0).getTextContent());
                     guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
                             eElement.getElementsByTagName("gender").item(0).getTextContent(),
                             eElement.getElementsByTagName("identity").item(0).getTextContent(),
