@@ -3,10 +3,12 @@ Remember to save project/package name as CZ2002_Assignment.
 Presently, the IDE we are using is Netbeans.
 
 ---
-#### Edit 09/04/16 - HD, J
+#### Edit 09/04/16 - HD, J, Sam
 - Reservation methods halfway done
 - Added storing of data for guestList to XML
 - Added update for guest details
+- Added check room availability
+- Added update rooms details
 
 
 Required
@@ -14,8 +16,8 @@ Required
 - Converting randomised room status to XML file upload
 - Payment method for checking in/out not implemented yet
 - Create/Update/Remove/Print reservation
-- Create/Update rooms details (include setting status like ‘Under Maintenance”,
-- Check room availability
+- Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
+- ~~Check room availability~~
 - Room Check-in (for ~~walk-in~~ or reservation)
 - Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
 - ~~Create/Update/Remove room service menu items.~~
