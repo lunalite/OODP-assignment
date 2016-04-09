@@ -70,4 +70,5 @@ public class GuestMgr {
         System.out.println("========================\n");
     }
    
+    public List<Guest> getGuestList(){return guestList;}
 }

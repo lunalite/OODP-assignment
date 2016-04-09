@@ -266,7 +266,7 @@ public class CZ2002_Assignment {
 
                                 //Create order object to prepare for addition of items
                                 double bill = roomServiceMgr.createOrder(roomNumber_3 ,itemOrder, remarks); 
-                                roomMgr.getPayment(roomNumber_3).setRoomServiceBill(bill);
+                                paymentMgr.getPayment(roomNumber_3).setRoomServiceBill(bill);
                             }
                         }
 
@@ -480,7 +480,9 @@ public class CZ2002_Assignment {
                 case 6: 
                     break;
                 case 7:
+                    xMLMgr.toXML(guestMgr.getGuestList());
                     System.out.println("Program terminating ....");
+                    break;
             }
             
         } while (choice < 7);

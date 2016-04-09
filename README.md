@@ -7,7 +7,6 @@ Presently, the IDE we are using is Netbeans.
 - Changed all roomStatus to enum type
 - Created a guestMgr to handle all guest details
 - Added food items
-- Added storing of data for guestList to XML
 
 Required
 - Adding the storing of data from file array to XML

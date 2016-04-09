@@ -1,0 +1,1149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<root>
+    <room num="0201">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0202">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0203">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0204">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0205">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0206">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0207">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0208">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0301">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0302">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0303">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0304">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0305">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0306">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0307">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0308">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0401">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0402">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0403">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0404">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0405">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0406">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0407">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0408">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0501">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0502">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0503">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0504">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0505">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+    <room num="0506">
+        <day date="1">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="2">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="3">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="4">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="5">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="6">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="7">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="8">
+            <status></status>
+            <rate></rate>
+        </day>
+        <day date="9">
+            <status></status>
+            <rate></rate>
+        </day>
+    </room>
+</root>
