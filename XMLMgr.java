@@ -37,14 +37,17 @@ public class XMLMgr {
     private static final String guestXMLFilePath = directory + "guestList.xml";
     private static final String itemXMLFilePath = directory + "itemMenu.xml";
     private static final String roomXMLFilePath = directory + "roomList.xml";
+    private static final String roomCalXMLFilePath = directory + "roomCalendar.xml";
     private static File guestFile = new File(guestXMLFilePath);
     private static File itemFile = new File(itemXMLFilePath);
     private static File roomFile = new File(roomXMLFilePath);
+    private static File roomCalFile = new File(roomCalXMLFilePath);
     
     private static Document doc;
     private static List<Guest> guestList = new ArrayList();
     private static List<Item> itemMenu = new ArrayList();
     private static Room[] roomData = new Room[RoomMgr.totalRooms];
+    private static RoomCalendar[][] statusCalendar = new RoomCalendar[RoomMgr.totalRooms][30];
     
 
     
@@ -53,7 +56,8 @@ public class XMLMgr {
             System.out.println("XML files are being uploaded...");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            
+            dbFactory.setIgnoringElementContentWhitespace(true);
+
             // importing of guestList data from XML file
             doc = dBuilder.parse(guestFile);
             doc.getDocumentElement().normalize();
@@ -63,7 +67,6 @@ public class XMLMgr {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                    System.out.println(eElement.getElementsByTagName("name").item(0).getTextContent());
                     guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
                             eElement.getElementsByTagName("gender").item(0).getTextContent(),
                             eElement.getElementsByTagName("identity").item(0).getTextContent(),
@@ -96,18 +99,46 @@ public class XMLMgr {
             doc.getDocumentElement().normalize();
             nList = doc.getElementsByTagName("room");
             
+            int counter = 0;
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-                        roomData[temp] = new Room(eElement.getAttribute("num"),
+                        roomData[counter] = new Room(eElement.getAttribute("num"),
                         Boolean.parseBoolean(eElement.getElementsByTagName("wifienabled").item(0).getTextContent()),
                         eElement.getElementsByTagName("faceview").item(0).getTextContent(),
                         Boolean.parseBoolean(eElement.getElementsByTagName("smoking").item(0).getTextContent()),
                         RoomType.valueOf(eElement.getElementsByTagName("roomtype").item(0).getTextContent()));
+                    counter ++;
                 }
             }
             System.out.println("roomData XML files are uploaded.");
+            
+            // importing of roomCalendar data from XML file
+            doc = dBuilder.parse(roomCalFile);
+            doc.getDocumentElement().normalize();
+            nList = doc.getElementsByTagName("room");
+            
+            int counterOut = 0;
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE){
+                    NodeList childNodeList = nNode.getChildNodes();
+                    counter = 0;
+                    for (int j = 0; j < childNodeList.getLength(); j ++) {
+                        Node childNode = childNodeList.item(j);
+                        if (childNode.getNodeType() == Node.ELEMENT_NODE){
+                            Element eElement = (Element) childNode;
+                            statusCalendar[counterOut][counter] = new RoomCalendar(
+                                RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent()),
+                                Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()));
+                            counter ++;
+                        }
+                    }
+                    counterOut++;
+                }
+            }
+            System.out.println("roomCalendar XML files are uploaded.");
             
             System.out.println("");
         }   
@@ -125,6 +156,7 @@ public class XMLMgr {
             // Initialise the document builder
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbFactory.newDocumentBuilder();
+            dbFactory.setIgnoringElementContentWhitespace(true);
             doc = builder.newDocument();
             
             Element rootElement = doc.createElement("Root");
@@ -145,9 +177,7 @@ public class XMLMgr {
                 Element contact = doc.createElement("contact");
                 Element ccd = doc.createElement("creditCardDet");
             
-                
                 Guest g = guestListItr.next();
-                System.out.println(g.getName());
                 
                 name.appendChild(doc.createTextNode(g.getName()));
                 gen.appendChild(doc.createTextNode(g.getGender()));
@@ -189,4 +219,5 @@ public class XMLMgr {
     public List<Guest> getGuestList(){return guestList;}
     public List<Item> getItemMenu(){return itemMenu;}
     public Room[] getRoomData(){return roomData;}   
+    public RoomCalendar[][] getRoomCalData(){return statusCalendar;}
 }

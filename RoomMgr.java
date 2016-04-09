@@ -8,14 +8,12 @@ import java.util.List;
 public class RoomMgr {
 
     public static final int totalRooms  = 48;
-    private int currentDay;
     
     private Date timeStamp; //Useless variable for now
     private Room[] roomData; //Record of all the rooms
 
-    RoomMgr(int today, Room[] roomdata) {
+    RoomMgr(Room[] roomdata, RoomCalendar[][] statusCal) {
         roomData = new Room[totalRooms];
-        currentDay = today; //Ensure the day's date is known
         
         // 48 rooms from floors 02 - 07
         // 6 Floors with 8 rooms each
@@ -24,7 +22,10 @@ public class RoomMgr {
         for (int z = 0; z < totalRooms; z ++) {
             if (roomData[z] == null)
                 roomData[z] = new Room();
+            
             roomData[z] = roomdata[z];
+            roomData[z].importRoomCal(statusCal[z]);
+            
         }
         
         
