@@ -8,11 +8,11 @@ import java.util.Iterator;
 
 public class CZ2002_Assignment {
 
-    private static final int maxRoomNoPerFloor = 8; //Maximum room per floor
-    private static final int maxFloorNo = 7; //Maximum floor number for rooms
-    private static final int minFloorNo = 2; //Minimum floor number for rooms
-    private static final int currentDay = 1; //Current Day of system (Current for April alone)
-    private static final int laterDay = 4; //Current Day of system (Current for April alone)
+    public static final int maxRoomNoPerFloor = 8; //Maximum room per floor
+    public static final int maxFloorNo = 7; //Maximum floor number for rooms
+    public static final int minFloorNo = 2; //Minimum floor number for rooms
+    public static final int currentDay = 1; //Current Day of system (Current for April alone)
+    public static final int laterDay = 4; //Current Day of system (Current for April alone)
     
     
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class CZ2002_Assignment {
         
         // initialising of the related control classes
         ReservationMgr reservationMgr = new ReservationMgr();
-        RoomMgr roomMgr = new RoomMgr(currentDay, xMLMgr.getRoomData()); // Create all rooms
+        RoomMgr roomMgr = new RoomMgr(xMLMgr.getRoomData(), xMLMgr.getRoomCalData()); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
         GuestMgr guestMgr = new GuestMgr(xMLMgr.getGuestList());
         MenuMgr.updateList(xMLMgr.getItemMenu());
@@ -117,7 +117,7 @@ public class CZ2002_Assignment {
                     
                     // Check in procedures
                     if (roomOption == 1) {
-                        System.out.println("Please enter room number (e.g. 02-05): ");
+                        System.out.print("Please enter room number (e.g. 02-05): ");
                         String roomNoCI = sc.nextLine();
                         
                         //Check if room number is present in system
@@ -141,7 +141,7 @@ public class CZ2002_Assignment {
                     
                     //Check out procedures
                     else if (roomOption == 2) {
-                        System.out.print("Please enter room number (e.g. 02-05): ");
+                        System.out.println("Please enter room number (e.g. 02-05): ");
                         String roomNoCO = sc.nextLine();
                         
                         //Check if room number is present in system
@@ -176,8 +176,6 @@ public class CZ2002_Assignment {
                             int reportDay = sc.nextInt();
                             roomMgr.getStatusReport(reportDay);
                         }
-                        
-                        System.out.println("");
                     }
                     
                     //Check Room Availability
@@ -245,23 +243,27 @@ public class CZ2002_Assignment {
                                         roomMgr.getRoom(roomNoURD).setRoomType(RoomType.TRIPLE);
                                     }
                                     
-                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Room Type changed to " + roomMgr.getRoom(roomNoURD).getRoomType().toString());
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() 
+                                            + " Room Type changed to " + roomMgr.getRoom(roomNoURD).getRoomType().toString());
                                 
                                 }
                                 else if (updateOption == 2) {
                                     roomMgr.getRoom(roomNoURD).setWifiEnabled(!roomMgr.getRoom(roomNoURD).getIsWifiEnabled());
-                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Wifi Enabled status switched to " + (roomMgr.getRoom(roomNoURD).getIsWifiEnabled() ? "YES" : "NO"));
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() 
+                                            + " Wifi Enabled status switched to " + (roomMgr.getRoom(roomNoURD).getIsWifiEnabled() ? "YES" : "NO"));
                                 }
                                 else if (updateOption == 3) {
                                     roomMgr.getRoom(roomNoURD).setSmokingAllowed(!roomMgr.getRoom(roomNoURD).getIsSmokingAllowed());
-                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Smoking Allowance switched to " + (roomMgr.getRoom(roomNoURD).getIsSmokingAllowed() ? "YES" : "NO"));
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() 
+                                            + " Smoking Allowance switched to " + (roomMgr.getRoom(roomNoURD).getIsSmokingAllowed() ? "YES" : "NO"));
                                 }
                                 else if (updateOption == 4) {
                                     sc.nextLine(); //Consume previous nextInt trailing space 
                                     System.out.print("New Room Face View Description : ");
                                     String updateFaceView = sc.nextLine();
                                     roomMgr.getRoom(roomNoURD).setFaceView(updateFaceView);
-                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Face View description changed to " + roomMgr.getRoom(roomNoURD).getFaceView());
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() 
+                                            + " Face View description changed to " + roomMgr.getRoom(roomNoURD).getFaceView());
                                 }
                                 else if (updateOption == 5) {
                                     for (int i = 1; i <= roomMgr.getRoom(roomNoURD).getStatusCalendar().length; i++) {
@@ -297,15 +299,14 @@ public class CZ2002_Assignment {
                                     else if (newStatus == 4) {
                                         roomMgr.getRoom(roomNoURD).setRoomStatus(RoomStatus.UNDER_MAINTENANCE, updateDay);
                                     }
-                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Room Status on " + updateDay + " April changed to " + roomMgr.getRoom(roomNoURD).getRoomStatus(updateDay));
-                                
-                                    
-                                }
-                                
-                                System.out.println("");
+                                    System.out.println("Room " + roomMgr.getRoom(roomNoURD).getRoomNo() + " Room Status on " 
+                                            + updateDay + " April changed to " + roomMgr.getRoom(roomNoURD).getRoomStatus(updateDay));
+                                    }
                             }
                         }
-                    }
+                    }       
+                    
+                    System.out.println("");
                     
                     break;
                     
