@@ -1,6 +1,7 @@
 package cz2002_assignment;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Iterator;
@@ -73,9 +74,42 @@ public class CZ2002_Assignment {
                     if (reservationOption == 1) {
                         System.out.println("Please insert guest name for new reservation: ");
                         String guestNameRes = sc.nextLine();
+                        Guest g = guestMgr.searchGuestByName(guestNameRes);
+                        
+                        System.out.println("Please insert room type for new reservation(Single, Double, Twin, Triple): ");
+                        String guestRoomTypeRes = sc.nextLine();
+                        System.out.println("Please insert number of adults: ");
+                        int guestNumAd = sc.nextInt();
+                        System.out.println("Please insert number of children: ");
+                        int guestNumCh = sc.nextInt();
+                        // Problematic with Date type
+                        System.out.println("Please insert start day for reservation(Day within April 2016): ");
+                        int guestStartDayRes = sc.nextInt();
+                        // Problematic with Date type
+                        System.out.println("Please insert end day for reservation(Day within April 2016): ");
+                        int guestEndDayRes = sc.nextInt();
+                        sc.nextLine(); //flush
+                        System.out.println("Please insert your billing info: ");
+                        String guestBillInfo = sc.nextLine();
                         
                         // Check that room is vacant
-                        reservationMgr.createReservation();
+                        // Does not give the choice of selecting other rooms to guests as of now.
+                        // Returns first vacant room for the period wanted
+                        Room roomVacant = roomMgr.checkVacantRoom(RoomType.valueOf(guestRoomTypeRes.toUpperCase()), 
+                                guestStartDayRes, guestEndDayRes);
+                        
+                        // Reservation must be tagged to a room and guest.
+                        Reservation r = reservationMgr.createReservation(guestBillInfo, 
+                                new Date(guestStartDayRes), new Date(guestEndDayRes), guestNumAd, guestNumCh);
+                        g.setReservation(r);
+                        for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
+                            roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
+                            roomVacant.getStatusCalendar(q).setGuestName(g);
+                        }
+                        
+                        reservationMgr.printReservation(r, roomVacant.getRoomNo());
+                        
+                        System.out.println("");
                     }
                     
                     //Update room reservation

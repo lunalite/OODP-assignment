@@ -19,16 +19,18 @@ public class RoomMgr {
         // 6 Floors with 8 rooms each
         // Format of int roomNo: e.g. 0201, 0708
         
+        // Single rooms 0201 - 0308 i.e. from 0-15
+        // Double rooms 0401 - 0404 i.e. from 16-19
+        // Twin rooms   0405 - 0608 i.e. from 20-39
+        // Triple rooms 0701 - 0708 i.e. from 40-47
+        
         for (int z = 0; z < totalRooms; z ++) {
             if (roomData[z] == null)
                 roomData[z] = new Room();
             
             roomData[z] = roomdata[z];
-            roomData[z].importRoomCal(statusCal[z]);
-            
+            roomData[z].importRoomCal(statusCal[z]);   
         }
-        
-        
     }
 
     public void checkIn(String roomNo, int today) {
@@ -56,12 +58,52 @@ public class RoomMgr {
 
     }
     
-    public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
-        int roomInt = 0;
-        int floor = Integer.parseInt(roomStr.substring(0,2));
-        int room = Integer.parseInt(roomStr.substring(roomStr.lastIndexOf("-")+1,roomStr.lastIndexOf("-")+3));
-        roomInt += (floor - 2)*8 + room;
-        return roomInt;
+    public Room checkVacantRoom(RoomType RT, int start, int end) {
+        // Single rooms 0201 - 0308 i.e. from 0-15
+        // Double rooms 0401 - 0404 i.e. from 16-19
+        // Twin rooms   0405 - 0608 i.e. from 20-39
+        // Triple rooms 0701 - 0708 i.e. from 40-47
+            int roomStart = 2;
+            int roomEnd = 3;
+            
+        switch (RT) {
+            case SINGLE:
+                roomStart = 0;
+                roomEnd = 16;
+                break;
+            case DOUBLE:
+                roomStart = 16;
+                roomEnd = 20;
+                break;
+            case TWIN:
+                roomStart = 20;
+                roomEnd = 40;
+                break;
+            case TRIPLE:
+                roomStart = 40;
+                roomEnd = 48;
+                break;
+        }
+        
+        // if no rooms found, return -1
+        boolean roomEmpty = true;
+        
+        for (int i = roomStart; i < roomEnd; i ++) {
+            for (int z = start; z <= end; z ++) {
+                if (roomData[i].getRoomStatus(z) != RoomStatus.VACANT) {
+                    roomEmpty = false;
+                }
+            }
+            
+            // if the room is at anytime empty for the whole period,
+            // return the index and break out of loop.
+            if (roomEmpty == true) {
+                return roomData[i];
+            }
+            else
+                roomEmpty = true;
+        }
+        return null;
     }
     
     // Room Type Occupancy Rate
@@ -201,6 +243,14 @@ public class RoomMgr {
         System.out.println("Under Maintenance: " + underMaintenanceCount);
         System.out.println("Rooms :" + underMaintenanceRooms);
         
+    }
+    
+    public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
+        int roomInt = 0;
+        int floor = Integer.parseInt(roomStr.substring(0,2));
+        int room = Integer.parseInt(roomStr.substring(roomStr.lastIndexOf("-")+1,roomStr.lastIndexOf("-")+3));
+        roomInt += (floor - 2)*8 + room;
+        return roomInt;
     }
     
     public Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
