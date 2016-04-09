@@ -5,7 +5,7 @@ public class RoomCalendar {
     private RoomStatus status;
     private double rate;
     
-    RoomCalendar() {
+    RoomCalendar(){
         
     }
     
@@ -16,5 +16,6 @@ public class RoomCalendar {
 
     public void setStatus(RoomStatus status) {this.status = status;}
     public RoomStatus getStatus() {return this.status;}
+    public double getRate() {return this.rate;}
 
 }
