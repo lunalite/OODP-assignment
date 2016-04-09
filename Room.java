@@ -14,7 +14,6 @@ public class Room {
     private RoomCalendar[] statusCalendar;
 
     
-
     Room() {
         
     }
@@ -64,5 +63,6 @@ public class Room {
     public void setSmokingAllowed(boolean smoking) {this.smoking = smoking;}
     
     public RoomCalendar[] getStatusCalendar() {return statusCalendar;}
+    public RoomCalendar getStatusCalendar(int day){return statusCalendar[day-1];}
 
 }

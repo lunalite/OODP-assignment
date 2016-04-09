@@ -10,7 +10,7 @@ public class Guest {
     private String nationality;
     private int contact;
     private String creditCardDet;
-
+    private Reservation reservation;
     
     Guest(String n, String g, String i, String a, String N, int c, String ccd) {
         name = n;
@@ -53,4 +53,5 @@ public class Guest {
     public void setNationality(String N){nationality = N;}
     public void setContact(int c){contact = c;}
     public void setCreditCardDet(String ccd) {creditCardDet = ccd;}
+    public void setReservation(Reservation reserve) {reservation = reserve;}
 }
