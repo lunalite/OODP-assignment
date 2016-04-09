@@ -59,8 +59,6 @@ public class CZ2002_Assignment {
             switch (choice) {
                 
                 case 1:
-/*
-<<<<<<< HEAD
                     
                     //Start with main method for reservationMgr
                     System.out.println("(1) Create Room Reservation");
@@ -71,74 +69,38 @@ public class CZ2002_Assignment {
                     int reservationOption = sc.nextInt();
                     sc.nextLine();
                     
-                    //Create room reservation
+                    //Create room reservation   
                     if (reservationOption == 1) {
                         System.out.println("Please insert guest name for new reservation: ");
                         String guestNameRes = sc.nextLine();
                         
-=======
-                    System.out.println("(1) Room reservation");
-                    System.out.println("(2) Room Check out");
-                    System.out.println("(3) Room Status Statistics Report");
-                    System.out.print("\nEnter the number of your choice: ");
-                    int reservationOption = sc.nextInt();
-                      
-                  if (reservationOption == 1) {
-                        System.out.println("Please insert guest name for new reservation: ");
-                        String guestNameRes = sc.nextLine();
-                        ReservationMgr.createReservation();
->>>>>>> a64df6df1c182df1de5ab7ad672b6c496a2d9664
-                        
-                        
+                        // Check that room is vacant
+                        reservationMgr.createReservation();
                     }
                     
                     //Update room reservation
                     else if (reservationOption == 2) {
-<<<<<<< HEAD
-                        
-                    }
-                    //Remove room reservation
-                    else if (reservationOption == 2) {
-                        
-                    }
-                    
-                    //Print room reservation
-                    else if (reservationOption == 2) {
-                            
-                    }
-                    
-                    System.out.println("");
-                    
-=======
-                    	//Need to check if reservation code is valid?
-                    	System.out.println("Please enter your reservation code: ");
-                        Int resCode = sc.nextInt();
-                        ReservationMgr.updateReservation(resCode);
-                    	
+                        System.out.println("Please enter your reservation code: ");
+                        int resCode = sc.nextInt();
+                        reservationMgr.updateReservation(resCode);
                     }
                     //Remove room reservation
                     else if (reservationOption == 3) {
                     	//Need to check if reservation code is valid?
                     	System.out.println("Please enter your reservation code: ");
-                    	Int resCode = sc.nextInt();
-                    	ReservationMgr.removeReservation(resCode);
-                    	
-                    	
+                    	int resCode = sc.nextInt();
+                    	reservationMgr.removeReservation(resCode);
                     }
                     
                     //Print room reservation
                     else if (reservationOption == 4) {
                     	//Need to check if reservation code is valid?
                     	System.out.println("Please enter your reservation code: ");
-                    	Int resCode = sc.nextInt();
-                    	
-                    	
+                    	int resCode = sc.nextInt();
                     	
                     }
-                    
+
                     System.out.println("Thank you for your patronage");
->>>>>>> a64df6df1c182df1de5ab7ad672b6c496a2d9664
-*/
                     break;
                     
                 case 2:

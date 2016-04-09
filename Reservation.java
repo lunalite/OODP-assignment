@@ -24,11 +24,11 @@ public class Reservation {
         return this.reserveCode;
     }
     
-    public date getCheckInDate(){
+    public Date getCheckInDate(){
     	return this.checkInDate;
     }
     
-    public date getCheckOutDate(){
+    public Date getCheckOutDate(){
     	return this.checkOutDate;
     }
 
