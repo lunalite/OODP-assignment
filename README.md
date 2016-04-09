@@ -3,6 +3,38 @@ Remember to save project/package name as CZ2002_Assignment.
 Presently, the IDE we are using is Netbeans.
 
 ---
+#### Edit 10/04/16 - HD
+- Added createReservation
+- Added ReservationStatus enum
+- Added method for searching and printing of reservation
+- Tagged room and guests to a reservation should there be needed.
+
+
+Required
+- Solve problem with Date type conversion form int for create Reservation method
+- Adding the storing of data from file array to XML
+- Payment method for checking in/out not implemented yet
+- ~~Create~~/Update/Remove/~~Print~~ reservation
+- Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
+- ~~Check room availability~~
+- Room Check-in (for ~~walk-in~~ or reservation)
+- Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+- ~~Converting randomised room status to XML file upload~~
+- ~~Create/Update/Remove room service menu items.~~
+- ~~Create/Update/Search guests detail (Search by name using keyword/s)~~
+- ~~Need to implement the creation of order code for each room service order under RoomServiceOrder.java~~
+- ~~Still require for more food items and better description~~
+- ~~Change roomType to enum instead of a class~~
+- ~~Probably include enum usage for roomStatus so that it will induce less error (Can someone implement this?)~~
+- ~~Entering room service orders~~ 
+- ~~list menu items for selection~~
+- ~~Required to change the room numbers to 4 int digits instead of a string according to requirements from assignment~~
+- ~~Print Room Status statistic report by~~
+- ~~room type occupancy rate~~
+- ~~room status (status type and list the room number)~~
+
+
+
 #### Edit 09/04/16 - HD, J, Sam
 - Reservation methods halfway done
 - Added storing of data for guestList to XML
@@ -15,7 +47,6 @@ Presently, the IDE we are using is Netbeans.
 
 Required
 - Adding the storing of data from file array to XML
-
 - Payment method for checking in/out not implemented yet
 - Create/Update/Remove/Print reservation
 - Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
