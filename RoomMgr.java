@@ -2,16 +2,18 @@ package cz2002_assignment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 public class RoomMgr {
 
     public static final int totalRooms  = 48;
     
-    private Date timeStamp; //Useless variable for now
-    private Room[] roomData; //Record of all the rooms
+    private Calendar timeStamp; //Useless variable for now
+    private static Room[] roomData; //Record of all the rooms
 
+    RoomMgr() {}
+    
     RoomMgr(Room[] roomdata, RoomCalendar[][] statusCal) {
         roomData = new Room[totalRooms];
         
@@ -58,7 +60,7 @@ public class RoomMgr {
 
     }
     
-    public Room checkVacantRoom(RoomType RT, int start, int end) {
+    public static Room checkVacantRoom(RoomType RT, int start, int end) {
         // Single rooms 0201 - 0308 i.e. from 0-15
         // Double rooms 0401 - 0404 i.e. from 16-19
         // Twin rooms   0405 - 0608 i.e. from 20-39

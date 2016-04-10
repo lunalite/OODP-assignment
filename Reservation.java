@@ -1,5 +1,6 @@
 package cz2002_assignment;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Reservation {
@@ -8,8 +9,8 @@ public class Reservation {
     // For now we will start from 5;
     private static int reserveCode;
     private String billingInfo;
-    private Date checkInDate;
-    private Date checkOutDate;
+    private Calendar checkInDate;
+    private Calendar checkOutDate;
     private int numberOfAdults;
     private int numberOfChild;
     private ReservationStatus status;
@@ -17,7 +18,7 @@ public class Reservation {
     private Room r;
     
 
-    Reservation(String BI, Date CID, Date COD, int AdultsNum, int ChildNum) {
+    Reservation(String BI, Calendar CID, Calendar COD, int AdultsNum, int ChildNum) {
         // increment reserveCode to ensure none of it is repeated.
         reserveCode ++;
         
@@ -34,8 +35,8 @@ public class Reservation {
     
     public int getReserveCode(){return this.reserveCode;}
     public String getBillingInfo(){return this.billingInfo;}
-    public Date getCheckInDate(){return this.checkInDate;}
-    public Date getCheckOutDate(){return this.checkOutDate;}
+    public Calendar getCheckInDate(){return this.checkInDate;}
+    public Calendar getCheckOutDate(){return this.checkOutDate;}
     public int getNumberOfAdults(){return this.numberOfAdults;}
     public int getNumberOfChild(){return this.numberOfChild;}
     public ReservationStatus getStatus() {return this.status;}
@@ -64,5 +65,5 @@ public class Reservation {
     public void setRoom(Room room){
         r = room;
     }
-
+    public void setCheckInDate(Calendar CID){checkInDate = CID;}
 }

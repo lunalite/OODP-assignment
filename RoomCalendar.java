@@ -2,7 +2,7 @@ package cz2002_assignment;
 
 public class RoomCalendar {
 
-    private RoomStatus status;
+    private static RoomStatus status;
     private double rate;
     private Guest guestName;
     
@@ -15,7 +15,7 @@ public class RoomCalendar {
         this.rate = rate;
     }
 
-    public RoomStatus getStatus() {return this.status;}
+    public static RoomStatus getStatus() {return RoomCalendar.status;}
     public double getRate() {return this.rate;}
     
     public void setStatus(RoomStatus status) {this.status = status;}
