@@ -8,13 +8,13 @@ Presently, the IDE we are using is Netbeans.
 - Added ReservationStatus enum
 - Added method for searching and printing of reservation
 - Tagged room and guests to a reservation should there be needed.
+- Finished reservation.
 
 
 Required
-- Solve problem with Date type conversion form int for create Reservation method
 - Adding the storing of data from file array to XML
 - Payment method for checking in/out not implemented yet
-- ~~Create~~/Update/Remove/~~Print~~ reservation
+- ~~Create/Update/Remove/Print reservation~~
 - Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
 - ~~Check room availability~~
 - Room Check-in (for ~~walk-in~~ or reservation)
