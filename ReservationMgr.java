@@ -1,7 +1,9 @@
 package cz2002_assignment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
@@ -20,7 +22,7 @@ public class ReservationMgr {
         Reservation.setReserveCode(5);
     }
 
-    public Reservation createReservation(String billingInfo, Date checkInDate, Date checkOutDate, 
+    public Reservation createReservation(String billingInfo, Calendar checkInDate, Calendar checkOutDate, 
             int numberOfAdults, int numberOfChild) {
         reservationList.add(new Reservation(billingInfo, checkInDate, checkOutDate, numberOfAdults, numberOfChild));
         
@@ -28,39 +30,96 @@ public class ReservationMgr {
     }
 
     public void updateReservation(int reserveCode) {
+        
+        Reservation r = searchReservation(reserveCode);
+        Room room = r.getRoom();
+        Guest g = r.getGuest();
+        
     	System.out.println("Do you want to: ");
     	System.out.println("(1)Change your reservation date");
     	System.out.println("(2)Change room type");
     	System.out.println("(3)Change both reservation date and room type");
     	System.out.println("(4)Go Back");
     	int choice = sc.nextInt();
+        sc.nextLine(); // flush
+        
     	while (choice != 1||choice != 2||choice != 3||choice != 4){
     		System.out.println("Invalid choice, please re-enter: ");
     		choice = sc.nextInt();
+                sc.nextLine(); // flush
     	
             if (choice == 1||choice == 3){
-                    System.out.println("Please enter your new check in date: ");
+                // DO not need to check for dates if room is available again
+                // Only check-in date is changed.
+                System.out.println("Please enter your new check in date: ");
+                int newCheckInDate = sc.nextInt();
+                sc.nextLine(); // flush
+                
+                Calendar cal = new GregorianCalendar(2016,4,newCheckInDate);
+                r.setCheckInDate(cal);
+                
+                // Setting all the previously reserved calendar back to vacant
+                // Setting all the previously reserved room back to without guest
+                for (int q = r.getCheckInDate().DAY_OF_MONTH; q < newCheckInDate ; q ++) {
+                    room.getStatusCalendar(q).setStatus(RoomStatus.VACANT);
+                    room.getStatusCalendar(q).setGuestName(null);
+                }
+                
+                System.out.println("Check-in date changed.");
             }
+            
             if (choice == 1||choice == 3){
-                    System.out.println("Please enter your new room type: ");
-                    //NEED TO UPDATE, ROOM TYPE NOT COMPLETED
+                System.out.println("Please enter your new room type: ");
+                String newRoomType = sc.nextLine();
+                RoomType newroomType = RoomType.valueOf(newRoomType.toUpperCase());
+                
+                // Changing to a new room type, have to search for empty rooms
+                Room vacantRoom = RoomMgr.checkVacantRoom(newroomType, r.getCheckInDate().DAY_OF_MONTH, 
+                        r.getCheckOutDate().DAY_OF_MONTH);
+                
+                // If there is vacant room, replace all the following conditions
+                if (vacantRoom != null) {
+                    for (int q = r.getCheckInDate().DAY_OF_MONTH; q <= r.getCheckOutDate().DAY_OF_MONTH ; q ++) {
+                        room.getStatusCalendar(q).setStatus(RoomStatus.VACANT);
+                        room.getStatusCalendar(q).setGuestName(null);
+                    }
+                    for (int q = r.getCheckInDate().DAY_OF_MONTH; q <= r.getCheckOutDate().DAY_OF_MONTH ; q ++) {
+                        vacantRoom.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
+                        vacantRoom.getStatusCalendar(q).setGuestName(g);
+                    }
+                    
+                    r.setRoom(vacantRoom);
+                    System.out.println("Reservation room type changed.");
+                }
+                else
+                    System.out.println("No rooms available.");
             }
+            
             if (choice==4){
                     break;
             }
         }
+        g.setReservation(r);
+        
+        printReservation(r);
+        
     	System.out.println("Reservation is updated. Have a pleasant trip.");
     }
 
     public void removeReservation(int reserveCode) {
-    	reservationMgr.setStatus(resCode, ReservationStatus.EXPIRED);
-    	int numOfDays= Reservation.getCheckOutDate-Reservation.getCheckInDate; 
-    	//Don't know how to get num of days from the date
-    	int day = Reservation.getCheckOutDate.DAY_OF_MONTH	//Don't know how get. WRONG 
-    	for (int i=0; i<numOfDays; i++){
-    		int day = 
-    		Room.setRoomStatus("Vacant", )
-    	}
+        
+        Reservation r = searchReservation(reserveCode);
+        Room room = r.getRoom();
+        Guest g = r.getGuest();
+        if (r != null) {
+            r.setStatus(ReservationStatus.CANCELLED);
+            for (int q = r.getCheckInDate().DAY_OF_MONTH; q <= r.getCheckOutDate().DAY_OF_MONTH ; q ++) {
+                room.getStatusCalendar(q).setStatus(RoomStatus.VACANT);
+                room.getStatusCalendar(q).setGuestName(null);
+            }
+            g.setReservation(null);
+        }
+        
     	System.out.println("Reservation is removed. We hope you will stay with us in the future.");
     }
 
@@ -75,10 +134,10 @@ public class ReservationMgr {
         return null;
     }
     
-    public void printReservation(Reservation r, String roomNo) {
+    public void printReservation(Reservation r) {
         System.out.println("\n========================");
         System.out.println("Reservation code: " + r.getReserveCode());
-        System.out.println("Room Number: " + roomNo);
+        System.out.println("Room Number: " + r.getRoom().getRoomNo());
         System.out.println("Billing information: " + r.getBillingInfo());
         System.out.println("check-in date: " + r.getCheckInDate());
         System.out.println("Check-out date: " + r.getCheckOutDate());

@@ -11,7 +11,7 @@ public class Room {
     private boolean smoking;
 
     private RoomType roomType;
-    private RoomCalendar[] statusCalendar;
+    private static RoomCalendar[] statusCalendar;
 
     
     Room() {
@@ -50,7 +50,7 @@ public class Room {
     public String getRoomNo() {return this.roomNo;}
     public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
     
-    public RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
+    public static RoomStatus getRoomStatus(int reportDay) {return statusCalendar[reportDay - 1].getStatus();}
     public void setRoomStatus (RoomStatus status, int day) {statusCalendar[day - 1].setStatus(status);}
         
     public boolean getIsWifiEnabled() {return wifiEnabled;}

@@ -1,7 +1,9 @@
 package cz2002_assignment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Iterator;
@@ -12,8 +14,8 @@ public class CZ2002_Assignment {
     public static final int maxRoomNoPerFloor = 8; //Maximum room per floor
     public static final int maxFloorNo = 7; //Maximum floor number for rooms
     public static final int minFloorNo = 2; //Minimum floor number for rooms
-    public static final int currentDay = 1; //Current Day of system (Current for April alone)
-    public static final int laterDay = 4; //Current Day of system (Current for April alone)
+    public static final int currentDay = 1; //Current Day of system (Currently for April alone)
+    public static final int laterDay = 4; //Current Day of system (Currently for April alone)
     
     
     public static void main(String[] args) {
@@ -99,15 +101,22 @@ public class CZ2002_Assignment {
                                 guestStartDayRes, guestEndDayRes);
                         
                         // Reservation must be tagged to a room and guest.
+                        // Each guest can only reserve 1 room
                         Reservation r = reservationMgr.createReservation(guestBillInfo, 
-                                new Date(guestStartDayRes), new Date(guestEndDayRes), guestNumAd, guestNumCh);
+                                new GregorianCalendar(2016, 03, guestStartDayRes), 
+                                new GregorianCalendar(2016, 03, guestStartDayRes), 
+                                guestNumAd, guestNumCh);
+                        
                         g.setReservation(r);
+                        r.setRoom(roomVacant);
+                        r.setGuest(g);
+                        
                         for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
                             roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
                             roomVacant.getStatusCalendar(q).setGuestName(g);
                         }
                         
-                        reservationMgr.printReservation(r, roomVacant.getRoomNo());
+                        reservationMgr.printReservation(r);
                         
                         System.out.println("");
                     }
@@ -118,6 +127,7 @@ public class CZ2002_Assignment {
                         int resCode = sc.nextInt();
                         reservationMgr.updateReservation(resCode);
                     }
+                    
                     //Remove room reservation
                     else if (reservationOption == 3) {
                     	//Need to check if reservation code is valid?
@@ -131,7 +141,8 @@ public class CZ2002_Assignment {
                     	//Need to check if reservation code is valid?
                     	System.out.println("Please enter your reservation code: ");
                     	int resCode = sc.nextInt();
-                    	
+                    	Reservation r = reservationMgr.searchReservation(resCode);
+                        reservationMgr.printReservation(r);
                     }
 
                     System.out.println("Thank you for your patronage");
@@ -365,7 +376,7 @@ public class CZ2002_Assignment {
                             break;
                         System.out.println("Room is " + roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay));
                         System.out.println("");
-                        if (!roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay).equals("Occupied")){
+                        if (!roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay).equals(RoomStatus.OCCUPIED)){
                             break;
                         }
 
@@ -711,7 +722,7 @@ public class CZ2002_Assignment {
 
         sc.close();
     }
-
+    
     // Check if room number is present
     public static boolean roomNoCheck(String roomN){
         boolean pass = true;

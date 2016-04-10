@@ -1,14 +1,15 @@
 package cz2002_assignment;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.List;
 
 public class RoomServiceOrder {
 
     private String orderCode;
-    private Date dateTime;
+    private Calendar dateTime;
     private RoomServiceOrderStatus status; // Variations: confirmed, preparing, delivered
     private String remarks;
     private double bill;
@@ -16,7 +17,7 @@ public class RoomServiceOrder {
     private Iterator<Item> itemListItr;
     
     public RoomServiceOrder(List<Item> itemOrder, String re, String roomNo, int index) {
-        dateTime = new Date();
+        dateTime = new GregorianCalendar(2016, 4, CZ2002_Assignment.currentDay);
         remarks = re;
         itemList = new ArrayList(itemOrder);
         status = RoomServiceOrderStatus.CONFIRMED;
@@ -34,32 +35,20 @@ public class RoomServiceOrder {
         }
     }
     
-    public void printOrder(){
-        System.out.println("========================");
-        System.out.println("Order code: " + orderCode);
-        System.out.println("Date/Time: " + dateTime.toString());
-        System.out.println("Items Ordered: ");
-        int code = 1;
-        for (Item itemObj : itemList){
-            System.out.printf("(%d) %s\n", code, itemObj.getName());
-            code ++;
-        }
-        System.out.println("Remarks: " + remarks);
-        System.out.printf("Total bill: $%.2f\n", bill);
-        System.out.println("Status: " + status);
-        System.out.println("========================");
-        System.out.println("");
-    }
     
-    public Date getDateTime() {return this.dateTime;}
+    
+    public Calendar getDateTime() {return this.dateTime;}
     public RoomServiceOrderStatus getStatus() {return this.status;}
     public String getRemarks() {return this.remarks;}
     public double getBill() {return this.bill;}
+    public String getOrderCode() {return this.orderCode;}
+    public List<Item> getItemList() {return this.itemList;}
+    
     /**
      *
      * @param dateTime
      */
-    public void setDateTime(Date dateTime) {this.dateTime = dateTime;}
+    public void setDateTime(Calendar dateTime) {this.dateTime = dateTime;}
     /**
      *
      * @param status
