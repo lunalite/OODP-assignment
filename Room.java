@@ -15,7 +15,6 @@ public class Room {
 
     
     Room() {
-        
     }
 
     Room(String roomNo, boolean wifiEnabled, String faceView, boolean smoking, RoomType ROOMTYPE) {

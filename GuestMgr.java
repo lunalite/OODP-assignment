@@ -55,8 +55,8 @@ public class GuestMgr {
     }
     
     public Guest searchGuestByRoom(String roomSearchNo){
-        return null;
-
+        Guest g = RoomMgr.getRoom(roomSearchNo).getStatusCalendar(CZ2002_Assignment.currentDay).getGuest();
+        return g;
     }
     
     public void printGuestDetails(Guest g) {

@@ -255,5 +255,5 @@ public class RoomMgr {
         return roomInt;
     }
     
-    public Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
+    public static Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
 }

@@ -169,16 +169,24 @@ public class CZ2002_Assignment {
                         if (roomNoCheck(roomNoCI) == true) {
                             
                             //Walk-in check-in
-                            if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("vacant")){
+                            if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals(RoomStatus.VACANT)){
                                 roomMgr.checkIn(roomNoCI, currentDay); 
                                 System.out.println("You have checked in to " + roomNoCI + " successfully.");
                             }
                             
                             // check in by reservation
-                            else if (roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals("Reserved")){
-                                // getName of guest. Confirm if it is true. If yes,
-                                roomMgr.checkIn(roomNoCI, currentDay);
-                                System.out.println("You have checked in to " + roomNoCI + " successfully.");
+                            else if (roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals(RoomStatus.RESERVED)){
+                                Guest g = guestMgr.searchGuestByRoom(roomNoCI);
+                                
+                                System.out.println("Please insert name of guest: ");
+                                String resGuestName = sc.nextLine();
+                                
+                                if (resGuestName.equals(g.getName())) {
+                                    roomMgr.checkIn(roomNoCI, currentDay);
+                                    System.out.println("Congratulations " + g.getName() + "You have checked in to " + 
+                                            roomNoCI + " successfully.");
+                                }
+                                
                             }
                         }
                         System.out.println("");

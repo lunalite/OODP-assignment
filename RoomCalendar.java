@@ -17,6 +17,7 @@ public class RoomCalendar {
 
     public static RoomStatus getStatus() {return RoomCalendar.status;}
     public double getRate() {return this.rate;}
+    public Guest getGuest() {return this.guestName;}
     
     public void setStatus(RoomStatus status) {this.status = status;}
     public void setGuestName(Guest g) {this.guestName = g;}
