@@ -88,4 +88,5 @@ public class MenuMgr {
     }
     public static String getItemName(int x){return itemMenu.get(x-1).getName();}
     public static Item getItem(int x){return itemMenu.get(x-1);}
+    public static List<Item> getItemMenuList(){return itemMenu;}
 }

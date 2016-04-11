@@ -72,5 +72,14 @@ public class GuestMgr {
     }
    
     public List<Guest> getGuestList(){return guestList;}
-    
+    public static Guest getGuest(String guestName) {
+        Guest g = null;
+        Iterator<Guest> guestListItr = guestList.iterator();
+        while (guestListItr.hasNext()){
+            g = guestListItr.next();
+            if (g.getName().equals(guestName))
+                break;
+        }
+        return g;
+    }
 }

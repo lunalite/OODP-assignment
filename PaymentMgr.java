@@ -5,13 +5,17 @@
  */
 package cz2002_assignment;
 
+import java.util.Calendar;
+import java.util.Iterator;
+import java.util.List;
+
 /**
  *
  * @author HD
  */
 public class PaymentMgr {
     
-    private static Payment[] totalPaymentArr = new Payment[RoomMgr.totalRooms];
+    private Payment[] totalPaymentArr = new Payment[RoomMgr.totalRooms];
 
     PaymentMgr() {
         
@@ -21,12 +25,27 @@ public class PaymentMgr {
         }
     }
     
-    public static void newPayment(int roomNo) {
+    public void newPayment(int roomNo) {
         totalPaymentArr[roomNo] = new Payment();
     }
     
-    public void printBillInvoice(){
+    public void printBillInvoice(int roomNo, List<RoomServiceOrder> orderList){
+        Iterator<RoomServiceOrder> orderListItr = orderList.iterator();
+        
         // print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+        System.out.println("\n========================");
+        while (orderListItr.hasNext()) {
+            RoomServiceOrder rSO = orderListItr.next();
+            Calendar cal = rSO.getDateTime();
+            System.out.println(cal.get(cal.YEAR) + "-" + cal.get(cal.MONTH) + "-" + 
+                    cal.get(cal.DAY_OF_MONTH) + ": " + rSO.getBill());
+        }
+        System.out.println("Total room service bill: " + totalPaymentArr[roomNo-1].getRoomServiceBill());
+        System.out.println("Total room charges: " + totalPaymentArr[roomNo-1].getRoomCharges());
+        System.out.println("subtotal bill: " + totalPaymentArr[roomNo-1].getTotalBill());
+        System.out.println("Total tax: " + totalPaymentArr[roomNo-1].getTaxes());
+        System.out.println("Total bill: " + (totalPaymentArr[roomNo-1].getTaxes()+totalPaymentArr[roomNo-1].getTotalBill()));
+        System.out.println("========================\n");
     }
     
     public Payment getPayment(String rmno){

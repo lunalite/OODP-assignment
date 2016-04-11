@@ -2,23 +2,23 @@ package cz2002_assignment;
 
 public class RoomCalendar {
 
-    private static RoomStatus status;
+    private RoomStatus status;
     private double rate;
-    private Guest guestName;
+    private Guest guest;
     
     RoomCalendar(){
-        
     }
     
-    RoomCalendar(RoomStatus status, double rate) {
-        this.status = status;
+    RoomCalendar(RoomStatus statuS, double rate, String guestName) {
+        status = statuS;
         this.rate = rate;
+        guest = GuestMgr.getGuest(guestName);
     }
 
-    public static RoomStatus getStatus() {return RoomCalendar.status;}
+    public RoomStatus getStatus() {return this.status;}
     public double getRate() {return this.rate;}
-    public Guest getGuest() {return this.guestName;}
+    public Guest getGuest() {return this.guest;}
     
     public void setStatus(RoomStatus status) {this.status = status;}
-    public void setGuestName(Guest g) {this.guestName = g;}
+    public void setGuestName(Guest g) {this.guest = g;}
 }
