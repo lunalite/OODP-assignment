@@ -6,13 +6,14 @@ Presently, the IDE we are using is Netbeans.
 #### Edit 11/04/16 - HD
 - Added guestSearch by room number.
 - Added check in by reservation
+- Payment method implemented.
 
 
 Required
-- Adding the storing of data from file array to XML
-- Payment method for checking in/out not implemented yet
 - Create/~~Update~~ rooms details (include setting status like ‘Under Maintenance”,
-- Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
+- ~~Payment method for checking in/out not implemented yet~~
+- ~~Room Check-out and print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)~~
+- ~~Adding the storing of data from file array to XML~~
 - ~~Check room availability~~
 - ~~Create/Update/Remove/Print reservation~~
 - ~~Room Check-in (for walk-in or reservation)~~
