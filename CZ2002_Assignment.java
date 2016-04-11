@@ -1,5 +1,6 @@
 package cz2002_assignment;
 
+import static cz2002_assignment.RoomMgr.roomStrToInt;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -43,8 +44,7 @@ public class CZ2002_Assignment {
             System.out.println("(3) Room service related");
             System.out.println("(4) Payment related");
             System.out.println("(5) Guest related");
-            System.out.println("(6) ");
-            System.out.println("(7) Exit");
+            System.out.println("(6) Exit");
             System.out.print("\nEnter the number of your choice: ");
 
             choice = sc.nextInt();
@@ -74,50 +74,63 @@ public class CZ2002_Assignment {
                     
                     //Create room reservation   
                     if (reservationOption == 1) {
-                        System.out.println("Please insert guest name for new reservation: ");
-                        String guestNameRes = sc.nextLine();
-                        Guest g = guestMgr.searchGuestByName(guestNameRes);
-                        
-                        System.out.println("Please insert room type for new reservation(Single, Double, Twin, Triple): ");
-                        String guestRoomTypeRes = sc.nextLine();
-                        System.out.println("Please insert number of adults: ");
-                        int guestNumAd = sc.nextInt();
-                        System.out.println("Please insert number of children: ");
-                        int guestNumCh = sc.nextInt();
-                        // Problematic with Date type
-                        System.out.println("Please insert start day for reservation(Day within April 2016): ");
-                        int guestStartDayRes = sc.nextInt();
-                        // Problematic with Date type
-                        System.out.println("Please insert end day for reservation(Day within April 2016): ");
-                        int guestEndDayRes = sc.nextInt();
-                        sc.nextLine(); //flush
-                        System.out.println("Please insert your billing info: ");
-                        String guestBillInfo = sc.nextLine();
-                        
-                        // Check that room is vacant
-                        // Does not give the choice of selecting other rooms to guests as of now.
-                        // Returns first vacant room for the period wanted
-                        Room roomVacant = roomMgr.checkVacantRoom(RoomType.valueOf(guestRoomTypeRes.toUpperCase()), 
-                                guestStartDayRes, guestEndDayRes);
-                        
-                        // Reservation must be tagged to a room and guest.
-                        // Each guest can only reserve 1 room
-                        Reservation r = reservationMgr.createReservation(guestBillInfo, 
-                                new GregorianCalendar(2016, 03, guestStartDayRes), 
-                                new GregorianCalendar(2016, 03, guestStartDayRes), 
-                                guestNumAd, guestNumCh);
-                        
-                        g.setReservation(r);
-                        r.setRoom(roomVacant);
-                        r.setGuest(g);
-                        
-                        for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
-                            roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
-                            roomVacant.getStatusCalendar(q).setGuestName(g);
+                        Guest g = null;
+                        while (g == null) {
+                            System.out.println("Please insert guest name for new reservation (-1 to exit): ");
+                            String guestNameRes = sc.nextLine();
+                            if (guestNameRes.contains("-1"))
+                                break;
+                            g = guestMgr.searchGuestByName(guestNameRes);
                         }
-                        
-                        reservationMgr.printReservation(r);
-                        
+                        if (g != null) {
+                            String guestRoomTypeRes = "";
+                            do {
+                                // Prevents error from happening due to enum not being available
+                                System.out.println("Please insert room type for new reservation(single, double, twin, triple): ");
+                                guestRoomTypeRes = sc.nextLine();
+                            } while (!guestRoomTypeRes.contains("single") && !guestRoomTypeRes.contains("double") &&
+                                    !guestRoomTypeRes.contains("twin") && !guestRoomTypeRes.contains("triple"));
+                            System.out.println("Please insert number of adults: ");
+                            int guestNumAd = sc.nextInt();
+                            System.out.println("Please insert number of children: ");
+                            int guestNumCh = sc.nextInt();
+                            System.out.println("Please insert start day for reservation(Day within April 2016): ");
+                            int guestStartDayRes = sc.nextInt();
+                            System.out.println("Please insert end day for reservation(Day within April 2016): ");
+                            int guestEndDayRes = sc.nextInt();
+                            sc.nextLine(); //flush
+                            System.out.println("Please insert your billing info: ");
+                            String guestBillInfo = sc.nextLine();
+
+                            // Check that room is vacant
+                            // Does not give the choice of selecting other rooms to guests as of now.
+                            // Returns first vacant room for the period wanted
+                            Room roomVacant = roomMgr.checkVacantRoom(RoomType.valueOf(guestRoomTypeRes.toUpperCase()), 
+                                    guestStartDayRes, guestEndDayRes);
+
+                            if (roomVacant != null) {
+                                // Reservation must be tagged to a room and guest.
+                                // Each guest can only reserve 1 room
+                                Reservation r = reservationMgr.createReservation(guestBillInfo, 
+                                        new GregorianCalendar(2016, 4, guestStartDayRes), 
+                                        new GregorianCalendar(2016, 4, guestEndDayRes), 
+                                        guestNumAd, guestNumCh);
+
+                                g.setReservation(r);
+                                r.setRoom(roomVacant);
+                                r.setGuest(g);
+
+                                for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
+                                    roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
+                                    roomVacant.getStatusCalendar(q).setGuestName(g);
+                                }
+
+                                reservationMgr.printReservation(r);
+                            }
+
+                            else
+                                System.out.println("No room available.");
+                        }
                         System.out.println("");
                     }
                     
@@ -141,11 +154,12 @@ public class CZ2002_Assignment {
                     	//Need to check if reservation code is valid?
                     	System.out.println("Please enter your reservation code: ");
                     	int resCode = sc.nextInt();
-                    	Reservation r = reservationMgr.searchReservation(resCode);
+                    	Reservation r = reservationMgr.searchReservationByCode(resCode);
                         reservationMgr.printReservation(r);
                     }
 
                     System.out.println("Thank you for your patronage");
+                    System.out.println("");
                     break;
                     
                 case 2:
@@ -168,27 +182,46 @@ public class CZ2002_Assignment {
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCI) == true) {
                             
-                            //Walk-in check-in
-                            if (!roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals(RoomStatus.VACANT)){
-                                roomMgr.checkIn(roomNoCI, currentDay); 
-                                System.out.println("You have checked in to " + roomNoCI + " successfully.");
-                            }
+                            System.out.println("Please insert name of guest: ");
+                            String resGuestName = sc.nextLine();
+                            Guest g = guestMgr.searchGuestByRoom(roomNoCI);
                             
-                            // check in by reservation
-                            else if (roomMgr.getRoom(roomNoCI).getRoomStatus(currentDay).equals(RoomStatus.RESERVED)){
-                                Guest g = guestMgr.searchGuestByRoom(roomNoCI);
+                            if (g == null) {
+                                //Walk-in check-in
+                                System.out.println("Please insert check-out date: ");
+                                int roomCOD = sc.nextInt();
                                 
-                                System.out.println("Please insert name of guest: ");
-                                String resGuestName = sc.nextLine();
-                                
-                                if (resGuestName.equals(g.getName())) {
-                                    roomMgr.checkIn(roomNoCI, currentDay);
-                                    System.out.println("Congratulations " + g.getName() + "You have checked in to " + 
-                                            roomNoCI + " successfully.");
+                                boolean roomNotVacant = false;
+                                for (int i = currentDay; i <= roomCOD; i ++) {
+                                    if (!roomMgr.getRoom(roomNoCI).getRoomStatus(i).equals(RoomStatus.VACANT)) {
+                                        System.out.println("Room not vacant on the " + i + "th of April.");
+                                        roomNotVacant = true;
+                                    }
                                 }
                                 
+                                if (roomNotVacant == false) {
+                                    roomMgr.checkIn(roomNoCI, currentDay, laterDay);                                
+                                    System.out.println("You have checked in to " + roomNoCI + " successfully.");
+                                    //Create a new payment class that is associated with the room 
+                                    //This ensures a new payment will be available once checked in
+                                    paymentMgr.newPayment(roomStrToInt(roomNoCI)-1);
+                                }
+                            }
+                            
+                            else {
+                            // check in by reservation
+                                if (resGuestName.equals(g.getName())) {
+                                    Reservation r = reservationMgr.searchReservationByName(resGuestName);
+                                    roomMgr.checkIn(roomNoCI, r);
+                                    System.out.println("Congratulations " + g.getName() + "You have checked in to " + 
+                                            roomNoCI + " successfully.");
+                                    paymentMgr.newPayment(roomStrToInt(roomNoCI)-1);
+                                }
+                                else
+                                    System.out.println("Wrong name.");
                             }
                         }
+                        
                         System.out.println("");
                     }
                     
@@ -200,12 +233,14 @@ public class CZ2002_Assignment {
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCO) == true) {
                             
-                            if (!roomMgr.getRoom(roomNoCO).getRoomStatus(currentDay).equals("occupied")){
+                            if (!roomMgr.getRoom(roomNoCO).getRoomStatus(laterDay).equals(RoomStatus.OCCUPIED)){
                                 
-                                roomMgr.checkOut(roomNoCO, currentDay); 
+                                roomMgr.checkOut(roomNoCO, laterDay); 
                                 System.out.println("You have checked out of " + roomNoCO + " successfully.");
                                 
-                                // Print payment
+                                // Calculate and Print payment
+                                paymentMgr.getPayment(roomNoCO).calRoomChargesBill(roomNoCO, currentDay, laterDay);
+                                paymentMgr.printBillInvoice(roomStrToInt(roomNoCO), roomServiceMgr.getOrders(roomStrToInt(roomNoCO)));
                                 
                             }
                         }
@@ -418,7 +453,7 @@ public class CZ2002_Assignment {
 
                                 //Create order object to prepare for addition of items
                                 double bill = roomServiceMgr.createOrder(roomNumber_3 ,itemOrder, remarks); 
-                                paymentMgr.getPayment(roomNumber_3).setRoomServiceBill(bill);
+                                paymentMgr.getPayment(roomNumber_3).addRoomServiceBill(bill);
                             }
                         }
 
@@ -552,18 +587,24 @@ public class CZ2002_Assignment {
                     if (paymentOption == 1) {
                         System.out.println("(1) Check for room charges");
                         System.out.println("(2) Check for room service bill");    
-                        System.out.println("(2) Check for total bill");    
+                        System.out.println("(3) Check for total bill");    
                         int billPaymentCheckOption = sc.nextInt();
                        
                         // Checking for room charges
                         if (billPaymentCheckOption == 1){
-                            paymentMgr.getPayment(roomNumber_4).setRoomChargesBill();
+                            Room r = RoomMgr.getRoom(roomNumber_4);
+                                double rate = r.getStatusCalendar(currentDay).getRate();
+                                double roomTypeRate = r.getRoomType().getRate();
+                                double roomChargesBill = rate * roomTypeRate;
+                            System.out.printf("Room charges for today is: $.2f\n", roomChargesBill);
                         }
                         
+                        // Checking for room service bills
                         else if (billPaymentCheckOption==2){
                             paymentMgr.getPayment(roomNumber_4).getRoomServiceBill();
                         }
                         
+                        // Checking for subtotal bills
                         else if (billPaymentCheckOption==3){
                             paymentMgr.getPayment(roomNumber_4).getTotalBill();
                         }
@@ -573,7 +614,18 @@ public class CZ2002_Assignment {
                     else if (paymentOption == 2) {
                         //Check if person has checked out from room by comparing timeStamp
                         //Check for total bill
-                        //Ask for payment method
+                        double totalBill = paymentMgr.getPayment(roomNumber_4).getTotalBill()*
+                                paymentMgr.getPayment(roomNumber_4).getTaxes();
+                        System.out.printf("Total bill is: $%.2f", totalBill);
+                        System.out.println("Would you like to pay by credit or cash?");
+                        String paymentMethod = sc.nextLine();
+                        if (paymentMethod.contains("credit")) {
+                            System.out.println("Thank you for paying by credit.");
+                        }
+                        else if (paymentMethod.contains("Cash")) 
+                            System.out.println("Thank you for paying by cash.");
+                        
+                        System.out.println("\nHope to see you soon!\n");
                     }
                     
                     System.out.println("");
@@ -610,7 +662,7 @@ public class CZ2002_Assignment {
                                 guestMgr.printGuestDetails(g);
                         }
                         
-                        // Searching of guests through Room number not yet implemented
+                        // Searching of guests through Room number
                         else if (guestSearchOption == 2) {
                             System.out.println("Please insert room number of guest to be searched:");
                             String guestSearchRoom = sc.nextLine();
@@ -718,9 +770,7 @@ public class CZ2002_Assignment {
                     System.out.println("");
                     
                     break;
-                case 6: 
-                    break;
-                case 7:
+                case 6:
                     xMLMgr.toXML(guestMgr.getGuestList());
                     System.out.println("Program terminating ....");
                     break;

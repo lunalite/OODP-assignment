@@ -31,7 +31,7 @@ public class ReservationMgr {
 
     public void updateReservation(int reserveCode) {
         
-        Reservation r = searchReservation(reserveCode);
+        Reservation r = searchReservationByCode(reserveCode);
         Room room = r.getRoom();
         Guest g = r.getGuest();
         
@@ -108,7 +108,7 @@ public class ReservationMgr {
 
     public void removeReservation(int reserveCode) {
         
-        Reservation r = searchReservation(reserveCode);
+        Reservation r = searchReservationByCode(reserveCode);
         Room room = r.getRoom();
         Guest g = r.getGuest();
         if (r != null) {
@@ -123,11 +123,22 @@ public class ReservationMgr {
     	System.out.println("Reservation is removed. We hope you will stay with us in the future.");
     }
 
-    public Reservation searchReservation (int reserveCode) {
+    public Reservation searchReservationByCode (int reserveCode) {
         reservationListItr = reservationList.iterator();
         while (reservationListItr.hasNext()){
             Reservation r = reservationListItr.next();
             if (r.getReserveCode() == (reserveCode)){
+                return r;
+            }
+        }
+        return null;
+    }
+    
+    public Reservation searchReservationByName (String guestName) {
+        reservationListItr = reservationList.iterator();
+        while (reservationListItr.hasNext()){
+            Reservation r = reservationListItr.next();
+            if (r.getGuest().getName().equals(guestName)){
                 return r;
             }
         }
@@ -139,18 +150,18 @@ public class ReservationMgr {
         System.out.println("Reservation code: " + r.getReserveCode());
         System.out.println("Room Number: " + r.getRoom().getRoomNo());
         System.out.println("Billing information: " + r.getBillingInfo());
-        System.out.println("check-in date: " + r.getCheckInDate());
-        System.out.println("Check-out date: " + r.getCheckOutDate());
+        Calendar CID = r.getCheckInDate();
+        System.out.println("check-in date: " + CID.get(CID.YEAR) + "-" + CID.get(CID.MONTH) +
+                "-" + CID.get(CID.DAY_OF_MONTH));
+        Calendar COD = r.getCheckOutDate();
+        System.out.println("Check-out date: " + COD.get(COD.YEAR) + "-" + COD.get(COD.MONTH) +
+                "-" + COD.get(COD.DAY_OF_MONTH));
         System.out.println("Number of adults: " + r.getNumberOfAdults());
         System.out.println("Number of children: " + r.getNumberOfChild());
         System.out.println("Reservation status: " + r.getStatus());
         System.out.println("========================\n");
     }
     
-    public void getReservation() {
-
-    }
-
     public void acknowledge() {
 
     }

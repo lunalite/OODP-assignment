@@ -35,8 +35,6 @@ public class RoomServiceOrder {
         }
     }
     
-    
-    
     public Calendar getDateTime() {return this.dateTime;}
     public RoomServiceOrderStatus getStatus() {return this.status;}
     public String getRemarks() {return this.remarks;}

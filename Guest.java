@@ -11,6 +11,7 @@ public class Guest {
     private int contact;
     private String creditCardDet;
     private Reservation reservation;
+    private Room room;
     
     Guest(String n, String g, String i, String a, String N, int c, String ccd) {
         name = n;
@@ -26,17 +27,6 @@ public class Guest {
      *
      * @param roomNo
      */
-    public void roomService(int roomNo) { //Useless
-        
-    }
-
-    public void roomLog() {
-        // Stores the data of room
-    }
-
-    public void reservationLog() {
-        
-    }
     
     public String getName() {return this.name;}
     public String getGender() {return this.gender;}
@@ -45,6 +35,8 @@ public class Guest {
     public String getNationality() {return this.nationality;}
     public int getContact() {return this.contact;}
     public String getCreditCardDet() {return this.creditCardDet;}
+    public Reservation getReservation() {return this.reservation;}
+    public Room getRoom() {return this.room;}
     
     public void setName(String n){name = n;}
     public void setGender(String g){gender = g;}
@@ -54,4 +46,5 @@ public class Guest {
     public void setContact(int c){contact = c;}
     public void setCreditCardDet(String ccd) {creditCardDet = ccd;}
     public void setReservation(Reservation reserve) {reservation = reserve;}
+    public void setRoom(Room rom) {room = rom;}
 }

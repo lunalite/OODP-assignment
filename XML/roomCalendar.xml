@@ -12,22 +12,22 @@ and open the template in the editor.
                 <status>OCCUPIED</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
-                <guestname></guestname>
+                <guestname>Teset</guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>OCCUPIED</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
-                <guestname></guestname>
+                <guestname>Teset</guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -125,25 +125,25 @@ and open the template in the editor.
         </room>
         <room num="0202">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -241,25 +241,25 @@ and open the template in the editor.
         </room>
         <room num="0203">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -357,25 +357,25 @@ and open the template in the editor.
         </room>
         <room num="0204">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -473,25 +473,25 @@ and open the template in the editor.
         </room>
         <room num="0205">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -589,25 +589,25 @@ and open the template in the editor.
         </room>
         <room num="0206">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -705,25 +705,25 @@ and open the template in the editor.
         </room>
         <room num="0207">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -821,25 +821,25 @@ and open the template in the editor.
         </room>
         <room num="0208">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -937,25 +937,25 @@ and open the template in the editor.
         </room>
         <room num="0301">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1053,25 +1053,25 @@ and open the template in the editor.
         </room>
         <room num="0302">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1169,25 +1169,25 @@ and open the template in the editor.
         </room>
         <room num="0303">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1285,25 +1285,25 @@ and open the template in the editor.
         </room>
         <room num="0304">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1401,25 +1401,25 @@ and open the template in the editor.
         </room>
         <room num="0305">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1517,25 +1517,25 @@ and open the template in the editor.
         </room>
         <room num="0306">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1633,25 +1633,25 @@ and open the template in the editor.
         </room>
         <room num="0307">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1749,25 +1749,25 @@ and open the template in the editor.
         </room>
         <room num="0308">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1865,25 +1865,25 @@ and open the template in the editor.
         </room>
         <room num="0401">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -1981,25 +1981,25 @@ and open the template in the editor.
         </room>
         <room num="0402">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2097,25 +2097,25 @@ and open the template in the editor.
         </room>
         <room num="0403">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2213,25 +2213,25 @@ and open the template in the editor.
         </room>
         <room num="0404">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2329,25 +2329,25 @@ and open the template in the editor.
         </room>
         <room num="0405">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2445,25 +2445,25 @@ and open the template in the editor.
         </room>
         <room num="0406">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2561,25 +2561,25 @@ and open the template in the editor.
         </room>
         <room num="0407">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2677,25 +2677,25 @@ and open the template in the editor.
         </room>
         <room num="0408">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2793,25 +2793,25 @@ and open the template in the editor.
         </room>
         <room num="0501">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -2909,25 +2909,25 @@ and open the template in the editor.
         </room>
         <room num="0502">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3025,25 +3025,25 @@ and open the template in the editor.
         </room>
         <room num="0503">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3141,25 +3141,25 @@ and open the template in the editor.
         </room>
         <room num="0504">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3257,25 +3257,25 @@ and open the template in the editor.
         </room>
         <room num="0505">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3373,25 +3373,25 @@ and open the template in the editor.
         </room>
         <room num="0506">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3489,25 +3489,25 @@ and open the template in the editor.
         </room>
         <room num="0507">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3605,25 +3605,25 @@ and open the template in the editor.
         </room>
 		<room num="0508">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3721,25 +3721,25 @@ and open the template in the editor.
         </room>
         <room num="0601">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3837,25 +3837,25 @@ and open the template in the editor.
         </room>
         <room num="0602">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -3953,25 +3953,25 @@ and open the template in the editor.
         </room>
         <room num="0603">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4069,25 +4069,25 @@ and open the template in the editor.
         </room>
         <room num="0604">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4185,25 +4185,25 @@ and open the template in the editor.
         </room>
         <room num="0605">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4301,25 +4301,25 @@ and open the template in the editor.
         </room>
         <room num="0606">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4417,25 +4417,25 @@ and open the template in the editor.
         </room>
         <room num="0607">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4533,25 +4533,25 @@ and open the template in the editor.
         </room>
         <room num="0608">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4649,25 +4649,25 @@ and open the template in the editor.
         </room>
         <room num="0701">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4765,25 +4765,25 @@ and open the template in the editor.
         </room>
         <room num="0702">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4881,25 +4881,25 @@ and open the template in the editor.
         </room>
         <room num="0703">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -4997,25 +4997,25 @@ and open the template in the editor.
         </room>
         <room num="0704">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -5113,25 +5113,25 @@ and open the template in the editor.
         </room>
         <room num="0705">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -5229,25 +5229,25 @@ and open the template in the editor.
         </room>
         <room num="0706">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -5345,25 +5345,25 @@ and open the template in the editor.
         </room>
         <room num="0707">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
@@ -5461,25 +5461,25 @@ and open the template in the editor.
         </room>
         <room num="0708">
             <day date="1">
-                <status>OCCUPIED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="2">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="3">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>
             </day>
             <day date="4">
-                <status>RESERVED</status>
+                <status>VACANT</status>
                 <rate>1.0</rate>
                 <roomservicebill></roomservicebill>
                 <guestname></guestname>

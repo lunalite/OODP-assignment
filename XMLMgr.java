@@ -131,8 +131,11 @@ public class XMLMgr {
                             Element eElement = (Element) childNode;
                             statusCalendar[counterOut][counter] = new RoomCalendar(
                                 RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent()),
-                                Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()));
+                                Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()),
+                                eElement.getElementsByTagName("guestname").item(0).getTextContent());
                             counter ++;
+                            
+                            //Add into payment
                         }
                     }
                     counterOut++;
@@ -151,14 +154,19 @@ public class XMLMgr {
         try {
             System.out.println("Initialising storing of data to XML files...");
             guestList = new ArrayList(gL);
-            Iterator<Guest> guestListItr = guestList.iterator();
             
-            // Initialise the document builder
+            Iterator<Guest> guestListItr = guestList.iterator();
+            Iterator<Item> itemMenuItr = MenuMgr.getItemMenuList().iterator();
+            
+            // Initialise DocumentBuilder and Transformer
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = dbFactory.newDocumentBuilder();
             dbFactory.setIgnoringElementContentWhitespace(true);
-            doc = builder.newDocument();
+            TransformerFactory tFactory = TransformerFactory.newInstance();
+            Transformer transformer = tFactory.newTransformer();
             
+            // Create document for guestList.XML
+            doc = builder.newDocument();
             Element rootElement = doc.createElement("Root");
             doc.appendChild(rootElement);
             
@@ -199,20 +207,98 @@ public class XMLMgr {
                 counter ++;
             }
 
-
-
-            // Start output file through transformer to guestFile
-            TransformerFactory tFactory = TransformerFactory.newInstance();
-            Transformer transformer = tFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(guestFile);
             transformer.transform(source, result); 
             System.out.println("guest XML files are stored.");
+            
+            // Create document for itemMenu.XML
+            doc = builder.newDocument();
+            rootElement = doc.createElement("Root");
+            doc.appendChild(rootElement);
+            
+            counter = 0;
+            
+            while (itemMenuItr.hasNext()) {
+                Attr itemAttr = doc.createAttribute("id");
+                itemAttr.setValue(String.valueOf(counter));
+                Element item = doc.createElement("item");
+                item.setAttributeNode(itemAttr);
+                Element name = doc.createElement("name");
+                Element des = doc.createElement("description");
+                Element price = doc.createElement("price");
+            
+                Item i = itemMenuItr.next();
+                
+                name.appendChild(doc.createTextNode(i.getName()));
+                des.appendChild(doc.createTextNode(i.getDescription()));
+                price.appendChild(doc.createTextNode (String.valueOf(i.getPrice())));
+                
+                rootElement.appendChild(item);
+                item.appendChild(name);
+                item.appendChild(des);
+                item.appendChild(price);
+                
+                counter ++;
+            }
 
+            source = new DOMSource(doc);
+            result = new StreamResult(itemFile);
+            transformer.transform(source, result); 
+            System.out.println("itemMenu XML files are stored.");
+/*
+            // Create document for roomCalendar.XML
+            doc = builder.newDocument();
+            rootElement = doc.createElement("Root");
+            doc.appendChild(rootElement);
+            
+            counter = 0;
+            
+            while (guestListItr.hasNext()) {
+                Attr guestAttr = doc.createAttribute("id");
+                guestAttr.setValue(String.valueOf(counter));
+                Element guest = doc.createElement("guest");
+                guest.setAttributeNode(guestAttr);
+                Element name = doc.createElement("name");
+                Element gen = doc.createElement("gender");
+                Element add = doc.createElement("identity");
+                Element id = doc.createElement("address");
+                Element nat = doc.createElement("nationality");
+                Element contact = doc.createElement("contact");
+                Element ccd = doc.createElement("creditCardDet");
+            
+                Guest g = guestListItr.next();
+                
+                name.appendChild(doc.createTextNode(g.getName()));
+                gen.appendChild(doc.createTextNode(g.getGender()));
+                add.appendChild(doc.createTextNode (g.getAddress()));
+                id.appendChild(doc.createTextNode(g.getIdentity()));
+                nat.appendChild(doc.createTextNode(g.getNationality()));
+                contact.appendChild(doc.createTextNode(String.valueOf(g.getContact())));
+                ccd.appendChild(doc.createTextNode(g.getCreditCardDet()));
+                
+                rootElement.appendChild(guest);
+                guest.appendChild(name);
+                guest.appendChild(gen);
+                guest.appendChild(add);
+                guest.appendChild(id);
+                guest.appendChild(nat);
+                guest.appendChild(contact);
+                guest.appendChild(ccd);
+                
+                counter ++;
+            }
 
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(guestFile);
+            transformer.transform(source, result); 
+            System.out.println("guest XML files are stored.");
+         */   
         }
         catch (Exception e) {System.out.println(e.getMessage());}
 
+        
+        
         //End of output file
     }
     

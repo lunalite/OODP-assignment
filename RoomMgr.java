@@ -35,13 +35,21 @@ public class RoomMgr {
         }
     }
 
-    public void checkIn(String roomNo, int today) {
+    public void checkIn(String roomNo, int today, int tomorrow) {
         //mainApp class already checked for room that it is vacant
-        roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, today); //set roomstatus to occupied from vacant.
-        
-        //Create a new payment class that is associated with the room. This ensures a new payment will be available once checked in
-        PaymentMgr.newPayment(roomStrToInt(roomNo)-1);
-        
+        for (int i = today; i <= tomorrow; i ++) {
+            //set roomstatus to occupied from vacant.
+            roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, i); 
+        }
+    }
+    
+    public void checkIn(String roomNo, Reservation r) {
+        Calendar CID = r.getCheckInDate();
+        Calendar COD = r.getCheckOutDate();
+        for (int i = CID.get(CID.DAY_OF_MONTH); i <= COD.get(COD.DAY_OF_MONTH); i ++) {
+            //set roomstatus to occupied from vacant.
+            roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, i); 
+        }
     }
 
     public void getRoomDetail() {
