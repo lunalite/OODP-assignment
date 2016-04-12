@@ -32,7 +32,7 @@ public class CZ2002_Assignment {
         ReservationMgr reservationMgr = new ReservationMgr();
         RoomMgr roomMgr = new RoomMgr(xMLMgr.getRoomData(), xMLMgr.getRoomCalData()); // Create all rooms
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
-        GuestMgr guestMgr = new GuestMgr(xMLMgr.getGuestList());
+        GuestMgr guestMgr = new GuestMgr();
         MenuMgr.updateList(xMLMgr.getItemMenu());
         PaymentMgr paymentMgr = new PaymentMgr();
         

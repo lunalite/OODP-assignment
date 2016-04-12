@@ -12,7 +12,7 @@ public class RoomCalendar {
     RoomCalendar(RoomStatus statuS, double rate, String guestName) {
         status = statuS;
         this.rate = rate;
-        guest = GuestMgr.getGuest(guestName);
+        guest = new GuestMgr().getGuest(guestName);
     }
 
     public RoomStatus getStatus() {return this.status;}

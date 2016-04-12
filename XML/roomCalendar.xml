@@ -24,7 +24,7 @@ and open the template in the editor.
                 <status>VACANT</status>
                 <rate>1.5</rate>
                 <roomservicebill></roomservicebill>
-                <guestname></guestname>
+                <guestname>33</guestname>
             </day>
             <day date="4">
                 <status>VACANT</status>

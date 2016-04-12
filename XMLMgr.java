@@ -48,7 +48,7 @@ public class XMLMgr {
     private static List<Item> itemMenu = new ArrayList();
     private static Room[] roomData = new Room[RoomMgr.totalRooms];
     private static RoomCalendar[][] statusCalendar = new RoomCalendar[RoomMgr.totalRooms][30];
-    
+    private static Payment[] paymentList = new Payment[RoomMgr.totalRooms];
 
     
     public void fromXML(){
@@ -76,6 +76,7 @@ public class XMLMgr {
                             eElement.getElementsByTagName("creditCardDet").item(0).getTextContent()));
                 }
             }
+            GuestMgr.setGuestList(guestList);
             System.out.println("guest XML files are uploaded.");
             
             // importing of itemMenu list
@@ -134,8 +135,10 @@ public class XMLMgr {
                                 Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()),
                                 eElement.getElementsByTagName("guestname").item(0).getTextContent());
                             counter ++;
-                            
                             //Add into payment
+                            //if (j <= CZ2002_Assignment.currentDay) {
+                                
+                            //}
                         }
                     }
                     counterOut++;

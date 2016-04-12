@@ -9,11 +9,8 @@ public class GuestMgr {
     private static List<Guest> guestList;
     private Iterator<Guest> guestListItr;
     private Scanner sc = new Scanner(System.in);
-    
-    public GuestMgr(List<Guest> gL) {
-        //initialise a list for all guests that registered under this hotel
-        guestList = new ArrayList(gL);
-        System.out.println("Added to guestList");
+        
+    public GuestMgr() {
     }
     
     public void addGuest() {
@@ -71,7 +68,8 @@ public class GuestMgr {
         System.out.println("========================\n");
     }
    
-    public List<Guest> getGuestList(){return guestList;}
+    public static List<Guest> getGuestList(){return guestList;}
+    
     public static Guest getGuest(String guestName) {
         Guest g = null;
         Iterator<Guest> guestListItr = guestList.iterator();
@@ -82,4 +80,6 @@ public class GuestMgr {
         }
         return g;
     }
+    
+    public static void setGuestList(List<Guest> guestLi) {guestList = new ArrayList(guestLi);}
 }
