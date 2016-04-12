@@ -169,10 +169,10 @@ public class XMLMgr {
         
     }
     
-    public void toXML(List<Guest> gL){
+    public void toXML(Payment[] paymentArr){
         try {
             System.out.println("Initialising storing of data to XML files...");
-            guestList = new ArrayList(gL);
+            guestList = new ArrayList(GuestMgr.getGuestList());
             
             Iterator<Guest> guestListItr = guestList.iterator();
             Iterator<Item> itemMenuItr = MenuMgr.getItemMenuList().iterator();
@@ -265,55 +265,69 @@ public class XMLMgr {
             result = new StreamResult(itemFile);
             transformer.transform(source, result); 
             System.out.println("itemMenu XML files are stored.");
-/*
+
+            
             // Create document for roomCalendar.XML
             doc = builder.newDocument();
             rootElement = doc.createElement("Root");
             doc.appendChild(rootElement);
             
-            counter = 0;
-            
-            while (guestListItr.hasNext()) {
-                Attr guestAttr = doc.createAttribute("id");
-                guestAttr.setValue(String.valueOf(counter));
-                Element guest = doc.createElement("guest");
-                guest.setAttributeNode(guestAttr);
-                Element name = doc.createElement("name");
-                Element gen = doc.createElement("gender");
-                Element add = doc.createElement("identity");
-                Element id = doc.createElement("address");
-                Element nat = doc.createElement("nationality");
-                Element contact = doc.createElement("contact");
-                Element ccd = doc.createElement("creditCardDet");
-            
-                Guest g = guestListItr.next();
+            Attr monthAttr = doc.createAttribute("month");
+            monthAttr.setValue("4");
+            Element month = doc.createElement("month");
+            month.setAttributeNode(monthAttr);
+            rootElement.appendChild(month);
                 
-                name.appendChild(doc.createTextNode(g.getName()));
-                gen.appendChild(doc.createTextNode(g.getGender()));
-                add.appendChild(doc.createTextNode (g.getAddress()));
-                id.appendChild(doc.createTextNode(g.getIdentity()));
-                nat.appendChild(doc.createTextNode(g.getNationality()));
-                contact.appendChild(doc.createTextNode(String.valueOf(g.getContact())));
-                ccd.appendChild(doc.createTextNode(g.getCreditCardDet()));
+            for (int i = 0; i < RoomMgr.totalRooms; i ++) {
+                Room r = RoomMgr.getRoom(RoomMgr.roomIntToStr(i));
                 
-                rootElement.appendChild(guest);
-                guest.appendChild(name);
-                guest.appendChild(gen);
-                guest.appendChild(add);
-                guest.appendChild(id);
-                guest.appendChild(nat);
-                guest.appendChild(contact);
-                guest.appendChild(ccd);
+                Attr roomAttr = doc.createAttribute("num");
+                roomAttr.setValue(RoomMgr.roomIntToStr(i+1));
+                Element room = doc.createElement("room");
+                room.setAttributeNode(roomAttr);
+                month.appendChild(room);
                 
-                counter ++;
-            }
+                for (int j = 0; j < 2; j ++) {
+                    Attr dayAttr = doc.createAttribute("date");
+                    dayAttr.setValue(String.valueOf(j+1));
+                    Element day = doc.createElement("day");
+                    day.setAttributeNode(dayAttr);
+                    
+                    Element stat = doc.createElement("status");
+                    Element rat = doc.createElement("rate");
+                    Element rsb = doc.createElement("roomservicebill");
+                    Element gn = doc.createElement("guestname");
+                    
+                    System.out.println(r.getRoomNo());
+                    System.out.println(r.getRoomStatus(j+1).toString());
+                    
+                    stat.appendChild(doc.createTextNode(r.getRoomStatus(j+1).toString()));
+                    rat.appendChild(doc.createTextNode(String.valueOf(r.getStatusCalendar(j+1).getRate())));
+                    if (j == CZ2002_Assignment.currentDay - 1)
+                        rsb.appendChild(doc.createTextNode(String.valueOf(paymentArr[i].getRoomServiceBill())));
+                    else
+                        rsb.appendChild(doc.createTextNode(""));
+                    
+                    System.out.println(r.getStatusCalendar(j+1).getGuest().getName());
+                    
+                    gn.appendChild(doc.createTextNode(r.getStatusCalendar(j+1).getGuest().getName()));
 
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(guestFile);
-            transformer.transform(source, result); 
-            System.out.println("guest XML files are stored.");
-         */   
+                    room.appendChild(day);
+                    day.appendChild(stat);
+                    day.appendChild(rat);
+                    day.appendChild(rsb);
+                    day.appendChild(gn);
+                    
+                }
+            }
+            
+            //source = new DOMSource(doc);
+            //result = new StreamResult(roomCalFile);
+            //transformer.transform(source, result); 
+            //System.out.println("roomCalendar XML files are stored.");
+         
         }
+        catch (NullPointerException e) {System.out.println("null pointer exception error: " + e.getMessage());}
         catch (Exception e) {System.out.println(e.getMessage());}
 
         

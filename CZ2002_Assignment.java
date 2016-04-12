@@ -771,8 +771,8 @@ public class CZ2002_Assignment {
                     System.out.println("");
                     
                     break;
-                case 6:
-                    xMLMgr.toXML(guestMgr.getGuestList());
+                case 6: 
+                    xMLMgr.toXML(paymentMgr.getPaymentList());
                     System.out.println("Program terminating ....");
                     break;
             }

@@ -20,8 +20,10 @@ public class PaymentMgr {
     PaymentMgr(Payment[] paymentListPresent) {
         for (int i = 0; i < RoomMgr.totalRooms; i ++) {
             // TO instantiate payment class for all rooms at the start. 
-            totalPaymentArr[i] = new Payment();
-            totalPaymentArr[i] = paymentListPresent[i];
+            if (paymentListPresent[i] != null)
+                totalPaymentArr[i] = paymentListPresent[i];
+            else
+                totalPaymentArr[i] = new Payment();
         }
     }
     
@@ -51,4 +53,6 @@ public class PaymentMgr {
     public Payment getPayment(String rmno){
         return totalPaymentArr[RoomMgr.roomStrToInt(rmno)-1];
     }
+    
+    public Payment[] getPaymentList(){return totalPaymentArr;}
 }

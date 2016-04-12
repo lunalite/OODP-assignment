@@ -59,13 +59,6 @@ public class RoomMgr {
     public void checkOut(String roomNo, int tomorrow) {
         //mainApp class already checked for room that it is occupied
         roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.VACANT, tomorrow); //set roomstatus to vacant from occupied.
-        
-        //Print total bill
-        
-    }
-
-    public void doPayment() {
-
     }
     
     public static Room checkVacantRoom(RoomType RT, int start, int end) {
@@ -255,6 +248,9 @@ public class RoomMgr {
         
     }
     
+    public static Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
+    public Room[] getRoomList() {return roomData;}
+    
     public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
         int roomInt = 0;
         int floor = Integer.parseInt(roomStr.substring(0,2));
@@ -263,5 +259,12 @@ public class RoomMgr {
         return roomInt;
     }
     
-    public static Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
+    public static String roomIntToStr (int roomNo) {
+        int room = roomNo % 8 + 1;
+        int floor = roomNo / 8 + 2;
+        String roomSt = String.format("%02d", room);
+        String floorSt = String.format("%02d", floor);
+        String roomStr = floorSt + "-" + roomSt;
+        return roomStr;
+    }
 }
