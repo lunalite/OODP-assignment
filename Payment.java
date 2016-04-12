@@ -16,8 +16,8 @@ public class Payment {
     public double getRoomServiceBill() {return roomServiceBill;}
     public double getRoomCharges() {return roomChargesBill;}
     public double getTotalBill() {
-        return totalBill; 
-    }
+        totalBill = roomServiceBill + roomChargesBill;
+        return totalBill;}
     public double getTaxes() {return totalBill*taxes;}
     
     public void addRoomServiceBill(double billAdd) { roomServiceBill += billAdd;}

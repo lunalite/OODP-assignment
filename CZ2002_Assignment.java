@@ -34,7 +34,7 @@ public class CZ2002_Assignment {
         RoomServiceMgr roomServiceMgr = new RoomServiceMgr();
         GuestMgr guestMgr = new GuestMgr();
         MenuMgr.updateList(xMLMgr.getItemMenu());
-        PaymentMgr paymentMgr = new PaymentMgr();
+        PaymentMgr paymentMgr = new PaymentMgr(xMLMgr.getPaymentList());
         
         do {
 
@@ -573,7 +573,7 @@ public class CZ2002_Assignment {
                     // Check if room number is occupied
                     System.out.println("Room is " + roomMgr.getRoom(roomNumber_4).getRoomStatus(currentDay));
                     System.out.println("");
-                    if (!roomMgr.getRoom(roomNumber_4).getRoomStatus(currentDay).equals("Occupied")){
+                    if (!roomMgr.getRoom(roomNumber_4).getRoomStatus(currentDay).equals(RoomStatus.OCCUPIED)){
                         break;
                     }
                     
@@ -596,17 +596,17 @@ public class CZ2002_Assignment {
                                 double rate = r.getStatusCalendar(currentDay).getRate();
                                 double roomTypeRate = r.getRoomType().getRate();
                                 double roomChargesBill = rate * roomTypeRate;
-                            System.out.printf("Room charges for today is: $.2f\n", roomChargesBill);
+                            System.out.printf("Room charges for today is: $%.2f\n", roomChargesBill);
                         }
                         
                         // Checking for room service bills
                         else if (billPaymentCheckOption==2){
-                            paymentMgr.getPayment(roomNumber_4).getRoomServiceBill();
+                            System.out.printf("$%.2f\n", paymentMgr.getPayment(roomNumber_4).getRoomServiceBill());
                         }
                         
                         // Checking for subtotal bills
                         else if (billPaymentCheckOption==3){
-                            paymentMgr.getPayment(roomNumber_4).getTotalBill();
+                            System.out.printf("$%.2f\n", paymentMgr.getPayment(roomNumber_4).getTotalBill());
                         }
                     }
                     
@@ -625,6 +625,7 @@ public class CZ2002_Assignment {
                         else if (paymentMethod.contains("Cash")) 
                             System.out.println("Thank you for paying by cash.");
                         
+                        paymentMgr.newPayment(roomStrToInt(roomNumber_4));
                         System.out.println("\nHope to see you soon!\n");
                     }
                     
@@ -776,7 +777,7 @@ public class CZ2002_Assignment {
                     break;
             }
             
-        } while (choice < 7);
+        } while (choice < 6);
 
         sc.close();
     }

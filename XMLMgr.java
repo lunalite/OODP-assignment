@@ -129,22 +129,38 @@ public class XMLMgr {
                     for (int j = 0; j < childNodeList.getLength(); j ++) {
                         Node childNode = childNodeList.item(j);
                         if (childNode.getNodeType() == Node.ELEMENT_NODE){
-                            Element eElement = (Element) childNode;
+                            Element eElement = (Element) childNode; 
+                            String currentGuest = "";
+                            String guestName = eElement.getElementsByTagName("guestname").item(0).getTextContent();
+                            
+                            // Obtain name of current guest
+                            if (counter == CZ2002_Assignment.currentDay-1) {
+                                currentGuest = eElement.getElementsByTagName("guestname").item(0).getTextContent();
+                            }
+                            
                             statusCalendar[counterOut][counter] = new RoomCalendar(
                                 RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent()),
                                 Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()),
-                                eElement.getElementsByTagName("guestname").item(0).getTextContent());
+                                guestName);
                             counter ++;
-                            //Add into payment
-                            //if (j <= CZ2002_Assignment.currentDay) {
-                                
-                            //}
+                            
+                            // Add into payment
+                            // Only when the  payments are <= currentDay do the payments exist.
+                            if (j <= CZ2002_Assignment.currentDay) {
+                                // Check that current guest living in room matches.
+                                if (guestName.equals(currentGuest) && !currentGuest.equals("")){
+                                    paymentList[counterOut] = new Payment();
+                                    paymentList[counterOut].addRoomServiceBill(Double.parseDouble(
+                                            eElement.getElementsByTagName("roomservicebill").item(0).getTextContent()));
+                                }
+                            }
                         }
                     }
                     counterOut++;
                 }
             }
             System.out.println("roomCalendar XML files are uploaded.");
+            System.out.println("payment XML files are uploaded.");
             
             System.out.println("");
         }   
@@ -309,4 +325,5 @@ public class XMLMgr {
     public List<Item> getItemMenu(){return itemMenu;}
     public Room[] getRoomData(){return roomData;}   
     public RoomCalendar[][] getRoomCalData(){return statusCalendar;}
+    public Payment[] getPaymentList(){return paymentList;}
 }

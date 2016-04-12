@@ -11,7 +11,7 @@ and open the template in the editor.
             <day date="1">
                 <status>OCCUPIED</status>
                 <rate>1.0</rate>
-                <roomservicebill></roomservicebill>
+                <roomservicebill>12.50</roomservicebill>
                 <guestname>Teset</guestname>
             </day>
             <day date="2">

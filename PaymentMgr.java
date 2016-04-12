@@ -17,11 +17,11 @@ public class PaymentMgr {
     
     private Payment[] totalPaymentArr = new Payment[RoomMgr.totalRooms];
 
-    PaymentMgr() {
-        
+    PaymentMgr(Payment[] paymentListPresent) {
         for (int i = 0; i < RoomMgr.totalRooms; i ++) {
             // TO instantiate payment class for all rooms at the start. 
             totalPaymentArr[i] = new Payment();
+            totalPaymentArr[i] = paymentListPresent[i];
         }
     }
     
