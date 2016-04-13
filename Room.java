@@ -23,6 +23,36 @@ public class Room {
         this.faceView = faceView;
         this.smoking = smoking;
         this.roomType = ROOMTYPE;
+        
+        YearMonth yearMonthObject = YearMonth.of(2016, Month.APRIL);
+        int daysInMonth = yearMonthObject.lengthOfMonth();
+        statusCalendar = new RoomCalendar[daysInMonth];
+        
+        
+        for (int i = 0; i < daysInMonth; i++) {
+            statusCalendar[i] = new RoomCalendar(RoomStatus.VACANT, 100, "");
+            
+            /*
+            int randomStatus = (int) (Math.random() * 100 % 4);
+            
+            
+            if (randomStatus == 0) {
+                statusCalendar[i] = new RoomCalendar(RoomStatus.VACANT, 100, "");
+            }
+            else if (randomStatus == 1) {
+                statusCalendar[i] = new RoomCalendar(RoomStatus.RESERVED, 100, "");
+            }
+            else if (randomStatus == 2) {
+                statusCalendar[i] = new RoomCalendar(RoomStatus.OCCUPIED, 100, "");
+            }
+            else {
+                statusCalendar[i] = new RoomCalendar(RoomStatus.UNDER_MAINTENANCE, 100, "");
+            }
+            */
+            
+            
+            //statusCalendar[i] = new RoomCalendar("Vacant", 100);
+        }
     }
     
     public void importRoomCal(RoomCalendar[] statusCal) {
@@ -30,7 +60,7 @@ public class Room {
         int daysInMonth = yearMonthObject.lengthOfMonth();
         statusCalendar = new RoomCalendar[daysInMonth];
 
-        for (int i = 0; i < 30; i ++) {
+        for (int i = 0; i < daysInMonth; i ++) {
             if (statusCal[i] != null) {
                 statusCalendar[i] = statusCal[i];
             }

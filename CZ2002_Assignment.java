@@ -170,6 +170,7 @@ public class CZ2002_Assignment {
                     System.out.println("(3) Room Status Statistics Report");
                     System.out.println("(4) Room Availability Check");
                     System.out.println("(5) Update Room Details");
+                    System.out.println("(6) Add new Room");
                     System.out.print("\nEnter the number of your choice: ");
                     int roomOption = sc.nextInt();
                     sc.nextLine();
@@ -180,7 +181,7 @@ public class CZ2002_Assignment {
                         String roomNoCI = sc.nextLine();
                         
                         //Check if room number is present in system
-                        if (roomNoCheck(roomNoCI) == true) {
+                        if (roomNoCheck(roomNoCI, roomMgr.getRoomData()) == true) {
                             
                             System.out.println("Please insert name of guest: ");
                             String resGuestName = sc.nextLine();
@@ -231,7 +232,7 @@ public class CZ2002_Assignment {
                         String roomNoCO = sc.nextLine();
                         
                         //Check if room number is present in system
-                        if (roomNoCheck(roomNoCO) == true) {
+                        if (roomNoCheck(roomNoCO, roomMgr.getRoomData()) == true) {
                             
                             if (!roomMgr.getRoom(roomNoCO).getRoomStatus(laterDay).equals(RoomStatus.OCCUPIED)){
                                 
@@ -272,7 +273,7 @@ public class CZ2002_Assignment {
                         String roomNoCA = sc.nextLine();
                         
                         //Check if room number is present in system
-                        if (roomNoCheck(roomNoCA)) {
+                        if (roomNoCheck(roomNoCA, roomMgr.getRoomData())) {
                             
                             System.out.print("Please the day to check : ");
                             int checkDay = sc.nextInt();
@@ -293,7 +294,7 @@ public class CZ2002_Assignment {
                         String roomNoURD = sc.nextLine();
                         
                         //Check if room number is present in system
-                        if (roomNoCheck(roomNoURD)) {
+                        if (roomNoCheck(roomNoURD, roomMgr.getRoomData())) {
                             
                             int updateOption = -1;
                             
@@ -392,7 +393,52 @@ public class CZ2002_Assignment {
                                     }
                             }
                         }
-                    }       
+                    }  
+                    else if (roomOption == 6) {
+                        System.out.print("Please enter new room number (e.g. 02-05): ");
+                        String roomNoANR = sc.nextLine();
+                        
+                        //Check if room number is not present in system
+                        if (!roomNoCheck(roomNoANR, roomMgr.getRoomData())) {
+                            System.out.print("\nIs room wifi enabled?(Y/N) : ");
+                            boolean hasWifi = sc.nextLine().trim().toUpperCase().contentEquals("Y");
+                            
+                            System.out.print("\nCan guests smoke in room?(Y/N) : ");
+                            boolean canSmoke = sc.nextLine().trim().toUpperCase().contentEquals("Y");
+                            
+                            System.out.print("\nRoom face view description : ");
+                            String faceViewDes = sc.nextLine();
+                            
+                            System.out.print("\nRoom Types");
+                            System.out.print("\n(1) Single");
+                            System.out.print("\n(2) Double");
+                            System.out.print("\n(3) Twin");
+                            System.out.print("\n(4) Triple");
+                            System.out.print("\nRoom type selection : ");
+                            String roomTypeSelection = sc.nextLine();
+                            
+          
+                            if (roomTypeSelection.contentEquals("1")) {
+                                roomMgr.addRoom(roomNoANR.replace("-", ""), hasWifi, faceViewDes, canSmoke, RoomType.SINGLE);
+                            }
+                            else if (roomTypeSelection.contentEquals("2")) {
+                                roomMgr.addRoom(roomNoANR.replace("-", ""), hasWifi, faceViewDes, canSmoke, RoomType.DOUBLE);
+                            }
+                            else if (roomTypeSelection.contentEquals("3")) {
+                                roomMgr.addRoom(roomNoANR.replace("-", ""), hasWifi, faceViewDes, canSmoke, RoomType.TWIN);
+                            }
+                            else if (roomTypeSelection.contentEquals("4")) {
+                                roomMgr.addRoom(roomNoANR.replace("-", ""), hasWifi, faceViewDes, canSmoke, RoomType.TRIPLE);
+                            }
+                            
+                            System.out.println("Room " + roomNoANR + " added.");
+                            roomMgr.displayRoomDetails(roomNoANR);
+                            
+                        }
+                        else {
+                            System.out.println("Room number exists.");
+                        }
+                    }
                     
                     System.out.println("");
                     
@@ -415,7 +461,7 @@ public class CZ2002_Assignment {
                         String roomNumber_3 = sc.nextLine();
 
                         //Check room
-                        if (roomNoCheck(roomNumber_3) == false)
+                        if (roomNoCheck(roomNumber_3, roomMgr.getRoomData()) == false)
                             break;
                         System.out.println("Room is " + roomMgr.getRoom(roomNumber_3).getRoomStatus(currentDay));
                         System.out.println("");
@@ -567,7 +613,7 @@ public class CZ2002_Assignment {
                     String roomNumber_4 = sc.nextLine();
                     
                     //Check if room number is present in system
-                    if (roomNoCheck(roomNumber_4) == false)
+                    if (roomNoCheck(roomNumber_4, roomMgr.getRoomData()) == false)
                         break;
                     
                     // Check if room number is occupied
@@ -783,6 +829,7 @@ public class CZ2002_Assignment {
         sc.close();
     }
     
+    /*
     // Check if room number is present
     public static boolean roomNoCheck(String roomN){
         boolean pass = true;
@@ -795,6 +842,20 @@ public class CZ2002_Assignment {
             pass = false;
         }
         return pass;
+    }
+    */
+    
+    // Check if room number is present
+    public static boolean roomNoCheck(String roomN, Room[] rooms) {
+       
+        for (int i = 0; i < rooms.length; i++) {
+            //System.out.println(rooms[i].getRoomNo());
+            if (rooms[i].getRoomNo().contains(roomN.replace("-", ""))) {
+                return true;
+            }
+        }
+        
+        return false;
     }
     
 }
