@@ -285,6 +285,8 @@ public class CZ2002_Assignment {
                                     System.out.println("Initialising guest adding to database...");
                                     guestMgr.addGuest();
                                 }
+                                List<Guest> guestlist = guestMgr.getGuestList();
+                                g = guestlist.get(guestlist.size()-1);
                                 
                                 System.out.println("Please insert check-out date: ");
                                 int roomCOD = sc.nextInt();

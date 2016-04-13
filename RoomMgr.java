@@ -53,10 +53,6 @@ public class RoomMgr {
         }
     }
 
-    public void getRoomDetail() {
-
-    }
-
     public void checkOut(String roomNo, int tomorrow) {
         //mainApp class already checked for room that it is occupied
         roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.VACANT, tomorrow); //set roomstatus to vacant from occupied.
@@ -252,7 +248,8 @@ public class RoomMgr {
     public static Room getRoom(String roomNo){
         //return roomData[roomStrToInt(roomNo)-1];
         for (int i = 0; i < roomData.length; i++) {
-            if (roomData[i].getRoomNo().contentEquals(roomNo.replace("-", ""))) {
+            if (roomData[i].getRoomNo().equals(roomNo.replace("-", ""))) {
+                System.out.println("TEST");
                 return roomData[i];
             }
         }
