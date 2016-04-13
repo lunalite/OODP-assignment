@@ -58,31 +58,10 @@ public class XMLMgr {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             dbFactory.setIgnoringElementContentWhitespace(true);
 
-            // importing of guestList data from XML file
-            doc = dBuilder.parse(guestFile);
-            doc.getDocumentElement().normalize();
-            NodeList nList = doc.getElementsByTagName("guest");
-            
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-                Node nNode = nList.item(temp);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) nNode;
-                    guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
-                            eElement.getElementsByTagName("gender").item(0).getTextContent(),
-                            eElement.getElementsByTagName("identity").item(0).getTextContent(),
-                            eElement.getElementsByTagName("address").item(0).getTextContent(),
-                            eElement.getElementsByTagName("nationality").item(0).getTextContent(),
-                            Integer.parseInt(eElement.getElementsByTagName("contact").item(0).getTextContent()),
-                            eElement.getElementsByTagName("creditCardDet").item(0).getTextContent()));
-                }
-            }
-            GuestMgr.setGuestList(guestList);
-            System.out.println("guest XML files are uploaded.");
-            
             // importing of itemMenu list
             doc = dBuilder.parse(itemFile);
             doc.getDocumentElement().normalize();
-            nList = doc.getElementsByTagName("item");
+            NodeList nList = doc.getElementsByTagName("item");
             
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Node nNode = nList.item(temp);
@@ -115,6 +94,28 @@ public class XMLMgr {
             }
             System.out.println("roomData XML files are uploaded.");
             
+            // importing of guestList data from XML file
+            doc = dBuilder.parse(guestFile);
+            doc.getDocumentElement().normalize();
+            nList = doc.getElementsByTagName("guest");
+            
+            for (int temp = 0; temp < nList.getLength(); temp++) {
+                Node nNode = nList.item(temp);
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    guestList.add(new Guest(eElement.getElementsByTagName("name").item(0).getTextContent(),
+                            eElement.getElementsByTagName("gender").item(0).getTextContent(),
+                            eElement.getElementsByTagName("identity").item(0).getTextContent(),
+                            eElement.getElementsByTagName("address").item(0).getTextContent(),
+                            eElement.getElementsByTagName("nationality").item(0).getTextContent(),
+                            Integer.parseInt(eElement.getElementsByTagName("contact").item(0).getTextContent()),
+                            eElement.getElementsByTagName("creditCardDet").item(0).getTextContent(),
+                            eElement.getElementsByTagName("room").item(0).getTextContent()));
+                }
+            }
+            GuestMgr.setGuestList(guestList);
+            System.out.println("guest XML files are uploaded.");
+            
             // importing of roomCalendar data from XML file
             doc = dBuilder.parse(roomCalFile);
             doc.getDocumentElement().normalize();
@@ -144,7 +145,7 @@ public class XMLMgr {
                             }
                             
                             statusCalendar[counterOut][counter] = new RoomCalendar(
-                                RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent()),
+                                RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent().toUpperCase()),
                                 Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()),
                                 guestName);
                             
@@ -208,6 +209,7 @@ public class XMLMgr {
                 Element nat = doc.createElement("nationality");
                 Element contact = doc.createElement("contact");
                 Element ccd = doc.createElement("creditCardDet");
+                Element rom = doc.createElement("room");
             
                 Guest g = guestListItr.next();
                 
@@ -218,6 +220,10 @@ public class XMLMgr {
                 nat.appendChild(doc.createTextNode(g.getNationality()));
                 contact.appendChild(doc.createTextNode(String.valueOf(g.getContact())));
                 ccd.appendChild(doc.createTextNode(g.getCreditCardDet()));
+                if (g.getRoom() == null)
+                    rom.appendChild(doc.createTextNode(""));
+                else
+                    rom.appendChild(doc.createTextNode(g.getRoom().getRoomNo()));
                 
                 rootElement.appendChild(guest);
                 guest.appendChild(name);
@@ -227,6 +233,7 @@ public class XMLMgr {
                 guest.appendChild(nat);
                 guest.appendChild(contact);
                 guest.appendChild(ccd);
+                guest.appendChild(rom);
                 
                 counter ++;
             }

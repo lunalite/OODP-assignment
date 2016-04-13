@@ -185,28 +185,28 @@
 		</room>
 		<room num="0202">
 			<day date="1">
-				<status>Vacant</status>
+				<status>Occupied</status>
 				<rate>1.0</rate>
 				<roomservicebill>0.0</roomservicebill>
-				<guestname/>
+				<guestname>Thomson</guestname>
 			</day>
 			<day date="2">
-				<status>Vacant</status>
+				<status>Occupied</status>
 				<rate>1.5</rate>
 				<roomservicebill/>
-				<guestname/>
+				<guestname>Thomson</guestname>
 			</day>
 			<day date="3">
-				<status>Vacant</status>
+				<status>Occupied</status>
 				<rate>1.5</rate>
 				<roomservicebill/>
-				<guestname/>
+				<guestname>Thomson</guestname>
 			</day>
 			<day date="4">
-				<status>Vacant</status>
+				<status>Occupied</status>
 				<rate>1.0</rate>
 				<roomservicebill/>
-				<guestname/>
+				<guestname>Thomson</guestname>
 			</day>
 			<day date="5">
 				<status>Vacant</status>
