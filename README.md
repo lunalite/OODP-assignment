@@ -4,10 +4,10 @@ Presently, the IDE we are using is Netbeans.
 
 ---
 
-Latest 13/04/16
-All files are within CZ2002_assignment, including javadocs.
-HRPS.vpp is class diagram in visual paradigm format.
-class_diagram.jpg is jpg file for class diagram.
+## Latest 13/04/16
+- All files are within CZ2002_assignment, including javadocs.
+- HRPS.vpp is class diagram in visual paradigm format.
+- class_diagram.jpg is jpg file for class diagram.
 
 
 
