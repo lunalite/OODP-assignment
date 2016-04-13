@@ -33,7 +33,7 @@ public class GuestMgr {
             do {
                 contact2 = sc.nextLine();
                 if (contact2.matches(".*[a-zA-Z]+.*"))
-                    System.out.println("Please input integers only");
+                    System.out.println("Please input integers only.");
                 else
                     break;
             } while (true);

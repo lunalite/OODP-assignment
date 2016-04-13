@@ -879,7 +879,14 @@ public class CZ2002_Assignment {
                             // Update contact
                             else if (guestUpdateOption == 6) {
                                 System.out.println("Please insert new contact: ");
-                                String newGuestCont = sc.nextLine();
+                                String newGuestCont = "";
+                                do {
+                                    newGuestCont = sc.nextLine();
+                                    if (newGuestCont.matches(".*[a-zA-Z]+.*"))
+                                        System.out.println("Please input integers only.");
+                                    else
+                                        break;
+                                } while (true);
                                 g.setContact(Integer.parseInt(newGuestCont));
                                 System.out.println("Details updated.");
                             }
