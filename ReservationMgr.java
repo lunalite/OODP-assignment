@@ -165,5 +165,8 @@ public class ReservationMgr {
     public void acknowledge() {
 
     }
-
+    
+    public Iterator<Reservation> getReservationItr(){
+        return reservationList.iterator();
+    }
 }

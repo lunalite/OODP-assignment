@@ -81,8 +81,19 @@ public class CZ2002_Assignment {
                             if (guestNameRes.contains("-1"))
                                 break;
                             g = guestMgr.searchGuestByName(guestNameRes);
+                            if (g == null) {
+                                System.out.println("No such guest available.");
+                                System.out.println("Do you want to add this guest? (y/n)");
+                                String reply = sc.nextLine();
+                                if (reply.contains("y")) {
+                                    System.out.println("Initialising guest adding to database...");
+                                    guestMgr.addGuest();
+                                    g = guestMgr.searchGuestByName(guestNameRes);
+                                    break;
+                                }
+                            }
                         }
-                        if (g != null) {
+                        
                             String guestRoomTypeRes = "";
                             do {
                                 // Prevents error from happening due to enum not being available
@@ -130,7 +141,7 @@ public class CZ2002_Assignment {
 
                             else
                                 System.out.println("No room available.");
-                        }
+                        
                         System.out.println("");
                     }
                     
@@ -152,10 +163,29 @@ public class CZ2002_Assignment {
                     //Print room reservation
                     else if (reservationOption == 4) {
                     	//Need to check if reservation code is valid?
-                    	System.out.println("Please enter your reservation code: ");
-                    	int resCode = sc.nextInt();
-                    	Reservation r = reservationMgr.searchReservationByCode(resCode);
-                        reservationMgr.printReservation(r);
+                        System.out.println("(1) Print reservation by reservation code.");
+                        System.out.println("(2) Print all available reservations.");
+                        int reservationPrintOption = sc.nextInt();
+                        
+                        // Print reservation by code
+                        if (reservationPrintOption == 1) {
+                            System.out.println("Please enter your reservation code: ");
+                            int resCode = sc.nextInt();
+                            Reservation r = reservationMgr.searchReservationByCode(resCode);
+                            reservationMgr.printReservation(r);
+                        }
+                        
+                        // Print all reservation
+                        else if (reservationPrintOption == 2){
+                            Iterator<Reservation> resItr = reservationMgr.getReservationItr();
+                            if (!resItr.hasNext())
+                                System.out.println("No reservations availble.");
+                            else {
+                                while (resItr.hasNext()) {
+                                    reservationMgr.printReservation(resItr.next());
+                                }
+                            }
+                        }
                     }
 
                     System.out.println("Thank you for your patronage");
