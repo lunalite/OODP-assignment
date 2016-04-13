@@ -12,6 +12,10 @@ package cz2002_assignment;
 public enum ReservationStatus {
     CONFIRMED, WAITLIST, CHECKED_IN, EXPIRED, CANCELLED;
     
+    /**
+     * Returns reservation status object as readable string
+     * @return format Possible strings Confirmed | On waitlist | Checked in | Expired | Cancelled
+     */
     public String toString(){
         String format = "";
         switch (this) {

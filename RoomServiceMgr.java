@@ -6,22 +6,44 @@ import java.util.List;
 
 public class RoomServiceMgr {
     
+    /**
+     * List of all room service orders
+     */
     private static List<RoomServiceOrder> RoomOrderList[];
     
+    /**
+     * Create room service manager instance, each room has it's own order list
+     */
     RoomServiceMgr() {
         RoomOrderList = new LinkedList[RoomMgr.totalRooms]; //Total room numbers i.e. have to get it from roomMgr
         for (int i = 0; i < RoomMgr.totalRooms; i ++) {
         }
     }
     
+    /**
+     * Show room service menu
+     */
     public void showMenu() {
         MenuMgr.itemList();
     }
     
+    /**
+     * Get item description
+     * 
+     * @param x Item's index
+     */
     public void getItemDescription(int x){
         MenuMgr.getItemDescription(x);
     }
 
+    /**
+     * Create new order
+     * 
+     * @param rmNo The room number
+     * @param itemOrder The items ordered
+     * @param remarks The order's additional remarks
+     * @return order bill
+     */
     public double createOrder(String rmNo, List<Item> itemOrder, String remarks) {
         if (RoomOrderList[RoomMgr.roomStrToInt(rmNo) - 1] == null) {
             RoomOrderList[RoomMgr.roomStrToInt(rmNo) - 1] = new LinkedList();
@@ -33,6 +55,11 @@ public class RoomServiceMgr {
         return rmOrder.getBill();
     }
 
+    /**
+     * Print room services order details
+     * 
+     * @param rmOrder The room service order to be printed
+     */
     public void printOrder(RoomServiceOrder rmOrder){
         System.out.println("\n========================");
         System.out.println("Order code: " + rmOrder.getOrderCode());
@@ -51,11 +78,23 @@ public class RoomServiceMgr {
         System.out.println("========================\n");
     }
     
+    /**
+     * Update room service order via order code and room number
+     * 
+     * @param orderCode The order code of the room service request
+     * @param rmNo The room number that made the room service request
+     */
     public void updateOrder(int orderCode, String rmNo) {
         // Update order based on the order code and room number.
         
     }
 
+    /**
+     * Remove room service order
+     * 
+     * @param rmNo The room number that made the room service request
+     * @param orderCode The order code of the room service request
+     */
     public void removeOrder(String rmNo, String orderCode) {
         // Removes the Order based on the order code.
         if (orderCode.equals("1")){
@@ -67,6 +106,12 @@ public class RoomServiceMgr {
         }
     }
     
+    /**
+     * Check room service order
+     * 
+     * @param rmNo The room number that made the room service request
+     * @return boolean
+     */
     public boolean checkOrder (String rmNo){
         if (RoomOrderList[RoomMgr.roomStrToInt(rmNo) - 1] == null ||
                 RoomOrderList[RoomMgr.roomStrToInt(rmNo) - 1].isEmpty())
@@ -75,6 +120,12 @@ public class RoomServiceMgr {
             return true;
     }
     
+    /**
+     * Get specific room service order
+     * 
+     * @param roomNo The room number that made the room service request
+     * @param orderCode The order code of the room service request
+     */
     public void getOrder(String roomNo, String orderCode) {
         // Returns the Order based on the order code.
         if (orderCode.equals("1")){
@@ -88,6 +139,12 @@ public class RoomServiceMgr {
         }
     }
     
+    /**
+     * Get all orders of specific room
+     * 
+     * @param roomNo The room number that made the room service requests
+     * @return List of RoomServiceOrder
+     */
     public static List<RoomServiceOrder> getOrders(int roomNo){
         if (RoomOrderList[roomNo - 1] != null)
             return RoomOrderList[roomNo-1];

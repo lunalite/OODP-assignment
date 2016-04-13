@@ -12,6 +12,10 @@ package cz2002_assignment;
 public enum RoomStatus {
     VACANT, OCCUPIED, RESERVED, UNDER_MAINTENANCE;
 
+    /**
+     * Returns room status object as readable string
+     * @return format Possible strings Vacant | Occupied | Reserved | Under maintenance
+     */
     public String toString(){
         String format = "";
         switch (this) {

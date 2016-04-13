@@ -8,6 +8,10 @@ package cz2002_assignment;
 public enum RoomServiceOrderStatus {
     CONFIRMED, PREPARING, DELIVERED;
     
+    /**
+     * Returns room service order status object as readable string
+     * @return format Possible strings Confirmed | Preparing | Delivered
+     */
     public String toString(){
         String format = "";
         switch (this) {

@@ -29,28 +29,88 @@ public class XMLMgr {
     ** 
     */
     //PLEASE EDIT THIS FILE FOR IT TO WORK!!
+    /**
+     * The directory where the XML files are stored
+     */
     private static final String directory = "D:\\Documents\\NetBeansProjects"
             + "\\CZ2002_Assignment\\src\\cz2002_assignment\\XML\\";
     /*
     **
     */
+    
+    /**
+     * The path where the XML file of guests list is stored
+     */
     private static final String guestXMLFilePath = directory + "guestList.xml";
+    
+    /**
+     * The path where the XML file of items menu is stored
+     */
     private static final String itemXMLFilePath = directory + "itemMenu.xml";
+    
+    /**
+     * The path where the XML file of rooms list is stored
+     */
     private static final String roomXMLFilePath = directory + "roomList.xml";
+    
+    /**
+     * The path where the XML file of room calendars is stored
+     */
     private static final String roomCalXMLFilePath = directory + "roomCalendar.xml";
+    
+    /**
+     * Data of guests list file
+     */
     private static File guestFile = new File(guestXMLFilePath);
+    
+    /**
+     * Data of item menu file
+     */
     private static File itemFile = new File(itemXMLFilePath);
+    
+    /**
+     * Data of rooms list file
+     */
     private static File roomFile = new File(roomXMLFilePath);
+    
+    /**
+     * Data of room calendars file
+     */
     private static File roomCalFile = new File(roomCalXMLFilePath);
     
+    /**
+     * XML parser
+     */
     private static Document doc;
+    
+    /**
+     * List of guests
+     */
     private static List<Guest> guestList = new ArrayList();
+    
+    /**
+     * List of item provided in room service
+     */
     private static List<Item> itemMenu = new ArrayList();
+    
+    /**
+     * Array of room objects
+     */
     private static Room[] roomData = new Room[RoomMgr.totalRooms];
+    
+    /**
+     * 2D array of rooms calendar
+     */
     private static RoomCalendar[][] statusCalendar = new RoomCalendar[RoomMgr.totalRooms][30];
+    
+    /**
+     * List of payments
+     */
     private static Payment[] paymentList = new Payment[RoomMgr.totalRooms];
 
-    
+    /**
+     * Load data from the XML files
+     */
     public void fromXML(){
         try {	
             System.out.println("XML files are being uploaded...");
@@ -175,6 +235,11 @@ public class XMLMgr {
         
     }
     
+    /**
+     * Save data to XML files
+     * 
+     * @param paymentArr The payment array to be stored
+     */
     public void toXML(Payment[] paymentArr){
         try {
             System.out.println("Initialising storing of data to XML files...");
@@ -355,9 +420,38 @@ public class XMLMgr {
         //End of output file
     }
     
+    /**
+     * Get list of guests
+     * 
+     * @return guestList
+     */
     public List<Guest> getGuestList(){return guestList;}
+    
+    /**
+     * Get list of items offered in room service
+     * 
+     * @return itemMenu
+     */
     public List<Item> getItemMenu(){return itemMenu;}
+    
+    /**
+     * Get the array with all the rooms details
+     * 
+     * @return roomData
+     */
     public Room[] getRoomData(){return roomData;}   
+    
+    /**
+     * Get the 2D array of status calendar which contains the status of all rooms on all days in the calendar
+     *
+     * @return statusCalendar
+     */
     public RoomCalendar[][] getRoomCalData(){return statusCalendar;}
+    
+    /**
+     * Get list of all payments
+     * 
+     * @return paymentList
+     */
     public Payment[] getPaymentList(){return paymentList;}
 }
