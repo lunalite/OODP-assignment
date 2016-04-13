@@ -17,6 +17,7 @@ public class CZ2002_Assignment {
     public static final int minFloorNo = 2; //Minimum floor number for rooms
     public static final int currentDay = 1; //Current Day of system (Currently for April alone)
     public static final int laterDay = 4; //Current Day of system (Currently for April alone)
+    public static final int dayInMonths = 30; // For april
     
     
     public static void main(String[] args) {
@@ -147,11 +148,24 @@ public class CZ2002_Assignment {
                             if (currentCap > totalCap)
                                 System.out.println("Too many people for the rooms chosen.");
                         } while (currentCap > totalCap);
-
-                        System.out.println("Please insert start day for reservation(Day within April 2016): ");
-                        int guestStartDayRes = sc.nextInt();
-                        System.out.println("Please insert end day for reservation(Day within April 2016): ");
-                        int guestEndDayRes = sc.nextInt();
+                        
+                        // Ensures the dates are valid within April 2016
+                        int guestStartDayRes;
+                        int guestEndDayRes;
+                        do {
+                            System.out.println("Please insert start day for reservation(Day within April 2016): ");
+                            guestStartDayRes = sc.nextInt();
+                            System.out.println("Please insert end day for reservation(Day within April 2016): ");
+                            guestEndDayRes = sc.nextInt();
+                            if ((guestStartDayRes <= 0 || guestStartDayRes > dayInMonths) ||
+                                    (guestEndDayRes <= 0 || guestEndDayRes > dayInMonths))
+                                System.out.println("Please input valid day.");
+                            else if (startEndCheck(guestStartDayRes, guestEndDayRes) == false)
+                                System.out.println("Please input end day after start day.");
+                            else
+                                break;
+                        } while (true);
+                        
                         sc.nextLine(); //flush
                         System.out.println("Please insert your billing info: ");
                         String guestBillInfo = sc.nextLine();
@@ -929,6 +943,13 @@ public class CZ2002_Assignment {
         }
         
         return false;
+    }
+    
+    public static boolean startEndCheck(int start, int end) {
+        if (end < start)
+            return false;
+        else
+            return true;
     }
 }
 
