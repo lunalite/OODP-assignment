@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RoomMgr {
 
-    public static final int totalRooms  = 48;
+    public static int totalRooms  = 48;
     
     private Calendar timeStamp; //Useless variable for now
     private static Room[] roomData; //Record of all the rooms
@@ -249,7 +249,15 @@ public class RoomMgr {
         
     }
     
-    public static Room getRoom(String roomNo){return roomData[roomStrToInt(roomNo)-1];}
+    public static Room getRoom(String roomNo){
+        //return roomData[roomStrToInt(roomNo)-1];
+        for (int i = 0; i < roomData.length; i++) {
+            if (roomData[i].getRoomNo().contentEquals(roomNo.replace("-", ""))) {
+                return roomData[i];
+            }
+        }
+        return null;
+    }
     public Room[] getRoomList() {return roomData;}
     
     public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
@@ -267,5 +275,45 @@ public class RoomMgr {
         String floorSt = String.format("%02d", floor);
         String roomStr = floorSt + "-" + roomSt;
         return roomStr;
+    }
+    
+    public Room[] getRoomData() {
+        return roomData;
+    }
+    
+    public void addRoom(String roomNo, boolean hasWifi, String faceViewDes, boolean canSmoke, RoomType roomType) {
+        Room[] tempRoomData = new Room[roomData.length + 1];
+        for (int i = 0; i < roomData.length; i++) {
+            tempRoomData[i] = roomData[i];
+        }
+
+        // last element
+        tempRoomData[roomData.length] = new Room(roomNo, hasWifi, faceViewDes, canSmoke, roomType);
+        
+        roomData = new Room[tempRoomData.length];
+        for (int i = 0; i < tempRoomData.length; i++) {
+            roomData[i] = tempRoomData[i];
+        }
+        
+        totalRooms = roomData.length;
+    }
+
+    public void displayRoomDetails(String roomNo) {
+        Room displayRoom = getRoom(roomNo);
+
+        System.out.println("Room Type       : " + displayRoom.getRoomType().toString());
+        System.out.println("Wifi Enabled    : " + (displayRoom.getIsWifiEnabled() ? "YES" : "NO"));
+        System.out.println("Smoking Allowed : " + (displayRoom.getIsSmokingAllowed() ? "YES" : "NO"));
+        System.out.println("Room Face View  : " + displayRoom.getFaceView());
+        System.out.println("Room Status");
+        for (int i = 1; i <= displayRoom.getStatusCalendar().length; i++) {
+            System.out.print(String.format("%3s - %-18s", "" + i, displayRoom.getRoomStatus(i)));
+            if (i % 7 == 0) {
+                System.out.println("");
+            } else {
+                System.out.print("|");
+            }
+        }
+        System.out.println("");
     }
 }
