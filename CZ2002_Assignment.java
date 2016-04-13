@@ -314,7 +314,7 @@ public class CZ2002_Assignment {
                                 if (resGuestName.equals(g.getName())) {
                                     Reservation r = reservationMgr.searchReservationByName(resGuestName);
                                     roomMgr.checkIn(roomNoCI, r);
-                                    System.out.println("Congratulations " + g.getName() + "You have checked in to " + 
+                                    System.out.println("Congratulations " + g.getName() + "! You have checked in to " + 
                                             roomNoCI + " successfully.");
                                     paymentMgr.newPayment(roomStrToInt(roomNoCI)-1);
                                 }

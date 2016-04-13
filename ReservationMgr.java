@@ -158,7 +158,8 @@ public class ReservationMgr {
     public void printReservation(Reservation r) {
         System.out.println("\n========================");
         System.out.println("Reservation code: " + r.getReserveCode());
-        System.out.println("Room Number: " + r.getRoom().getRoomNo());
+        System.out.println("Room Number: " + r.getRoom().getRoomNo().substring(0,2) +
+            "-" + r.getRoom().getRoomNo().substring(2,4));
         System.out.println("Billing information: " + r.getBillingInfo());
         Calendar CID = r.getCheckInDate();
         System.out.println("check-in date: " + CID.get(CID.YEAR) + "-" + CID.get(CID.MONTH) +
