@@ -249,7 +249,6 @@ public class RoomMgr {
         //return roomData[roomStrToInt(roomNo)-1];
         for (int i = 0; i < roomData.length; i++) {
             if (roomData[i].getRoomNo().equals(roomNo.replace("-", ""))) {
-                System.out.println("TEST");
                 return roomData[i];
             }
         }
