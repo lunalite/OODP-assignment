@@ -11,10 +11,14 @@ public class GuestMgr {
     private Scanner sc = new Scanner(System.in);
         
     public GuestMgr() {
+        guestListItr = guestList.iterator();
+        while (guestListItr.hasNext()) {
+            guestListItr.next().updateGuestRoom();
+        }
     }
     
     public void addGuest() {
-        System.out.println("Please insert name of guest to be added: ");
+            System.out.println("Please insert name of guest to be added: ");
             String name2B = sc.nextLine();
             System.out.println("Please insert gender of guest to be added: ");
             String gender2B = sc.nextLine();
@@ -29,7 +33,7 @@ public class GuestMgr {
             int contact2B = Integer.parseInt(contact2);
             System.out.println("Please insert credit card details of guest to be added: ");
             String ccd2B = sc.nextLine();
-            guestList.add(new Guest(name2B, gender2B, address2B, identity2B, nat2B, contact2B, ccd2B));
+            guestList.add(new Guest(name2B, gender2B, address2B, identity2B, nat2B, contact2B, ccd2B, ""));
             
             System.out.println("Guest added");
     }
