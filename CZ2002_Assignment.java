@@ -103,6 +103,7 @@ public class CZ2002_Assignment {
                                         break;
                                     }
                                 } while (true);
+                                
                                 if (endAddition == true)
                                     break;
                             }
