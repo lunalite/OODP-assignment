@@ -7,13 +7,28 @@ import java.util.List;
 
 public class RoomMgr {
 
-    public static int totalRooms  = 48;
+    /**
+     * Total number of rooms
+     */
+    public static int totalRooms = 48; //Not exactly need, can always replace with roomData.length
     
-    private Calendar timeStamp; //Useless variable for now
+    //private Calendar timeStamp; //Useless variable for now
+    
+    /**
+     * Room array that holds all the room objects
+     */
     private static Room[] roomData; //Record of all the rooms
 
+    /**
+     * Default constructor
+     */
     RoomMgr() {}
     
+    /**
+     * Creates room manager with preset data 
+     * @param roomdata The rooms data
+     * @param statusCal The rooms status calendar
+     */
     RoomMgr(Room[] roomdata, RoomCalendar[][] statusCal) {
         roomData = new Room[totalRooms];
         
@@ -36,6 +51,12 @@ public class RoomMgr {
         }
     }
 
+    /**
+     * room check in via walk in
+     * @param roomNo The room number
+     * @param today The check in day
+     * @param tomorrow The check out day
+     */
     public void checkIn(String roomNo, int today, int tomorrow) {
         //mainApp class already checked for room that it is vacant
         for (int i = today; i <= tomorrow; i ++) {
@@ -44,20 +65,37 @@ public class RoomMgr {
         }
     }
     
-    public void checkIn(String roomNo, Reservation r) {
-        Calendar CID = r.getCheckInDate();
-        Calendar COD = r.getCheckOutDate();
+    /**
+     * room check in via reservation
+     * @param roomNo The room number
+     * @param reservation The reservation object
+     */
+    public void checkIn(String roomNo, Reservation reservation) {
+        Calendar CID = reservation.getCheckInDate();
+        Calendar COD = reservation.getCheckOutDate();
         for (int i = CID.get(CID.DAY_OF_MONTH); i <= COD.get(COD.DAY_OF_MONTH); i ++) {
             //set roomstatus to occupied from vacant.
             roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.OCCUPIED, i); 
         }
     }
 
+    /**
+     * room check out
+     * @param roomNo The room number
+     * @param tomorrow The check out day
+     */
     public void checkOut(String roomNo, int tomorrow) {
         //mainApp class already checked for room that it is occupied
         roomData[roomStrToInt(roomNo)-1].setRoomStatus(RoomStatus.VACANT, tomorrow); //set roomstatus to vacant from occupied.
     }
     
+    /**
+     * check if room is vacant from requested check in till check out dates
+     * @param RT The room type
+     * @param start The check in day
+     * @param end The check out day
+     * @return availableRoom
+     */
     public static Room checkVacantRoom(RoomType RT, int start, int end) {
         // Single rooms 0201 - 0308 i.e. from 0-15
         // Double rooms 0401 - 0404 i.e. from 16-19
@@ -111,6 +149,10 @@ public class RoomMgr {
     //Rooms : 02-03, 03-04, 03-05
     //Double : Number : 5 out of 10
     //Rooms : 02-04, 05-04, 05-05
+    /**
+     * Prints occupancy report for specific day
+     * @param reportDay The requested report day
+     */
     public void getOccupancyReport(int reportDay) {
         
         int singleCount = 0;
@@ -194,6 +236,10 @@ public class RoomMgr {
     //Rooms : 02-03, 03-04, 03-05
     //Occupied :
     //Rooms : 02-04, 05-04, 05-05
+    /**
+     * Prints status report for specific day
+     * @param reportDay The requested report day
+     */
     public void getStatusReport(int reportDay) {
         int vacantCount = 0;
         int occupiedCount = 0;
@@ -245,18 +291,32 @@ public class RoomMgr {
         
     }
     
+    /**
+     * Get room object via room's number
+     * @param roomNo The room number
+     * @return roomData[x]
+     */
     public static Room getRoom(String roomNo){
         //return roomData[roomStrToInt(roomNo)-1];
         for (int i = 0; i < roomData.length; i++) {
-            if (roomData[i].getRoomNo().equals(roomNo.replace("-", ""))) {
+            if (roomData[i].getRoomNo().contentEquals(roomNo.replace("-", ""))) {
                 return roomData[i];
             }
         }
         return null;
     }
         
+    /**
+     * Get room list
+     * @return roomData array that holds all the room objects
+     */
     public Room[] getRoomList() {return roomData;}
     
+    /**
+     * Convert room number from string to integer value
+     * @param roomStr The room number in string
+     * @return roomInt
+     */
     public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
         int roomInt = 0;
         int floor = Integer.parseInt(roomStr.substring(0,2));
@@ -264,11 +324,23 @@ public class RoomMgr {
         roomInt += (floor - 2)*8 + room;
         return roomInt;
     }
-       
+    
+    /**
+     * Get room data array
+     * @return roomData
+     */
     public Room[] getRoomData() {
         return roomData;
     }
     
+    /**
+     * Add new room
+     * @param roomNo This room's number.
+     * @param hasWifi Whether this room has wifi access.
+     * @param faceViewDes This room unique selling point description
+     * @param canSmoke Whether this room allows customers to smoke within it
+     * @param roomType This room type such as Single / Double / Triple
+     */
     public void addRoom(String roomNo, boolean hasWifi, String faceViewDes, boolean canSmoke, RoomType roomType) {
         Room[] tempRoomData = new Room[roomData.length + 1];
         for (int i = 0; i < roomData.length; i++) {
@@ -286,6 +358,10 @@ public class RoomMgr {
         totalRooms = roomData.length;
     }
 
+    /**
+     * Prints specific room details
+     * @param roomNo The room number
+     */
     public void displayRoomDetails(String roomNo) {
         Room displayRoom = getRoom(roomNo);
 
@@ -304,6 +380,12 @@ public class RoomMgr {
         }
         System.out.println("");
     }
+    
+    /**
+     * Convert room number from integer to string
+     * @param roomNo The room number in integer
+     * @return roomStr
+     */
     public static String roomIntToStr (int roomNo) {
         int room = roomNo % 8 + 1;
         int floor = roomNo / 8 + 2;

@@ -5,25 +5,66 @@ import java.util.Date;
 
 public class Reservation {
     
-    private static int reserveCounter = 5;
     // reserveCode is added the moment XMLMgr works its magic.
     // For now we will start from 5;
-    private int reserveCode;
+    
+    /**
+     * Reservation's reservation code
+     */
+    private static int reserveCode;
+    
+    /**
+     * Reservation billing info
+     */
     private String billingInfo;
+    
+    /**
+     * Reservation check in date
+     */
     private Calendar checkInDate;
+    
+    /**
+     * Reservation check out date 
+     */
     private Calendar checkOutDate;
+    
+    /**
+     * Reservation's number of adults
+     */
     private int numberOfAdults;
+    
+    /**
+     * Reservation's number of child
+     */
     private int numberOfChild;
+    
+    /**
+     * Reservation status
+     */
     private ReservationStatus status;
+    
+    /**
+     * Guest who did the reservation
+     */
     private Guest g;
+    
+    /**
+     * Room that is allocated to the reservation
+     */
     private Room r;
     
-
+    /**
+     * Create new reservation
+     * @param BI The reservation billing info
+     * @param CID The reservation check in date
+     * @param COD The reservation check out date
+     * @param AdultsNum The number of adults in the reservation
+     * @param ChildNum The number of child in the reservation
+     */
     Reservation(String BI, Calendar CID, Calendar COD, int AdultsNum, int ChildNum) {
         // increment reserveCode to ensure none of it is repeated.
-        reserveCounter ++;
+        reserveCode ++;
         
-        reserveCode = reserveCounter;
         billingInfo = BI;
         checkInDate = CID;
         checkOutDate = COD;
@@ -34,38 +75,87 @@ public class Reservation {
         status = ReservationStatus.CONFIRMED;
     }
 
-    
-    public int getReserveCode(){return this.reserveCode;}
-    public String getBillingInfo(){return this.billingInfo;}
-    public Calendar getCheckInDate(){return this.checkInDate;}
-    public Calendar getCheckOutDate(){return this.checkOutDate;}
-    public int getNumberOfAdults(){return this.numberOfAdults;}
-    public int getNumberOfChild(){return this.numberOfChild;}
-    public ReservationStatus getStatus() {return this.status;}
-    public Guest getGuest(){return this.g;}
-    public Room getRoom(){return this.r;}
     /**
-     *
-     * @param status
+     * Get reservation code
+     * @return reserveCode
      */
-    public void setStatus(ReservationStatus status) {
-        this.status = status;
-    }
+    public int getReserveCode(){return this.reserveCode;}
+    
+    /**
+     * Get reservation billing info
+     * @return billingInfo
+     */
+    public String getBillingInfo(){return this.billingInfo;}
+    
+    /**
+     * Get reservation check in date
+     * @return checkInDate
+     */
+    public Calendar getCheckInDate(){return this.checkInDate;}
+    
+    /**
+     * Get reservation check out date
+     * @return checkOutDate
+     */
+    public Calendar getCheckOutDate(){return this.checkOutDate;}
+    
+    /**
+     * Get number of adults in reservation
+     * @return numberOfAdults
+     */
+    public int getNumberOfAdults(){return this.numberOfAdults;}
+    
+    /**
+     * Get numberOfChild in reservation
+     * @return numberOfChild
+     */
+    public int getNumberOfChild(){return this.numberOfChild;}
+    
+    /**
+     * Get reservation status
+     * @return ReservationStatus
+     */
+    public ReservationStatus getStatus() {return this.status;}
+    
+    /**
+     * Get the guest that made the reservation
+     * @return The guest object that made the reservation
+     */
+    public Guest getGuest(){return this.g;}
+    
+    /**
+     * Get the room allocated to the reservation
+     * @return The room that is reserved
+     */
+    public Room getRoom(){return this.r;}
+    
+    /**
+     * Set the reservation status
+     * @param status The status of the reservation
+     */
+    public void setStatus(ReservationStatus status) {this.status = status;}
 
     /**
-     *
-     * @param reserveCode
+     * Set the reservation code
+     * @param reserveCode The reservation code of the reservation
      */
-    public void setReserveCode(int reservecode) {
-        reserveCode = reservecode;
-    }
+    public static void setReserveCode(int reserveCode) {Reservation.reserveCode = reserveCode;}
     
-    public void setGuest(Guest guest){
-        g = guest;
-    }
+    /**
+     * Set guest who made the reservation
+     * @param guest The guest who made the reservation
+     */
+    public void setGuest(Guest guest){g = guest;}
     
-    public void setRoom(Room room){
-        r = room;
-    }
+    /**
+     * Set the room that is allocated to the reservation
+     * @param room The room that is allocated to the reservation
+     */
+    public void setRoom(Room room){r = room;}
+    
+    /**
+     * Set reservation's check in date
+     * @param CID The reservation check in date
+     */
     public void setCheckInDate(Calendar CID){checkInDate = CID;}
 }

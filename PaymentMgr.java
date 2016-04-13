@@ -15,8 +15,15 @@ import java.util.List;
  */
 public class PaymentMgr {
     
+    /**
+     * Array that contains all the payment
+     */
     private Payment[] totalPaymentArr = new Payment[RoomMgr.totalRooms];
 
+    /**
+     * Create an instance of payment manager and insert any pre-existing data
+     * @param paymentListPresent The pre-existing data set
+     */
     PaymentMgr(Payment[] paymentListPresent) {
         for (int i = 0; i < RoomMgr.totalRooms; i ++) {
             // TO instantiate payment class for all rooms at the start. 
@@ -27,10 +34,20 @@ public class PaymentMgr {
         }
     }
     
+    /**
+     * Create new payment that is tagged to room number
+     * @param roomNo The room number that made the payment
+     */
     public void newPayment(int roomNo) {
         totalPaymentArr[roomNo] = new Payment();
     }
     
+    /**
+     * Print bill invoice
+     * 
+     * @param roomNo The room number of the bill
+     * @param orderList The order list to print
+     */
     public void printBillInvoice(int roomNo, List<RoomServiceOrder> orderList){
         if (RoomServiceMgr.getOrders(roomNo) != null) {
         // print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
@@ -58,9 +75,18 @@ public class PaymentMgr {
         }
     }
     
-    public Payment getPayment(String rmno){
-        return totalPaymentArr[RoomMgr.roomStrToInt(rmno)-1];
+    /**
+     * Get payment object via room number
+     * @param roomNo The room number to get
+     * @return The payment object that is tagged to the specified room number
+     */
+    public Payment getPayment(String roomNo){
+        return totalPaymentArr[RoomMgr.roomStrToInt(roomNo)-1];
     }
     
+    /**
+     * Get payment list
+     * @return totalPaymentArry
+     */
     public Payment[] getPaymentList(){return totalPaymentArr;}
 }
