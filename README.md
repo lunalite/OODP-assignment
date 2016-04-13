@@ -3,6 +3,16 @@ Remember to save project/package name as CZ2002_Assignment.
 Presently, the IDE we are using is Netbeans.
 
 ---
+
+Latest 13/04/16
+All files are within CZ2002_assignment, including javadocs.
+HRPS.vpp is class diagram in visual paradigm format.
+class_diagram.jpg is jpg file for class diagram.
+
+
+
+
+---
 #### Edit 11/04/16 - HD
 - Added guestSearch by room number.
 - Added check in by reservation
