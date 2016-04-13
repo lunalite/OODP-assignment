@@ -27,10 +27,11 @@ public class RoomMgr {
         // Triple rooms 0701 - 0708 i.e. from 40-47
         
         for (int z = 0; z < totalRooms; z ++) {
-            if (roomData[z] == null)
+            if (roomdata[z] != null)
+                roomData[z] = roomdata[z];
+            else
                 roomData[z] = new Room();
             
-            roomData[z] = roomdata[z];
             roomData[z].importRoomCal(statusCal[z]);   
         }
     }

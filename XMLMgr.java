@@ -131,8 +131,13 @@ public class XMLMgr {
                         if (childNode.getNodeType() == Node.ELEMENT_NODE){
                             Element eElement = (Element) childNode; 
                             String currentGuest = "";
-                            String guestName = eElement.getElementsByTagName("guestname").item(0).getTextContent();
+                            String guestName = "";
                             
+                            if (eElement.getElementsByTagName("guestname").item(0).getTextContent() != null)
+                                guestName = eElement.getElementsByTagName("guestname").item(0).getTextContent();
+                            else
+                                guestName = "";
+
                             // Obtain name of current guest
                             if (counter == CZ2002_Assignment.currentDay-1) {
                                 currentGuest = eElement.getElementsByTagName("guestname").item(0).getTextContent();
@@ -142,7 +147,6 @@ public class XMLMgr {
                                 RoomStatus.valueOf(eElement.getElementsByTagName("status").item(0).getTextContent()),
                                 Double.parseDouble(eElement.getElementsByTagName("rate").item(0).getTextContent()),
                                 guestName);
-                            counter ++;
                             
                             // Add into payment
                             // Only when the  payments are <= currentDay do the payments exist.
@@ -154,6 +158,7 @@ public class XMLMgr {
                                             eElement.getElementsByTagName("roomservicebill").item(0).getTextContent()));
                                 }
                             }
+                            counter ++;
                         }
                     }
                     counterOut++;
@@ -282,12 +287,12 @@ public class XMLMgr {
                 Room r = RoomMgr.getRoom(RoomMgr.roomIntToStr(i));
                 
                 Attr roomAttr = doc.createAttribute("num");
-                roomAttr.setValue(RoomMgr.roomIntToStr(i+1));
+                roomAttr.setValue(RoomMgr.roomIntToStr(i).replace("-", ""));
                 Element room = doc.createElement("room");
                 room.setAttributeNode(roomAttr);
                 month.appendChild(room);
                 
-                for (int j = 0; j < 2; j ++) {
+                for (int j = 0; j < 30; j ++) {
                     Attr dayAttr = doc.createAttribute("date");
                     dayAttr.setValue(String.valueOf(j+1));
                     Element day = doc.createElement("day");
@@ -298,20 +303,28 @@ public class XMLMgr {
                     Element rsb = doc.createElement("roomservicebill");
                     Element gn = doc.createElement("guestname");
                     
-                    System.out.println(r.getRoomNo());
-                    System.out.println(r.getRoomStatus(j+1).toString());
+                    if (r.getRoomStatus(j+1) != null)
+                        stat.appendChild(doc.createTextNode(r.getRoomStatus(j+1).toString()));
+                    else
+                        stat.appendChild(doc.createTextNode(RoomStatus.VACANT.toString()));
                     
-                    stat.appendChild(doc.createTextNode(r.getRoomStatus(j+1).toString()));
-                    rat.appendChild(doc.createTextNode(String.valueOf(r.getStatusCalendar(j+1).getRate())));
+                    if (r.getRoomStatus(j+1) != null)
+                        rat.appendChild(doc.createTextNode(String.valueOf(r.getStatusCalendar(j+1).getRate())));
+                    else if (j == 22 || j == 23 || j == 29)
+                        rat.appendChild(doc.createTextNode("1.5"));
+                    else
+                        rat.appendChild(doc.createTextNode("1.0"));
+                    
                     if (j == CZ2002_Assignment.currentDay - 1)
                         rsb.appendChild(doc.createTextNode(String.valueOf(paymentArr[i].getRoomServiceBill())));
                     else
                         rsb.appendChild(doc.createTextNode(""));
                     
-                    System.out.println(r.getStatusCalendar(j+1).getGuest().getName());
-                    
-                    gn.appendChild(doc.createTextNode(r.getStatusCalendar(j+1).getGuest().getName()));
-
+                    if (r.getStatusCalendar(j+1).getGuest() != null)
+                        gn.appendChild(doc.createTextNode(r.getStatusCalendar(j+1).getGuest().getName()));
+                    else
+                        gn.appendChild(doc.createTextNode(""));
+                        
                     room.appendChild(day);
                     day.appendChild(stat);
                     day.appendChild(rat);
@@ -321,10 +334,10 @@ public class XMLMgr {
                 }
             }
             
-            //source = new DOMSource(doc);
-            //result = new StreamResult(roomCalFile);
-            //transformer.transform(source, result); 
-            //System.out.println("roomCalendar XML files are stored.");
+            source = new DOMSource(doc);
+            result = new StreamResult(roomCalFile);
+            transformer.transform(source, result); 
+            System.out.println("roomCalendar XML files are stored.");
          
         }
         catch (NullPointerException e) {System.out.println("null pointer exception error: " + e.getMessage());}

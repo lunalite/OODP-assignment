@@ -669,8 +669,9 @@ public class CZ2002_Assignment {
                             String guestSearchRoom = sc.nextLine();
                             Guest g = guestMgr.searchGuestByRoom(guestSearchRoom);
                             if (g != null)
-                                
                                 guestMgr.printGuestDetails(g);
+                            else if (roomMgr.getRoom(guestSearchRoom).getRoomStatus(currentDay) != (RoomStatus.OCCUPIED))
+                                System.out.println("No guest is currently living in the room.");
                         }
                     }
                     

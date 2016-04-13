@@ -11,13 +11,21 @@ public class RoomCalendar {
     
     RoomCalendar(RoomStatus statuS, double rate, String guestName) {
         status = statuS;
-        this.rate = rate;
-        guest = new GuestMgr().getGuest(guestName);
+        this.rate = rate;      
+        if (guestName.isEmpty())
+            guest = null;
+        else
+            guest = GuestMgr.getGuest(guestName);
     }
 
     public RoomStatus getStatus() {return this.status;}
     public double getRate() {return this.rate;}
-    public Guest getGuest() {return this.guest;}
+    public Guest getGuest() {
+        if (guest != null)
+            return this.guest;
+        else
+            return null;
+    }
     
     public void setStatus(RoomStatus status) {this.status = status;}
     public void setGuestName(Guest g) {this.guest = g;}

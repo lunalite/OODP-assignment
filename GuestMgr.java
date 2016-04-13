@@ -72,12 +72,15 @@ public class GuestMgr {
     
     public static Guest getGuest(String guestName) {
         Guest g = null;
-        Iterator<Guest> guestListItr = guestList.iterator();
-        while (guestListItr.hasNext()){
-            g = guestListItr.next();
-            if (g.getName().equals(guestName))
-                break;
+        
+        for (int i = 0; i < guestList.size(); i ++) {
+            g = guestList.get(i);
+            if (g.getName().equals(guestName)) {
+                return g;
+            }
         }
+        
+        g = null;
         return g;
     }
     

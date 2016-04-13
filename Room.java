@@ -31,10 +31,11 @@ public class Room {
         statusCalendar = new RoomCalendar[daysInMonth];
 
         for (int i = 0; i < 30; i ++) {
-            if (statusCalendar[i] == null)
+            if (statusCal[i] != null) {
+                statusCalendar[i] = statusCal[i];
+            }
+            else
                 statusCalendar[i] = new RoomCalendar();
-            statusCalendar[i] = statusCal[i];
-            
         }
     }
     
