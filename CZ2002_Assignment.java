@@ -74,101 +74,119 @@ public class CZ2002_Assignment {
                     
                     //Create room reservation   
                     if (reservationOption == 1) {
+                        boolean endAddition = false;
                         Guest g = null;
+                        
                         while (g == null) {
                             System.out.println("Please insert guest name for new reservation (-1 to exit): ");
                             String guestNameRes = sc.nextLine();
-                            if (guestNameRes.contains("-1"))
+                            if (guestNameRes.contains("-1")) {
+                                endAddition = true;
                                 break;
+                            }
                             g = guestMgr.searchGuestByName(guestNameRes);
                             if (g == null) {
                                 System.out.println("No such guest available.");
                                 System.out.println("Do you want to add this guest? (y/n)");
-                                String reply = sc.nextLine();
-                                if (reply.contains("y")) {
-                                    System.out.println("Initialising guest adding to database...");
-                                    guestMgr.addGuest();
-                                    g = guestMgr.searchGuestByName(guestNameRes);
+                                do {
+                                    String reply = sc.nextLine();
+                                    if (reply.contains("y")) {
+                                        System.out.println("Initialising guest adding to database...");
+                                        guestMgr.addGuest();
+                                        g = guestMgr.searchGuestByName(guestNameRes);
+                                        break;
+                                    }
+                                    else if (!reply.contains("n"))
+                                        System.out.println("Please insert (y/n).");
+                                    else {
+                                        endAddition = true;
+                                        break;
+                                    }
+                                } while (true);
+                                if (endAddition == true)
                                     break;
-                                }
                             }
                         }
                         
-                            String guestRoomTypeRes = "";
-                            do {
-                                // Prevents error from happening due to enum not being available
-                                System.out.println("Please insert room type for new reservation(single, double, twin, triple): ");
-                                guestRoomTypeRes = sc.nextLine();
-                            } while (!guestRoomTypeRes.contains("single") && !guestRoomTypeRes.contains("double") &&
-                                    !guestRoomTypeRes.contains("twin") && !guestRoomTypeRes.contains("triple"));
-                            
-                            int totalCap=3;
-                            switch (guestRoomTypeRes){
-                                case "single":
-                                    totalCap = 1;
-                                    break;
-                                case "double":case "twin":
-                                    totalCap = 2;
-                                    break;
-                                case "triple":
-                                    totalCap = 3;
-                                    break;
+                        if (endAddition == false) {
+                        
+                        String guestRoomTypeRes = "";
+                        do {
+                            // Prevents error from happening due to enum not being available
+                            System.out.println("Please insert room type for new reservation(single, double, twin, triple): ");
+                            guestRoomTypeRes = sc.nextLine();
+                        } while (!guestRoomTypeRes.contains("single") && !guestRoomTypeRes.contains("double") &&
+                                !guestRoomTypeRes.contains("twin") && !guestRoomTypeRes.contains("triple"));
+
+                        int totalCap=3;
+                        switch (guestRoomTypeRes){
+                            case "single":
+                                totalCap = 1;
+                                break;
+                            case "double":case "twin":
+                                totalCap = 2;
+                                break;
+                            case "triple":
+                                totalCap = 3;
+                                break;
+                        }
+
+                        //Ensures number of people staying in room is limited to the roomType
+                        int currentCap;
+                        int guestNumAd;
+                        int guestNumCh;
+                        do {
+                            currentCap = 0;
+                            System.out.println("Please insert number of adults: ");
+                            guestNumAd = sc.nextInt();
+                            currentCap += guestNumAd;
+                            System.out.println("Please insert number of children: ");
+                            guestNumCh = sc.nextInt();
+                            currentCap += guestNumCh;
+                            if (currentCap > totalCap)
+                                System.out.println("Too many people for the rooms chosen.");
+                        } while (currentCap > totalCap);
+
+                        System.out.println("Please insert start day for reservation(Day within April 2016): ");
+                        int guestStartDayRes = sc.nextInt();
+                        System.out.println("Please insert end day for reservation(Day within April 2016): ");
+                        int guestEndDayRes = sc.nextInt();
+                        sc.nextLine(); //flush
+                        System.out.println("Please insert your billing info: ");
+                        String guestBillInfo = sc.nextLine();
+
+                        // Check that room is vacant
+                        // Does not give the choice of selecting other rooms to guests as of now.
+                        // Returns first vacant room for the period wanted
+                        Room roomVacant = roomMgr.checkVacantRoom(RoomType.valueOf(guestRoomTypeRes.toUpperCase()), 
+                                guestStartDayRes, guestEndDayRes);
+
+                        if (roomVacant != null) {
+                            // Reservation must be tagged to a room and guest.
+                            // Each guest can only reserve 1 room
+                            Reservation r = reservationMgr.createReservation(guestBillInfo, 
+                                    new GregorianCalendar(2016, 4, guestStartDayRes), 
+                                    new GregorianCalendar(2016, 4, guestEndDayRes), 
+                                    guestNumAd, guestNumCh);
+
+                            g.setReservation(r);
+                            r.setRoom(roomVacant);
+                            r.setGuest(g);
+
+                            for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
+                                roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
+                                roomVacant.getStatusCalendar(q).setGuestName(g);
                             }
-                            
-                            //Ensures number of people staying in room is limited to the roomType
-                            int currentCap;
-                            int guestNumAd;
-                            int guestNumCh;
-                            do {
-                                currentCap = 0;
-                                System.out.println("Please insert number of adults: ");
-                                guestNumAd = sc.nextInt();
-                                currentCap += guestNumAd;
-                                System.out.println("Please insert number of children: ");
-                                guestNumCh = sc.nextInt();
-                                currentCap += guestNumCh;
-                                if (currentCap > totalCap)
-                                    System.out.println("Too many people for the rooms chosen.");
-                            } while (currentCap > totalCap);
-                            
-                            System.out.println("Please insert start day for reservation(Day within April 2016): ");
-                            int guestStartDayRes = sc.nextInt();
-                            System.out.println("Please insert end day for reservation(Day within April 2016): ");
-                            int guestEndDayRes = sc.nextInt();
-                            sc.nextLine(); //flush
-                            System.out.println("Please insert your billing info: ");
-                            String guestBillInfo = sc.nextLine();
 
-                            // Check that room is vacant
-                            // Does not give the choice of selecting other rooms to guests as of now.
-                            // Returns first vacant room for the period wanted
-                            Room roomVacant = roomMgr.checkVacantRoom(RoomType.valueOf(guestRoomTypeRes.toUpperCase()), 
-                                    guestStartDayRes, guestEndDayRes);
+                            reservationMgr.printReservation(r);
+                        }
 
-                            if (roomVacant != null) {
-                                // Reservation must be tagged to a room and guest.
-                                // Each guest can only reserve 1 room
-                                Reservation r = reservationMgr.createReservation(guestBillInfo, 
-                                        new GregorianCalendar(2016, 4, guestStartDayRes), 
-                                        new GregorianCalendar(2016, 4, guestEndDayRes), 
-                                        guestNumAd, guestNumCh);
-
-                                g.setReservation(r);
-                                r.setRoom(roomVacant);
-                                r.setGuest(g);
-
-                                for (int q = guestStartDayRes; q <= guestEndDayRes; q ++) {
-                                    roomVacant.getStatusCalendar(q).setStatus(RoomStatus.RESERVED);
-                                    roomVacant.getStatusCalendar(q).setGuestName(g);
-                                }
-
-                                reservationMgr.printReservation(r);
-                            }
-
-                            else
-                                System.out.println("No room available.");
+                        else
+                            System.out.println("No room available.");
                         
                         System.out.println("");
+                        
+                        }
                     }
                     
                     //Update room reservation
