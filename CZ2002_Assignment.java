@@ -101,10 +101,36 @@ public class CZ2002_Assignment {
                                 guestRoomTypeRes = sc.nextLine();
                             } while (!guestRoomTypeRes.contains("single") && !guestRoomTypeRes.contains("double") &&
                                     !guestRoomTypeRes.contains("twin") && !guestRoomTypeRes.contains("triple"));
-                            System.out.println("Please insert number of adults: ");
-                            int guestNumAd = sc.nextInt();
-                            System.out.println("Please insert number of children: ");
-                            int guestNumCh = sc.nextInt();
+                            
+                            int totalCap=3;
+                            switch (guestRoomTypeRes){
+                                case "single":
+                                    totalCap = 1;
+                                    break;
+                                case "double":case "twin":
+                                    totalCap = 2;
+                                    break;
+                                case "triple":
+                                    totalCap = 3;
+                                    break;
+                            }
+                            
+                            //Ensures number of people staying in room is limited to the roomType
+                            int currentCap;
+                            int guestNumAd;
+                            int guestNumCh;
+                            do {
+                                currentCap = 0;
+                                System.out.println("Please insert number of adults: ");
+                                guestNumAd = sc.nextInt();
+                                currentCap += guestNumAd;
+                                System.out.println("Please insert number of children: ");
+                                guestNumCh = sc.nextInt();
+                                currentCap += guestNumCh;
+                                if (currentCap >= totalCap)
+                                    System.out.println("Too many people for the rooms chosen.");
+                            } while (currentCap >= totalCap);
+                            
                             System.out.println("Please insert start day for reservation(Day within April 2016): ");
                             int guestStartDayRes = sc.nextInt();
                             System.out.println("Please insert end day for reservation(Day within April 2016): ");
