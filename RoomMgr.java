@@ -258,6 +258,7 @@ public class RoomMgr {
         }
         return null;
     }
+        
     public Room[] getRoomList() {return roomData;}
     
     public static int roomStrToInt(String roomStr) { // integer-wise, uses int 1-48 for each rooms from 02-01 to 07-07 respectively
@@ -267,16 +268,7 @@ public class RoomMgr {
         roomInt += (floor - 2)*8 + room;
         return roomInt;
     }
-    
-    public static String roomIntToStr (int roomNo) {
-        int room = roomNo % 8 + 1;
-        int floor = roomNo / 8 + 2;
-        String roomSt = String.format("%02d", room);
-        String floorSt = String.format("%02d", floor);
-        String roomStr = floorSt + "-" + roomSt;
-        return roomStr;
-    }
-    
+       
     public Room[] getRoomData() {
         return roomData;
     }
@@ -315,5 +307,13 @@ public class RoomMgr {
             }
         }
         System.out.println("");
+    }
+    public static String roomIntToStr (int roomNo) {
+        int room = roomNo % 8 + 1;
+        int floor = roomNo / 8 + 2;
+        String roomSt = String.format("%02d", room);
+        String floorSt = String.format("%02d", floor);
+        String roomStr = floorSt + "-" + roomSt;
+        return roomStr;
     }
 }

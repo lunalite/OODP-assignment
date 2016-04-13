@@ -32,22 +32,30 @@ public class PaymentMgr {
     }
     
     public void printBillInvoice(int roomNo, List<RoomServiceOrder> orderList){
-        Iterator<RoomServiceOrder> orderListItr = orderList.iterator();
-        
+        if (RoomServiceMgr.getOrders(roomNo) != null) {
         // print bill invoice (with breakdowns on days of stay, room service order items and its total, tax and total amount)
         System.out.println("\n========================");
-        while (orderListItr.hasNext()) {
-            RoomServiceOrder rSO = orderListItr.next();
+        for (RoomServiceOrder rSO : RoomServiceMgr.getOrders(roomNo)) {
             Calendar cal = rSO.getDateTime();
             System.out.println(cal.get(cal.YEAR) + "-" + cal.get(cal.MONTH) + "-" + 
                     cal.get(cal.DAY_OF_MONTH) + ": " + rSO.getBill());
         }
-        System.out.println("Total room service bill: " + totalPaymentArr[roomNo-1].getRoomServiceBill());
-        System.out.println("Total room charges: " + totalPaymentArr[roomNo-1].getRoomCharges());
-        System.out.println("subtotal bill: " + totalPaymentArr[roomNo-1].getTotalBill());
-        System.out.println("Total tax: " + totalPaymentArr[roomNo-1].getTaxes());
-        System.out.println("Total bill: " + (totalPaymentArr[roomNo-1].getTaxes()+totalPaymentArr[roomNo-1].getTotalBill()));
+        System.out.printf("Total room service bill: $%.2f\n", totalPaymentArr[roomNo-1].getRoomServiceBill());
+        System.out.printf("Total room charges: $%.2f\n", totalPaymentArr[roomNo-1].getRoomCharges());
+        System.out.printf("subtotal bill: $%.2f\n", totalPaymentArr[roomNo-1].getTotalBill());
+        System.out.printf("Total tax: $%.2f\n", totalPaymentArr[roomNo-1].getTaxes());
+        System.out.printf("Total bill: $%.2f\n", (totalPaymentArr[roomNo-1].getTaxes()+totalPaymentArr[roomNo-1].getTotalBill()));
         System.out.println("========================\n");
+        }
+        
+        else {
+            System.out.println("\n========================");
+            System.out.printf("Total room charges: $%.2f\n", totalPaymentArr[roomNo-1].getRoomCharges());
+            System.out.printf("subtotal bill: $%.2f\n", totalPaymentArr[roomNo-1].getTotalBill());
+            System.out.printf("Total tax: $%.2f\n", totalPaymentArr[roomNo-1].getTaxes());
+            System.out.printf("Total bill: $%.2f\n", (totalPaymentArr[roomNo-1].getTaxes()+totalPaymentArr[roomNo-1].getTotalBill()));
+            System.out.println("========================\n");
+        }
     }
     
     public Payment getPayment(String rmno){

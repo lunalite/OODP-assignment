@@ -6,10 +6,12 @@ import java.util.List;
 
 public class RoomServiceMgr {
     
-    private List<RoomServiceOrder> RoomOrderList[];
+    private static List<RoomServiceOrder> RoomOrderList[];
     
     RoomServiceMgr() {
-        RoomOrderList = new LinkedList[48]; //Total room numbers i.e. have to get it from roomMgr
+        RoomOrderList = new LinkedList[RoomMgr.totalRooms]; //Total room numbers i.e. have to get it from roomMgr
+        for (int i = 0; i < RoomMgr.totalRooms; i ++) {
+        }
     }
     
     public void showMenu() {
@@ -86,7 +88,10 @@ public class RoomServiceMgr {
         }
     }
     
-    public List<RoomServiceOrder> getOrders(int roomNo){
-        return RoomOrderList[roomNo-1];
+    public static List<RoomServiceOrder> getOrders(int roomNo){
+        if (RoomOrderList[roomNo - 1] != null)
+            return RoomOrderList[roomNo-1];
+        else
+            return null;
     }
 }

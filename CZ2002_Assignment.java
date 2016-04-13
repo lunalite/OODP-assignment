@@ -189,6 +189,14 @@ public class CZ2002_Assignment {
                             
                             if (g == null) {
                                 //Walk-in check-in
+                                
+                                //Check if guest is already in database. If no, initialise the adding of guest
+                                g = guestMgr.searchGuestByName(resGuestName);
+                                if (g == null){
+                                    System.out.println("Initialising guest adding to database...");
+                                    guestMgr.addGuest();
+                                }
+                                
                                 System.out.println("Please insert check-out date: ");
                                 int roomCOD = sc.nextInt();
                                 
@@ -201,7 +209,8 @@ public class CZ2002_Assignment {
                                 }
                                 
                                 if (roomNotVacant == false) {
-                                    roomMgr.checkIn(roomNoCI, currentDay, laterDay);                                
+                                    roomMgr.checkIn(roomNoCI, currentDay, roomCOD); 
+                                    g.setRoom(RoomMgr.getRoom(roomNoCI));
                                     System.out.println("You have checked in to " + roomNoCI + " successfully.");
                                     //Create a new payment class that is associated with the room 
                                     //This ensures a new payment will be available once checked in
@@ -234,10 +243,14 @@ public class CZ2002_Assignment {
                         //Check if room number is present in system
                         if (roomNoCheck(roomNoCO, roomMgr.getRoomData()) == true) {
                             
-                            if (!roomMgr.getRoom(roomNoCO).getRoomStatus(laterDay).equals(RoomStatus.OCCUPIED)){
+                            if (roomMgr.getRoom(roomNoCO).getRoomStatus(laterDay) == RoomStatus.OCCUPIED){
                                 
                                 roomMgr.checkOut(roomNoCO, laterDay); 
                                 System.out.println("You have checked out of " + roomNoCO + " successfully.");
+                                Room r = RoomMgr.getRoom(roomNoCO);
+                                Guest guest = r.getStatusCalendar(laterDay).getGuest();
+                                guest.setRoom(null);;
+                                r.getStatusCalendar(laterDay).setGuestName(null);
                                 
                                 // Calculate and Print payment
                                 paymentMgr.getPayment(roomNoCO).calRoomChargesBill(roomNoCO, currentDay, laterDay);
@@ -394,6 +407,7 @@ public class CZ2002_Assignment {
                             }
                         }
                     }  
+                    
                     else if (roomOption == 6) {
                         System.out.print("Please enter new room number (e.g. 02-05): ");
                         String roomNoANR = sc.nextLine();
@@ -438,7 +452,7 @@ public class CZ2002_Assignment {
                         else {
                             System.out.println("Room number exists.");
                         }
-                    }
+                    }                    
                     
                     System.out.println("");
                     
@@ -829,22 +843,6 @@ public class CZ2002_Assignment {
         sc.close();
     }
     
-    /*
-    // Check if room number is present
-    public static boolean roomNoCheck(String roomN){
-        boolean pass = true;
-        if (Integer.parseInt(roomN.substring(0,2)) < minFloorNo || Integer.parseInt(roomN.substring(0,2)) > maxFloorNo) {
-            System.out.println("No such floor number. Please limit floor number to min: " + minFloorNo + " and max: " + maxFloorNo);
-            pass = false;
-        }
-        if (Integer.parseInt(roomN.substring(roomN.lastIndexOf("-")+1,roomN.lastIndexOf("-")+3)) > maxRoomNoPerFloor) {
-            System.out.println("No such room number. Please limit room number to max: " + maxRoomNoPerFloor);
-            pass = false;
-        }
-        return pass;
-    }
-    */
-    
     // Check if room number is present
     public static boolean roomNoCheck(String roomN, Room[] rooms) {
        
@@ -857,6 +855,5 @@ public class CZ2002_Assignment {
         
         return false;
     }
-    
 }
 

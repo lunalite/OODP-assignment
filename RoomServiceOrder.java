@@ -16,6 +16,8 @@ public class RoomServiceOrder {
     private List<Item> itemList;
     private Iterator<Item> itemListItr;
     
+    RoomServiceOrder() {} 
+    
     public RoomServiceOrder(List<Item> itemOrder, String re, String roomNo, int index) {
         dateTime = new GregorianCalendar(2016, 4, CZ2002_Assignment.currentDay);
         remarks = re;
