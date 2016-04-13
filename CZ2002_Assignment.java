@@ -127,9 +127,9 @@ public class CZ2002_Assignment {
                                 System.out.println("Please insert number of children: ");
                                 guestNumCh = sc.nextInt();
                                 currentCap += guestNumCh;
-                                if (currentCap >= totalCap)
+                                if (currentCap > totalCap)
                                     System.out.println("Too many people for the rooms chosen.");
-                            } while (currentCap >= totalCap);
+                            } while (currentCap > totalCap);
                             
                             System.out.println("Please insert start day for reservation(Day within April 2016): ");
                             int guestStartDayRes = sc.nextInt();
