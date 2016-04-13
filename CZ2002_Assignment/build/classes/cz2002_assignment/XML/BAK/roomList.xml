@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<root>
+    <room num="0201">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0202">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0203">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0204">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0205">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0206">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0207">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0208">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0301">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0302">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0303">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0304">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0305">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0306">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0307">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0308">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>SINGLE</roomtype>
+    </room>
+    <room num="0401">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>DOUBLE</roomtype>
+    </room>
+    <room num="0402">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>DOUBLE</roomtype>
+    </room>
+    <room num="0403">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>DOUBLE</roomtype>
+    </room>
+    <room num="0404">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>DOUBLE</roomtype>
+    </room>
+    <room num="0405">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0406">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0407">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0408">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0501">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0502">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0503">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0504">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0505">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0506">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0507">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0508">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0601">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0602">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0603">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0604">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0605">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0606">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0607">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0608">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TWIN</roomtype>
+    </room>
+    <room num="0701">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0702">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0703">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0704">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0705">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0706">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0707">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+    <room num="0708">
+        <wifienabled>true</wifienabled>
+        <faceview></faceview>
+        <smoking>false</smoking>
+        <roomtype>TRIPLE</roomtype>
+    </room>
+</root>
