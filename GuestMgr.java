@@ -21,7 +21,7 @@ public class GuestMgr {
      * Scanner to take user inputs
      */
     private Scanner sc = new Scanner(System.in);
-    
+        
     /**
      * Guest manager constructor
      */    
@@ -47,7 +47,14 @@ public class GuestMgr {
             System.out.println("Please insert nationality of guest to be added: ");
             String nat2B = sc.nextLine();
             System.out.println("Please insert contact of guest to be added: ");
-            String contact2 = sc.nextLine();
+            String contact2 = "";
+            do {
+                contact2 = sc.nextLine();
+                if (contact2.matches(".*[a-zA-Z]+.*"))
+                    System.out.println("Please input integers only.");
+                else
+                    break;
+            } while (true);
             int contact2B = Integer.parseInt(contact2);
             System.out.println("Please insert credit card details of guest to be added: ");
             String ccd2B = sc.nextLine();

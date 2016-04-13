@@ -7,14 +7,14 @@ package cz2002_assignment;
 
 /**
  *
- * @author Lalexis
+ * @author Group 6
  */
 public enum ReservationStatus {
     CONFIRMED, WAITLIST, CHECKED_IN, EXPIRED, CANCELLED;
     
     /**
      * Returns reservation status object as readable string
-     * @return format Possible strings Confirmed | On waitlist | Checked in | Expired | Cancelled
+     * @return format Possible strings Confirmed | On wait list | Checked in | Expired | Cancelled
      */
     public String toString(){
         String format = "";

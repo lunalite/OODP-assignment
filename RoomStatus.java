@@ -7,7 +7,7 @@ package cz2002_assignment;
 
 /**
  *
- * @author HD
+ * @author Team 6
  */
 public enum RoomStatus {
     VACANT, OCCUPIED, RESERVED, UNDER_MAINTENANCE;

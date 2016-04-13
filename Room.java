@@ -11,7 +11,7 @@ public class Room {
     private String roomNo;
     
     /**
-    * Room wifi access.
+    * Room WiFi access.
     */ 
     private boolean wifiEnabled;
     
@@ -45,7 +45,7 @@ public class Room {
     /**
     * Creates a new Room with the given parameters.
     * @param roomNo This room's number.
-    * @param wifiEnabled Whether this room has wifi access.
+    * @param wifiEnabled Whether this room has WiFi access.
     * @param faceView This room unique selling point description
     * @param smoking Whether this room allows customers to smoke within it
     * @param roomType This room type such as Single / Double / Triple
@@ -83,6 +83,8 @@ public class Room {
             }
             */
             
+            
+            //statusCalendar[i] = new RoomCalendar("Vacant", 100);
         }
     }
     
@@ -128,16 +130,16 @@ public class Room {
      * @param roomNo The room's number
      */
     public void setRoomNo(String roomNo) {this.roomNo = roomNo;}
-         
+    
     /**
-     * Get room wifi accessibility
+     * Get room WiFi accessibility
      * @return wifiEnabled
      */
     public boolean getIsWifiEnabled() {return wifiEnabled;}
-    
+        
     /**
-     * Set room wifi accessibility
-     * @param wifiEnabled The room's wifi accessibility
+     * Set room WiFi accessibility
+     * @param wifiEnabled The room's WiFi accessibility
      */
     public void setWifiEnabled(boolean wifiEnabled) {this.wifiEnabled = wifiEnabled;}
 

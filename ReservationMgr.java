@@ -26,16 +26,15 @@ public class ReservationMgr {
     private Scanner sc = new Scanner (System.in);
     
     /**
-     * Constructor to initialize class variables 
+     * Constructor to initialise class variables 
      */
     ReservationMgr() {
         reservationList = new ArrayList();
         
         // reserveCode is added the moment XMLMgr works its magic.
         // For now we will start from 5;
-        Reservation.setReserveCode(5);
     }
-    
+
     /**
      * Create reservation and return the new reservation object
      * @param billingInfo The reservation billing info
@@ -59,6 +58,10 @@ public class ReservationMgr {
     public void updateReservation(int reserveCode) {
         
         Reservation r = searchReservationByCode(reserveCode);
+        if ( r == null ) {
+            System.out.println("No such reservation code.");
+            return;
+        }
         Room room = r.getRoom();
         Guest g = r.getGuest();
         
@@ -70,11 +73,12 @@ public class ReservationMgr {
     	int choice = sc.nextInt();
         sc.nextLine(); // flush
         
-    	while (choice != 1||choice != 2||choice != 3||choice != 4){
-    		System.out.println("Invalid choice, please re-enter: ");
+    	while (true){
+            if (choice > 4 || choice <= 0) {
+                System.out.println("Invalid choice, please re-enter: ");
     		choice = sc.nextInt();
                 sc.nextLine(); // flush
-    	
+            }
             if (choice == 1||choice == 3){
                 // DO not need to check for dates if room is available again
                 // Only check-in date is changed.
@@ -93,9 +97,11 @@ public class ReservationMgr {
                 }
                 
                 System.out.println("Check-in date changed.");
+                if (choice == 1)
+                    break;
             }
             
-            if (choice == 1||choice == 3){
+            if (choice == 2||choice == 3){
                 System.out.println("Please enter your new room type: ");
                 String newRoomType = sc.nextLine();
                 RoomType newroomType = RoomType.valueOf(newRoomType.toUpperCase());
@@ -120,11 +126,13 @@ public class ReservationMgr {
                 }
                 else
                     System.out.println("No rooms available.");
+                break;
             }
             
             if (choice==4){
                     break;
             }
+            
         }
         g.setReservation(r);
         
@@ -140,18 +148,21 @@ public class ReservationMgr {
     public void removeReservation(int reserveCode) {
         
         Reservation r = searchReservationByCode(reserveCode);
-        Room room = r.getRoom();
-        Guest g = r.getGuest();
+
         if (r != null) {
+            Room room = r.getRoom();
+            Guest g = r.getGuest();
             r.setStatus(ReservationStatus.CANCELLED);
             for (int q = r.getCheckInDate().DAY_OF_MONTH; q <= r.getCheckOutDate().DAY_OF_MONTH ; q ++) {
                 room.getStatusCalendar(q).setStatus(RoomStatus.VACANT);
                 room.getStatusCalendar(q).setGuestName(null);
             }
             g.setReservation(null);
+            System.out.println("Reservation is removed. We hope you will stay with us in the future.");
         }
-        
-    	System.out.println("Reservation is removed. We hope you will stay with us in the future.");
+        else
+            System.out.println("No such reservation.");
+    	
     }
 
     /**
@@ -193,7 +204,8 @@ public class ReservationMgr {
     public void printReservation(Reservation reservation) {
         System.out.println("\n========================");
         System.out.println("Reservation code: " + reservation.getReserveCode());
-        System.out.println("Room Number: " + reservation.getRoom().getRoomNo());
+        System.out.println("Room Number: " + reservation.getRoom().getRoomNo().substring(0,2) +
+            "-" + reservation.getRoom().getRoomNo().substring(2,4));
         System.out.println("Billing information: " + reservation.getBillingInfo());
         Calendar CID = reservation.getCheckInDate();
         System.out.println("check-in date: " + CID.get(CID.YEAR) + "-" + CID.get(CID.MONTH) +
@@ -207,8 +219,11 @@ public class ReservationMgr {
         System.out.println("========================\n");
     }
     
-    public void acknowledge() {
-
+    /**
+     * Returns the iterator for reservation list within reservationMgr class
+     * @return The iterator for reservationList
+     */
+    public Iterator<Reservation> getReservationItr(){
+        return reservationList.iterator();
     }
-
 }

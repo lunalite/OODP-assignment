@@ -324,7 +324,7 @@ public class RoomMgr {
         roomInt += (floor - 2)*8 + room;
         return roomInt;
     }
-    
+       
     /**
      * Get room data array
      * @return roomData
