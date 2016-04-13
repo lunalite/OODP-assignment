@@ -5,9 +5,10 @@ import java.util.Date;
 
 public class Reservation {
     
+    private static int reserveCounter = 5;
     // reserveCode is added the moment XMLMgr works its magic.
     // For now we will start from 5;
-    private static int reserveCode;
+    private int reserveCode;
     private String billingInfo;
     private Calendar checkInDate;
     private Calendar checkOutDate;
@@ -20,8 +21,9 @@ public class Reservation {
 
     Reservation(String BI, Calendar CID, Calendar COD, int AdultsNum, int ChildNum) {
         // increment reserveCode to ensure none of it is repeated.
-        reserveCode ++;
+        reserveCounter ++;
         
+        reserveCode = reserveCounter;
         billingInfo = BI;
         checkInDate = CID;
         checkOutDate = COD;
@@ -54,8 +56,8 @@ public class Reservation {
      *
      * @param reserveCode
      */
-    public static void setReserveCode(int reservecode) {
-        Reservation.reserveCode = reservecode;
+    public void setReserveCode(int reservecode) {
+        reserveCode = reservecode;
     }
     
     public void setGuest(Guest guest){

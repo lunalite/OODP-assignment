@@ -16,10 +16,8 @@ public class ReservationMgr {
     
     ReservationMgr() {
         reservationList = new ArrayList();
-        
         // reserveCode is added the moment XMLMgr works its magic.
         // For now we will start from 5;
-        Reservation.setReserveCode(5);
     }
 
     public Reservation createReservation(String billingInfo, Calendar checkInDate, Calendar checkOutDate, 
